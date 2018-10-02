@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Pagrindinis{% endblock %}</title>
+        {% block includes %}
+        <link href="https://bootswatch.com/4/lux/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        {% endblock %}
+    </head>
+    <body>
+        <!--Top Nav Bar -->
+        {% block navbar %}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a href="{{ path('home') }}" class="navbar-brand">Nekilnojamo Turto Skelbimai</a>
+                <button class="navbar-toggler" data-target="#navigation" data-control="navigation" data-toggle="collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navigation">
+                    <ul class="nav navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a href="{{ path("home") }}" class="nav-link">Pagrindinis</a>
+                        </li>					
+                    </ul>
+                    <ul class="navbar-nav">
+                            <li class="nav-item">
+                                    <a href="" class="nav-link">Prisijungti</a>
+                            </li>	
+                            <li class="nav-item">
+                                   <a href="" class="nav-link">Registruotis</a>
+                            </li>
+                        </ul>   
+                </div>
+        </nav>
+        <br>
+        {% endblock %}
+        <!-- End Top Nav Bar -->
+        {% block body %}
+
+        {% block ads %}
+
+        {% endblock %}
+
+        {% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
