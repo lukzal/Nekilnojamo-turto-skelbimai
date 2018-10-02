@@ -2,6 +2,7 @@
 
 {% block body %}
 <style>
+    
     #real-estates-columns .title-realestates-columns h4 a {
         font-weight: 300;
         font-size: 18pt;
@@ -16,46 +17,47 @@
     
     #real-estates-columns img {
         border: 5px solid #ecf0f1;
-        width: 100%;
-        height: 300px;
+        max-width: 100%;
+        max-height: 300px;
         margin-bottom: 10px;
-    }
-    
-    .padding10{
-        padding: 10px;
     }
 
     .panel{
-        width: 100%;
-        padding: 10px;
+        padding: 50px;
+        -webkit-box-shadow: 10px 10px 96px -23px rgba(0,0,0,0.75);
+        -moz-box-shadow: 10px 10px 96px -23px rgba(0,0,0,0.75);
+        box-shadow: 10px 10px 96px -23px rgba(0,0,0,0.75);
     }
+
     
 </style>
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<div class="row bootstrap snippets" id="real-estates-columns" style="margin: 0;">
+<div class="row bootstrap snippets" id="real-estates-columns">
+
+    
+    <div class="col-md-4 col-sm-6 col-xs-12">
         <div class="panel">
             <div class="panel-body">
-                <a href="#"><img src="https://lorempixel.com/300/300/city/2/" class="img-responsive"></a>
+                <center><a href="#"><img src="https://lorempixel.com/300/300/city/2/" class="img-responsive"></a></center>
                 <div class="title-realestates-columns">
                     <h4><a href="#"><strong>Omah Gedong Apik BGT</strong></a></h4>
-                    <small class="label label-warning"><i class="fa fa-dot-circle-o" data-original-title="" title=""></i> $2,989</small>
+                    <small class="badge badge-success"><i class="fa fa-euro" data-original-title="" title=""></i> 2,989</small>
+                    <small class="badge badge-danger"><i class="fa fa-square" data-original-title="" title=""></i> 100 m<sup>2</sup></small>
+                    <small class="badge badge-warning"><i class="fa fa-home" data-original-title="" title=""></i> 4 kambariai</small>
                     <hr>
                     <p>Nah nek iki lagi larang soale apik-apik barange tur aku ra iso tuku wong karang jeh ngumpulke gawe nikah kie.</p>
                 </div>
                 <div class="footer-realestates-columns">
                     <div class="row">
-                        <div class="col-sm-6">
-                            <a href="#" class="btn btn-default btn-block" data-original-title="" title=""><i class="fa fa-thumb-tack" data-original-title="" title=""></i> 2 Bedroom</a>
-                            <a href="#" class="btn btn-default btn-block" data-original-title="" title=""><i class="fa fa-female" data-original-title="" title=""></i> 2 Bathroom</a>
-                        </div>
-                        <div class="col-sm-6">
-                            <a href="#" class="btn btn-primary btn-block" data-original-title="" title="">Apply to Rent</a>
-                            <a href="#" class="btn btn-danger btn-block" data-original-title="" title="">Favorite</a>
-                        </div>
+                        <a href="#" class="btn btn-primary btn-block" data-original-title="" title="">Pirkti</a>
+                        <a href="#" class="btn btn-secondary btn-block" data-original-title="" title="">Skaityti daugiau</a>
                     </div>
+                </div>
             </div>
         </div>
     </div>
-    </div>
+    
+
+</div>
     {% endblock %}
