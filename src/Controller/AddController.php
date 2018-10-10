@@ -12,8 +12,11 @@ class AddController extends AbstractController
      */
     public function index()
     {
-        return $this->render('add/index.html.twig', [
-            'id' => '1',
-        ]);
+        $arr = array('id' => 1,
+                    'description' => 'Skelbimo aprasymas',
+                    'kaina' => 2000);
+
+        return $this->render('add/index.html.twig', $arr);
     }
 }
+
