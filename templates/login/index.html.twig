@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prisijungimas{% endblock %}
+{% block includes %}
+<link href="/templates/login/style.css" rel="stylesheet">
+{% endblock %}
+{% block body %}
+
+<div class="container bootstrap snippet">
+    <div class="row">
+  
+      <div class="main">
+  
+        <h3>Prisijungimas</h3>
+  
+        <form role="form">
+          <div class="form-group">
+            <label for="inputUsernameEmail">E-mail</label>
+            <input type="email" class="form-control" id="email">
+          </div>
+          <div class="form-group">
+            <label for="inputPassword">Slaptažodis</label><br>
+            <a class="pull-right" href="#">Pamiršau slaptažodį</a>
+            <input type="password" class="form-control" id="password">
+          </div>
+          <button type="submit" class="btn btn btn-primary">
+            Prisijungti
+          </button>
+        </form>
+      
+      </div>
+      
+    </div>
+  </div>
+{% endblock %}
