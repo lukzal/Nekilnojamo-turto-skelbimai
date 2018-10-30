@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-
+{% block title %}Naudotojo Profilis{% endblock %}
 {% block body %}
 
 <div class="container">
@@ -37,11 +37,11 @@
                          <tr>
                              <tr>
                         <td>Lytis</td>
-                        <td>Moteris</td>
+                        <td>Vyras</td>
                       </tr>
                         <tr>
-                        <td>Home Address</td>
-                        <td>Kathmandu,Nepal</td>
+                        <td>Adresas</td>
+                        <td>Kaunas</td>
                       </tr>
                       <tr>
                         <td>E-mail</td>
@@ -60,7 +60,7 @@
                 </div>
               </div>
             </div>
-            <center><a href="#" class="btn btn-primary">Susisiekti</a></center>
+            <center><a href="{{ path("contact") }}" class="btn btn-primary">Susisiekti</a></center>
             <br>
             <center>
                  <div class="panel-footer">

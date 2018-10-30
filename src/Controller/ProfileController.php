@@ -16,4 +16,14 @@ class ProfileController extends AbstractController
             'controller_name' => 'ProfileController',
         ]);
     }
+
+    /**
+     * @Route("/profile/edit", name="edit_profile")
+     */
+    public function edit()
+    {
+        return $this->render('profile/edit.html.twig', [
+            'controller_name' => 'ProfileController',
+        ]);
+    }
 }
