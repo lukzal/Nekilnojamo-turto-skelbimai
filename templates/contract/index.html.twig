@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sutartys{% endblock %}
+
+{% block body %}
+<style>
+    .form-control-borderless {
+        border: none;
+    }
+    
+    .form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+        border: none;
+        outline: none;
+        box-shadow: none;
+    }
+
+</style>
+<link href="https://www.jqueryscript.net/demo/jQuery-Plugin-For-Sortable-Bootstrap-Tables-Bootstrap-Sortable/Contents/bootstrap-sortable.css" rel="stylesheet" type="text/css">
+<div class="container">
+    <br/>
+	<div class="row justify-content-center">
+                        <div class="col-12 col-md-8 col-lg-8">
+                            <form class="card card-sm">
+                                <div class="card-body row no-gutters align-items-center">
+                                    <div class="col-auto">
+                                        <i class="fas fa-search h4 text-body"></i>
+                                    </div>
+                                    <!--end of col-->
+                                    <div class="col">
+                                        <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Ieškoti sutarčių">
+                                    </div>
+                                    <!--end of col-->
+                                    <div class="col-auto">
+                                        <button class="btn btn-lg btn-success" type="submit">Ieškoti</button>
+                                    </div>
+                                    <!--end of col-->
+                                </div>
+                            </form>
+                        </div>
+                        <!--end of col-->
+                    </div>
+</div>
+<br>
+<div class="container">
+	<div class="row">
+        <div class="table-responsive col-md-12">
+        <table id="sort2" class="grid table table-bordered sortable">
+            <thead>
+                <tr><th>Sutar. ID</th><th>Vart. Vardas</th><th>Vart. El. Paštas</th><th>Būsena</th><th>Veiksmai</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>123</td>
+                    <td>varpav</td>
+                    <td>avarpav@gmail.com</td>
+                    <td>Pasirašyta</td>
+                    <td><button class="btn btn-primary btn-sm btn-block">Patvirtinti / Nutraukti</button>
+                        <a href="{{ path("edit_contracts") }}" class="btn btn-primary btn-sm btn-block">Redaguoti</a>
+                        <button class="btn btn-primary btn-sm btn-block">Siusti kopiją</button></td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script> 
+<script src="https://www.jqueryscript.net/demo/jQuery-Plugin-For-Sortable-Bootstrap-Tables-Bootstrap-Sortable/Scripts/bootstrap-sortable.js"></script> 
+
+{% endblock %}

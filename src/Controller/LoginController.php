@@ -16,4 +16,12 @@ class LoginController extends AbstractController
             'controller_name' => 'LoginController',
         ]);
     }
+
+    /**
+     * @Route("/logout", name="logout")
+     */
+    public function logout()
+    {
+        return $this->redirectToRoute('home');
+    }
 }
