@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administratoriaus Panele{% endblock %}
+
+{% block body %}
+<style>
+    .form-control-borderless {
+        border: none;
+    }
+    
+    .form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+        border: none;
+        outline: none;
+        box-shadow: none;
+    }
+
+</style>
+<link href="https://www.jqueryscript.net/demo/jQuery-Plugin-For-Sortable-Bootstrap-Tables-Bootstrap-Sortable/Contents/bootstrap-sortable.css" rel="stylesheet" type="text/css">
+<form>
+<div class="container">
+	<div class="row">
+        <div class="table-responsive col-md-12">
+        <table id="sort2" class="grid table table-bordered sortable">
+            <thead>
+                <tr><th>Skel. ID</th><th>Pavadinimas</th><th>Data</th><th>Veiksmai</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>123</td>
+                    <td>pavadinimas</td>
+                    <td>2018-09-22</td>
+                    <td><button onclick="confirm('Patvirtinkite trynimą')" class="btn btn-primary btn-sm btn-block" name="del" type="submit">Šalinti</button>
+                        <a href="{{ path("edit_add") }}" class="btn btn-primary btn-sm btn-block">Redaguoti</a></td>
+                </tr>
+                <tr>
+                        <td>1234</td>
+                        <td>pavadinimas2</td>
+                        <td>2018-11-03</td>
+                        <td><button onclick="confirm('Patvirtinkite trynimą')" class="btn btn-primary btn-sm btn-block" name="del" type="submit">Šalinti</button>
+                            <a href="{{ path("edit_add") }}" class="btn btn-primary btn-sm btn-block">Redaguoti</a></td>
+                    </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script> 
+<script src="https://www.jqueryscript.net/demo/jQuery-Plugin-For-Sortable-Bootstrap-Tables-Bootstrap-Sortable/Scripts/bootstrap-sortable.js"></script> 
+</form>
+{% endblock %}

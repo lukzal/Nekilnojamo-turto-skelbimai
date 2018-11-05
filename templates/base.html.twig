@@ -31,16 +31,17 @@
                             <li class="nav-item">
                                    <a href="{{ path("registration") }}" class="nav-link">Registruotis</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="{{ path("edit_profile") }}" class="nav-link">Redaguoti Profilį</a>
-                         </li>
-                         <li class="nav-item">
-                                <a href="{{ path("new") }}" class="nav-link">Naujas skelbimas</a>
-                         </li>
-                         
-                         <li class="nav-item">
-                            <a href="{{ path("logout") }}" class="nav-link">Atsijungti</a>
-                     </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Naudotojo Meniu</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="{{ path("edit_profile") }}">Redaguoti Profilį</a>
+                                        <a class="dropdown-item" href="{{ path("user_ads") }}">Mano skelbimai</a>
+                                        <a class="dropdown-item" href="{{ path("new_add") }}">Naujas skelbimas</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ path("logout") }}" class="nav-link">Atsijungti</a>
+                                </li>
                         </ul>   
                 </div>
         </nav>

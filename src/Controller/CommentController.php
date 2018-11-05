@@ -16,4 +16,14 @@ class CommentController extends AbstractController
             'controller_name' => 'CommentController',
         ]);
     }
+
+    /**
+     * @Route("/comment/edit", name="edit_com")
+     */
+    public function edit()
+    {
+        return $this->render('comment/edit.html.twig', [
+            'controller_name' => 'CommentController',
+        ]);
+    }
 }

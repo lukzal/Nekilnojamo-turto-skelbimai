@@ -110,8 +110,9 @@
                                         <div class="blog-comment">
                                             <ul class="comments">
                                             <li class="clearfix">
-                                              <img src="https://bootdey.com/img/Content/user_1.jpg" class="avatar" alt="">
-                                              <div class="post-comments">
+                                              <img src="https://bootdey.com/img/Content/user_1.jpg" class="avatar" alt="">    
+                                              <form>
+                                              <div class="post-comments"> 
                                                   <p class="meta">Dec 18, 2014 <a href="#">Jonas</a> rašė : <i class="pull-right">Reitingas: 0 
                                                         <button class="btn-secondary" type="submit" name="up"><small>+</small></button><button class="btn-secondary" type="submit" name="down"><small>-</small></button></i></p>
                                                     
@@ -119,17 +120,23 @@
                                                   <p>
                                                     Komentaras
                                                   </p>
+                                                  <button onclick="location.href = '/public/comment/edit';" class="btn btn-sm" name="edit_com" type="submit">Redaguoti</button>
                                               </div>
+                                            </form>
                                             </li>
                                             <li class="clearfix">
                                               <img src="https://bootdey.com/img/Content/user_2.jpg" class="avatar" alt="">
+                                              <form>
                                               <div class="post-comments">
                                                   <p class="meta">Dec 19, 2014 <a href="#">Maryte</a> rašė : <i class="pull-right">Reitingas: 0 
                                                       <button class="btn-secondary" type="submit" name="up"><small>+</small></button><button class="btn-secondary" type="submit" name="down"><small>-</small></button></i></p>
                                                   <p>
                                                     Komentaras
                                                   </p>
-                                              </div>
+                                                  
+                                                  <button onclick="confirm('Pranešti apie netinkamą komentarą?')" class="btn btn-sm"  name="edit_com" type="submit">Pranešti</button>
+                                              </div> 
+                                            </form>
                                             </li>
 
                                             <a href="{{ path("comment") }}" class="btn btn-primary btn-sm">Naujas komentaras</a>
@@ -139,7 +146,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
