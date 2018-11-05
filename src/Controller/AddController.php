@@ -18,5 +18,32 @@ class AddController extends AbstractController
 
         return $this->render('add/index.html.twig', $arr);
     }
+
+    /**
+     * @Route("/new_add", name="new_add")
+     */
+    public function new()
+    {
+
+        return $this->render('add/new.html.twig');
+    }
+
+    /**
+     * @Route("/edit_add", name="edit_add")
+     */
+    public function edit()
+    {
+
+        return $this->render('add/edit.html.twig');
+    }
+
+    /**
+     * @Route("/user_ads", name="user_ads")
+     */
+    public function userAdds()
+    {
+
+        return $this->render('add/userAds.html.twig');
+    }
 }
 
