@@ -15,7 +15,7 @@
     }
 
 </style>
-
+<link href="https://www.jqueryscript.net/demo/jQuery-Plugin-For-Sortable-Bootstrap-Tables-Bootstrap-Sortable/Contents/bootstrap-sortable.css" rel="stylesheet" type="text/css">
 <div class="container">
     <br/>
 	<div class="row justify-content-center">
@@ -44,7 +44,7 @@
 <div class="container">
 	<div class="row">
         <div class="table-responsive col-md-12">
-        <table id="sort2" class="grid table table-bordered table-sortable">
+        <table id="sort2" class="grid table table-bordered sortable">
             <thead>
                 <tr><th>Vart. ID</th><th>Vart. Vardas</th><th>Vart. El. Paštas</th><th>Tipas</th><th>Būsena</th><th>Veiksmai</th></tr>
             </thead>
@@ -55,12 +55,27 @@
                     <td>avarpav@gmail.com</td>
                     <td>Paprastas vart.</td>
                     <td>Neužblokuotas</td>
-                    <td><button class="btn btn-primary btn-sm btn-block">Šalinti</button><button class="btn btn-primary btn-sm btn-block">Blokuoti / Atblokuoti</button></td>
+                    <td><button class="btn btn-primary btn-sm btn-block">Šalinti</button>
+                        <button class="btn btn-primary btn-sm btn-block">Blokuoti / Atblokuoti</button>
+                        <button class="btn btn-primary btn-sm btn-block">Keisti tipą</button></td>
                 </tr>
+                <tr>
+                        <td>1234</td>
+                        <td>varpaav</td>
+                        <td>avarpav@gmail.com</td>
+                        <td>Paprastas vart.</td>
+                        <td>Neužblokuotas</td>
+                        <td><button class="btn btn-primary btn-sm btn-block">Šalinti</button>
+                            <button class="btn btn-primary btn-sm btn-block">Blokuoti / Atblokuoti</button>
+                            <button class="btn btn-primary btn-sm btn-block">Keisti tipą</button></td>
+                    </tr>
             </tbody>
         </table>
         </div>
     </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script> 
+<script src="https://www.jqueryscript.net/demo/jQuery-Plugin-For-Sortable-Bootstrap-Tables-Bootstrap-Sortable/Scripts/bootstrap-sortable.js"></script> 
 
 {% endblock %}

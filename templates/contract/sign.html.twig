@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pasirašyti sutartį{% endblock %}
+
+{% block body %}
+
+<div class="container">
+        <h1>Sutarties pasirašymas</h1>
+        <h6>Visa kita informacija bus pridėta automatiškai</h6><br>
+    <form>
+      <div class="form-group col-lg-12">
+        <textarea type="text" name="message" rows="5" class="form-control textarea input-normal" placeholder="Papildomos sutarties sąlygos" required></textarea>
+      </div>
+      <div class="form-group col-lg-12">
+      <input type="checkbox" name="contract"> Sutinku pasirašyti sutartį<br>
+      </div>
+      <div class="form-group col-lg-12">
+      <button type="submit" class="btn btn-primary btn-block">Pasirašyti</button>
+      </div>
+    </form>
+        </div>
+
+{% endblock %}

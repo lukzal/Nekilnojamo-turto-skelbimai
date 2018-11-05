@@ -12,8 +12,20 @@ class AdminPanelController extends AbstractController
      */
     public function index()
     {
-        return $this->render('admin_panel/index.html.twig', [
+        return $this->render('admin_panel/panel.html.twig', [
             'controller_name' => 'AdminPanelController',
         ]);
     }
+
+    /**
+     * @Route("/admin/users", name="admin_panel_users")
+     */
+    public function users()
+    {
+        return $this->render('admin_panel/users.html.twig', [
+            'controller_name' => 'AdminPanelController',
+        ]);
+    }
+
+
 }

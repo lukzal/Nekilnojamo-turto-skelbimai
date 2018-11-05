@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Naujas Skelbimas{% endblock %}
+
+{% block body %}
+<center>
+<div class="row">
+    <div class="col centered">
+<form class="form-horizontal">
+    <fieldset>
+    
+    <h2>Naujas Skelbimas</h2>
+    
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="article_url">Pavadinimas</label>  
+      <div class="col-md-4">
+      <input id="article_url" name="article_url" type="text" placeholder="Pavadinimas" class="form-control input-md" required>
+        
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="article_title">Kaina</label>  
+      <div class="col-md-4">
+      <input id="article_title" name="article_title" type="number" placeholder="Kaina" class="form-control input-md" required>
+        
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="article_snippet">Būsto informacija</label>  
+      <div class="col-md-4">
+      <input id="article_snippet" name="article_snippet" type="text" placeholder="Plotas" class="form-control input-md" required>
+      <input id="article_snippet" name="article_snippet" type="text" placeholder="Kambarių skaičius" class="form-control input-md" required>
+      <input id="article_snippet" name="article_snippet" type="number" placeholder="Metai" class="form-control input-md" required>
+      <input id="article_snippet" name="article_snippet" type="text" placeholder="Pastato tipas" class="form-control input-md" required>
+      <input id="article_snippet" name="article_snippet" type="text" placeholder="Šildymas" class="form-control input-md" required>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="source_image">Nuotraukos</label>
+      <div class="col-md-4">
+        <input id="source_image" name="source_image" class="input-file" type="file" multiple>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="source_description">Aprašymas</label>
+      <div class="col-md-4">                     
+        <textarea class="form-control" id="source_description" name="source_description" required></textarea>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="article_categories">Kategorija</label>
+      <div class="col-md-4">
+        <select id="article_categories" name="article_categories" class="form-control">
+            <option value="">Nuoma</option>
+            <option value="">Pardavimas</option>
+        </select>
+      </div>
+    </div>
+    
+    <button class="btn btn-primary" type="submit" name="submit">Pateikti</button>
+    
+    </fieldset>
+    </form>
+</div>
+</div>
+</center>
+{% endblock %}

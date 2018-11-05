@@ -1,6 +1,44 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<form>
+    <div class="container-fluid bg-light ">
+            <div class="row align-items-center justify-content-center">
+                                <div class="col-md-2 pt-3">
+                                   <div class="form-group ">
+                                       <input type="number" class="form-control" placeholder="Kaina nuo">
+                                    </div>
+                                </div>
+                                <div class="col-md-2 pt-3">
+                                   <div class="form-group ">
+                                       <input type="number" class="form-control" placeholder="Kaina iki">
+                                    </div>
+                                </div>
+                                <div class="col-md-2 pt-3">
+                                   <div class="form-group ">
+                                       <input type="number" class="form-control" placeholder="Min. Plotas">
+                                    </div>
+                                </div>
+                                <div class="col-md-2 pt-3">
+                                   <div class="form-group ">
+                                       <input type="number" class="form-control" placeholder="Min. Kambarių Sk.">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-2 pt-3">
+                                    <div class="form-group ">
+                                        <select class="form-control" name="sort">
+                                            <option value="asc">A-Z</option>
+                                            <option value="desc">Z-A</option>
+                                        </select>
+                                     </div>
+                                 </div>
+                                <div class="col-md-2">
+                                   <button type="submit" class="btn btn-primary btn-block">Pateikti</button>
+                                </div>
+                            </div>
+        </div></form><br>
+
 <style>
     
     #real-estates-columns .title-realestates-columns h4 a {
