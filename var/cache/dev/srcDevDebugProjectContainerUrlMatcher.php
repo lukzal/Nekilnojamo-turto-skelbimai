@@ -77,7 +77,7 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     '/contracts/edit' => array(array('_route' => 'edit_contracts', '_controller' => 'App\\Controller\\ContractController::edit'), null, null, null),
                     '/' => array(array('_route' => 'home', '_controller' => 'App\\Controller\\HomeController::index'), null, null, null),
                     '/login' => array(array('_route' => 'login', '_controller' => 'App\\Controller\\LoginController::index'), null, null, null),
-                    '/log' => array(array('_route' => 'log', '_controller' => 'App\\Controller\\LoginController::log'), null, null, null),
+                    '/log' => array(array('_route' => 'log', '_controller' => 'App\\Controller\\LoginController::logUserIn'), null, null, null),
                     '/logout' => array(array('_route' => 'logout', '_controller' => 'App\\Controller\\LoginController::logout'), null, null, null),
                     '/profile' => array(array('_route' => 'profile', '_controller' => 'App\\Controller\\ProfileController::index'), null, null, null),
                     '/profile/edit' => array(array('_route' => 'edit_profile', '_controller' => 'App\\Controller\\ProfileController::edit'), null, null, null),

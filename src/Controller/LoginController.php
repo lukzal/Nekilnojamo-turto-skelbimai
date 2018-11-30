@@ -21,12 +21,21 @@ class LoginController extends AbstractController
     /**
      * @Route("/log", name="log")
      */
-    public function log(Request $request)
+    public function logUserIn(Request $request)
     {
-        $form = $this->createFormBuilder(null)
-        ->add('email', EmailType::class)
-        ->add('password', PasswordType::class)
+        $form = $this->createFormBuilder()
+        ->add('email')
+        ->add('password')
         ->getForm();
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted()){
+            $data = $form->getData();
+            return $this->redirectToRoute('home');
+        }else{
+            return $this->redirectToRoute('login');
+        }
 
         return $this->render('login/index.html.twig', [
             'controller_name' => 'LoginController',
