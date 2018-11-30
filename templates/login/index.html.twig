@@ -13,13 +13,13 @@
   
         <h3>Prisijungimas</h3>
   
-        <form role="form">
+        <form role="form" action="{{ path("log") }}" method="POST">
           <div class="form-group">
-            <label for="inputUsernameEmail">E-mail</label>
+            <label for="email">E-mail</label>
             <input type="email" class="form-control" id="email">
           </div>
           <div class="form-group">
-            <label for="inputPassword">Slaptažodis</label><br>
+            <label for="password">Slaptažodis</label><br>
             <a class="pull-right" href="{{ path("remember_pass") }}">Pamiršau slaptažodį</a>
             <input type="password" class="form-control" id="password">
           </div>

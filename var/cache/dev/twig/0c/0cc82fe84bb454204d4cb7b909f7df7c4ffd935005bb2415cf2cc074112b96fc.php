@@ -77,13 +77,16 @@ class __TwigTemplate_02b30512f552c42353595d27f5f62b6d6af0231df825f8ce84cff308820
   
         <h3>Prisijungimas</h3>
   
-        <form role=\"form\">
+        <form role=\"form\" action=\"";
+        // line 16
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("log");
+        echo "\" method=\"POST\">
           <div class=\"form-group\">
-            <label for=\"inputUsernameEmail\">E-mail</label>
+            <label for=\"email\">E-mail</label>
             <input type=\"email\" class=\"form-control\" id=\"email\">
           </div>
           <div class=\"form-group\">
-            <label for=\"inputPassword\">Slaptažodis</label><br>
+            <label for=\"password\">Slaptažodis</label><br>
             <a class=\"pull-right\" href=\"";
         // line 23
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("remember_pass");
@@ -117,7 +120,7 @@ class __TwigTemplate_02b30512f552c42353595d27f5f62b6d6af0231df825f8ce84cff308820
 
     public function getDebugInfo()
     {
-        return array (  89 => 23,  72 => 8,  66 => 7,  58 => 5,  52 => 4,  40 => 3,  15 => 1,);
+        return array (  92 => 23,  82 => 16,  72 => 8,  66 => 7,  58 => 5,  52 => 4,  40 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -137,13 +140,13 @@ class __TwigTemplate_02b30512f552c42353595d27f5f62b6d6af0231df825f8ce84cff308820
   
         <h3>Prisijungimas</h3>
   
-        <form role=\"form\">
+        <form role=\"form\" action=\"{{ path(\"log\") }}\" method=\"POST\">
           <div class=\"form-group\">
-            <label for=\"inputUsernameEmail\">E-mail</label>
+            <label for=\"email\">E-mail</label>
             <input type=\"email\" class=\"form-control\" id=\"email\">
           </div>
           <div class=\"form-group\">
-            <label for=\"inputPassword\">Slaptažodis</label><br>
+            <label for=\"password\">Slaptažodis</label><br>
             <a class=\"pull-right\" href=\"{{ path(\"remember_pass\") }}\">Pamiršau slaptažodį</a>
             <input type=\"password\" class=\"form-control\" id=\"password\">
           </div>

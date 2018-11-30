@@ -34,6 +34,7 @@ class srcDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
         'edit_contracts' => array(array(), array('_controller' => 'App\\Controller\\ContractController::edit'), array(), array(array('text', '/contracts/edit')), array(), array()),
         'home' => array(array(), array('_controller' => 'App\\Controller\\HomeController::index'), array(), array(array('text', '/')), array(), array()),
         'login' => array(array(), array('_controller' => 'App\\Controller\\LoginController::index'), array(), array(array('text', '/login')), array(), array()),
+        'log' => array(array(), array('_controller' => 'App\\Controller\\LoginController::log'), array(), array(array('text', '/log')), array(), array()),
         'logout' => array(array(), array('_controller' => 'App\\Controller\\LoginController::logout'), array(), array(array('text', '/logout')), array(), array()),
         'profile' => array(array(), array('_controller' => 'App\\Controller\\ProfileController::index'), array(), array(array('text', '/profile')), array(), array()),
         'edit_profile' => array(array(), array('_controller' => 'App\\Controller\\ProfileController::edit'), array(), array(array('text', '/profile/edit')), array(), array()),
