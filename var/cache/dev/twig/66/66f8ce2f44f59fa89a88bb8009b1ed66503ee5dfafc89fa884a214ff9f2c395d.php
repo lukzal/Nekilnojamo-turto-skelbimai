@@ -76,9 +76,22 @@ class __TwigTemplate_e4eb9072798c87beeb81a6158862503b8d2a7e6d05ef4b4f955e9f881fc
       <div class=\"main\">
   
         <h3>Prisijungimas</h3>
-  
-        <form role=\"form\" action=\"";
-        // line 16
+        ";
+        // line 15
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["errors"]) || array_key_exists("errors", $context) ? $context["errors"] : (function () { throw new Twig_Error_Runtime('Variable "errors" does not exist.', 15, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["error"]) {
+            // line 16
+            echo "          <p>";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["error"], "text", array()), "html", null, true);
+            echo "</p>
+        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['error'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 18
+        echo "        <form role=\"form\" action=\"";
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("log");
         echo "\" method=\"post\">
           <div class=\"form-group\">
@@ -88,7 +101,7 @@ class __TwigTemplate_e4eb9072798c87beeb81a6158862503b8d2a7e6d05ef4b4f955e9f881fc
           <div class=\"form-group\">
             <label for=\"password\">Slaptažodis</label><br>
             <a class=\"pull-right\" href=\"";
-        // line 23
+        // line 25
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("remember_pass");
         echo "\">Pamiršau slaptažodį</a>
             <input name=\"form[password]\" type=\"password\" class=\"form-control\" id=\"password\">
@@ -120,7 +133,7 @@ class __TwigTemplate_e4eb9072798c87beeb81a6158862503b8d2a7e6d05ef4b4f955e9f881fc
 
     public function getDebugInfo()
     {
-        return array (  92 => 23,  82 => 16,  72 => 8,  66 => 7,  58 => 5,  52 => 4,  40 => 3,  15 => 1,);
+        return array (  105 => 25,  94 => 18,  85 => 16,  81 => 15,  72 => 8,  66 => 7,  58 => 5,  52 => 4,  40 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -139,7 +152,9 @@ class __TwigTemplate_e4eb9072798c87beeb81a6158862503b8d2a7e6d05ef4b4f955e9f881fc
       <div class=\"main\">
   
         <h3>Prisijungimas</h3>
-  
+        {% for error in errors %}
+          <p>{{ error.text }}</p>
+        {% endfor %}
         <form role=\"form\" action=\"{{ path('log') }}\" method=\"post\">
           <div class=\"form-group\">
             <label for=\"email\">E-mail</label>

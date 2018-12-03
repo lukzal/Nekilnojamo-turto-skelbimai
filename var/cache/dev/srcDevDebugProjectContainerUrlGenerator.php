@@ -39,6 +39,7 @@ class srcDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
         'profile' => array(array(), array('_controller' => 'App\\Controller\\ProfileController::index'), array(), array(array('text', '/profile')), array(), array()),
         'edit_profile' => array(array(), array('_controller' => 'App\\Controller\\ProfileController::edit'), array(), array(array('text', '/profile/edit')), array(), array()),
         'registration' => array(array(), array('_controller' => 'App\\Controller\\RegistrationController::index'), array(), array(array('text', '/registration')), array(), array()),
+        'register' => array(array(), array('_controller' => 'App\\Controller\\RegistrationController::register'), array(), array(array('text', '/register')), array(), array()),
         'remember_pass' => array(array(), array('_controller' => 'App\\Controller\\RememberPassController::index'), array(), array(array('text', '/remember_pass')), array(), array()),
         '_twig_error_test' => array(array('code', '_format'), array('_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'), array('code' => '\\d+'), array(array('variable', '.', '[^/]++', '_format'), array('variable', '/', '\\d+', 'code'), array('text', '/_error')), array(), array()),
     );
@@ -51,7 +52,7 @@ class srcDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
             ?? $this->context->getParameter('_locale')
             ?: $this->defaultLocale;
 
-        if (null !== $locale && (self::$declaredRoutes[$name.'.'.$locale][1]['_canonical_route'] ?? null) === $name) {
+        if (null !== $locale && (self::$declaredRoutes[$name.'.'.$locale][1]['_canonical_route'] ?? null) === $name && null !== $name) {
             unset($parameters['_locale']);
             $name .= '.'.$locale;
         } elseif (!isset(self::$declaredRoutes[$name])) {
