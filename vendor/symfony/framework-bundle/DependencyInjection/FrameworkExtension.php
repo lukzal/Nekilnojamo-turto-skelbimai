@@ -69,6 +69,7 @@ use Symfony\Component\Messenger\Transport\TransportInterface;
 use Symfony\Component\PropertyAccess\PropertyAccessor;
 use Symfony\Component\PropertyInfo\PropertyAccessExtractorInterface;
 use Symfony\Component\PropertyInfo\PropertyDescriptionExtractorInterface;
+use Symfony\Component\PropertyInfo\PropertyInfoExtractorInterface;
 use Symfony\Component\PropertyInfo\PropertyListExtractorInterface;
 use Symfony\Component\PropertyInfo\PropertyTypeExtractorInterface;
 use Symfony\Component\Routing\Loader\AnnotationDirectoryLoader;
@@ -108,6 +109,7 @@ class FrameworkExtension extends Extension
     private $sessionConfigEnabled = false;
     private $annotationsConfigEnabled = false;
     private $validatorConfigEnabled = false;
+    private $messengerConfigEnabled = false;
 
     /**
      * Responds to the app.config configuration parameter.
@@ -153,7 +155,7 @@ class FrameworkExtension extends Extension
         // translator will be used and everything will still work as expected.
         if ($this->isConfigEnabled($container, $config['translator']) || $this->isConfigEnabled($container, $config['form']) || $this->isConfigEnabled($container, $config['validation'])) {
             if (!class_exists('Symfony\Component\Translation\Translator') && $this->isConfigEnabled($container, $config['translator'])) {
-                throw new LogicException('Translation support cannot be enabled as the Translation component is not installed.');
+                throw new LogicException('Translation support cannot be enabled as the Translation component is not installed. Try running "composer require symfony/translation".');
             }
 
             if (class_exists(Translator::class)) {
@@ -206,7 +208,7 @@ class FrameworkExtension extends Extension
 
         if ($this->isConfigEnabled($container, $config['form'])) {
             if (!class_exists('Symfony\Component\Form\Form')) {
-                throw new LogicException('Form support cannot be enabled as the Form component is not installed.');
+                throw new LogicException('Form support cannot be enabled as the Form component is not installed. Try running "composer require symfony/form".');
             }
 
             $this->formConfigEnabled = true;
@@ -226,7 +228,7 @@ class FrameworkExtension extends Extension
 
         if ($this->isConfigEnabled($container, $config['assets'])) {
             if (!class_exists('Symfony\Component\Asset\Package')) {
-                throw new LogicException('Asset support cannot be enabled as the Asset component is not installed.');
+                throw new LogicException('Asset support cannot be enabled as the Asset component is not installed. Try running "composer require symfony/asset".');
             }
 
             $this->registerAssetsConfiguration($config['assets'], $container, $loader);
@@ -234,10 +236,17 @@ class FrameworkExtension extends Extension
 
         if ($this->isConfigEnabled($container, $config['templating'])) {
             if (!class_exists('Symfony\Component\Templating\PhpEngine')) {
-                throw new LogicException('Templating support cannot be enabled as the Templating component is not installed.');
+                throw new LogicException('Templating support cannot be enabled as the Templating component is not installed. Try running "composer require symfony/templating".');
             }
 
             $this->registerTemplatingConfiguration($config['templating'], $container, $loader);
+        }
+
+        if ($this->messengerConfigEnabled = $this->isConfigEnabled($container, $config['messenger'])) {
+            $this->registerMessengerConfiguration($config['messenger'], $container, $loader, $config['serializer'], $config['validation']);
+        } else {
+            $container->removeDefinition('console.command.messenger_consume_messages');
+            $container->removeDefinition('console.command.messenger_debug');
         }
 
         $this->registerValidationConfiguration($config['validation'], $container, $loader);
@@ -255,30 +264,23 @@ class FrameworkExtension extends Extension
 
         if ($this->isConfigEnabled($container, $config['serializer'])) {
             if (!class_exists('Symfony\Component\Serializer\Serializer')) {
-                throw new LogicException('Serializer support cannot be enabled as the Serializer component is not installed.');
+                throw new LogicException('Serializer support cannot be enabled as the Serializer component is not installed. Try running "composer require symfony/serializer-pack".');
             }
 
             $this->registerSerializerConfiguration($config['serializer'], $container, $loader);
         }
 
         if ($this->isConfigEnabled($container, $config['property_info'])) {
-            $this->registerPropertyInfoConfiguration($config['property_info'], $container, $loader);
+            $this->registerPropertyInfoConfiguration($container, $loader);
         }
 
         if ($this->isConfigEnabled($container, $config['lock'])) {
             $this->registerLockConfiguration($config['lock'], $container, $loader);
         }
 
-        if ($this->isConfigEnabled($container, $config['messenger'])) {
-            $this->registerMessengerConfiguration($config['messenger'], $container, $loader, $config['serializer'], $config['validation']);
-        } else {
-            $container->removeDefinition('console.command.messenger_consume_messages');
-            $container->removeDefinition('console.command.messenger_debug');
-        }
-
         if ($this->isConfigEnabled($container, $config['web_link'])) {
             if (!class_exists(HttpHeaderSerializer::class)) {
-                throw new LogicException('WebLink support cannot be enabled as the WebLink component is not installed.');
+                throw new LogicException('WebLink support cannot be enabled as the WebLink component is not installed. Try running "composer require symfony/weblink".');
             }
 
             $loader->load('web_link.xml');
@@ -445,6 +447,10 @@ class FrameworkExtension extends Extension
             $container->getDefinition('translator.data_collector')->setDecoratedService('translator');
         }
 
+        if ($this->messengerConfigEnabled) {
+            $loader->load('messenger_debug.xml');
+        }
+
         $container->setParameter('profiler_listener.only_exceptions', $config['only_exceptions']);
         $container->setParameter('profiler_listener.only_master_requests', $config['only_master_requests']);
 
@@ -470,7 +476,7 @@ class FrameworkExtension extends Extension
         }
 
         if (!class_exists(Workflow\Workflow::class)) {
-            throw new LogicException('Workflow support cannot be enabled as the Workflow component is not installed.');
+            throw new LogicException('Workflow support cannot be enabled as the Workflow component is not installed. Try running "composer require symfony/workflow".');
         }
 
         $loader->load('workflow.xml');
@@ -479,6 +485,7 @@ class FrameworkExtension extends Extension
 
         foreach ($config['workflows'] as $name => $workflow) {
             $type = $workflow['type'];
+            $workflowId = sprintf('%s.%s', $type, $name);
 
             // Process Metadata (workflow + places (transition is done in the "create transition" block))
             $metadataStoreDefinition = new Definition(Workflow\Metadata\InMemoryMetadataStore::class, array(array(), array(), null));
@@ -497,11 +504,25 @@ class FrameworkExtension extends Extension
 
             // Create transitions
             $transitions = array();
+            $guardsConfiguration = array();
             $transitionsMetadataDefinition = new Definition(\SplObjectStorage::class);
+            // Global transition counter per workflow
+            $transitionCounter = 0;
             foreach ($workflow['transitions'] as $transition) {
                 if ('workflow' === $type) {
                     $transitionDefinition = new Definition(Workflow\Transition::class, array($transition['name'], $transition['from'], $transition['to']));
-                    $transitions[] = $transitionDefinition;
+                    $transitionDefinition->setPublic(false);
+                    $transitionId = sprintf('%s.transition.%s', $workflowId, $transitionCounter++);
+                    $container->setDefinition($transitionId, $transitionDefinition);
+                    $transitions[] = new Reference($transitionId);
+                    if (isset($transition['guard'])) {
+                        $configuration = new Definition(Workflow\EventListener\GuardExpression::class);
+                        $configuration->addArgument(new Reference($transitionId));
+                        $configuration->addArgument($transition['guard']);
+                        $configuration->setPublic(false);
+                        $eventName = sprintf('workflow.%s.guard.%s', $name, $transition['name']);
+                        $guardsConfiguration[$eventName][] = $configuration;
+                    }
                     if ($transition['metadata']) {
                         $transitionsMetadataDefinition->addMethodCall('attach', array(
                             $transitionDefinition,
@@ -512,7 +533,18 @@ class FrameworkExtension extends Extension
                     foreach ($transition['from'] as $from) {
                         foreach ($transition['to'] as $to) {
                             $transitionDefinition = new Definition(Workflow\Transition::class, array($transition['name'], $from, $to));
-                            $transitions[] = $transitionDefinition;
+                            $transitionDefinition->setPublic(false);
+                            $transitionId = sprintf('%s.transition.%s', $workflowId, $transitionCounter++);
+                            $container->setDefinition($transitionId, $transitionDefinition);
+                            $transitions[] = new Reference($transitionId);
+                            if (isset($transition['guard'])) {
+                                $configuration = new Definition(Workflow\EventListener\GuardExpression::class);
+                                $configuration->addArgument(new Reference($transitionId));
+                                $configuration->addArgument($transition['guard']);
+                                $configuration->setPublic(false);
+                                $eventName = sprintf('workflow.%s.guard.%s', $name, $transition['name']);
+                                $guardsConfiguration[$eventName][] = $configuration;
+                            }
                             if ($transition['metadata']) {
                                 $transitionsMetadataDefinition->addMethodCall('attach', array(
                                     $transitionDefinition,
@@ -554,7 +586,6 @@ class FrameworkExtension extends Extension
             }
 
             // Create Workflow
-            $workflowId = sprintf('%s.%s', $type, $name);
             $workflowDefinition = new ChildDefinition(sprintf('%s.abstract', $type));
             $workflowDefinition->replaceArgument(0, new Reference(sprintf('%s.definition', $workflowId)));
             if (isset($markingStoreDefinition)) {
@@ -590,31 +621,20 @@ class FrameworkExtension extends Extension
             }
 
             // Add Guard Listener
-            $guard = new Definition(Workflow\EventListener\GuardListener::class);
-            $guard->setPrivate(true);
-            $configuration = array();
-            foreach ($workflow['transitions'] as $config) {
-                $transitionName = $config['name'];
-
-                if (!isset($config['guard'])) {
-                    continue;
-                }
-
+            if ($guardsConfiguration) {
                 if (!class_exists(ExpressionLanguage::class)) {
-                    throw new LogicException('Cannot guard workflows as the ExpressionLanguage component is not installed.');
+                    throw new LogicException('Cannot guard workflows as the ExpressionLanguage component is not installed. Try running "composer require symfony/expression-language".');
                 }
 
                 if (!class_exists(Security::class)) {
-                    throw new LogicException('Cannot guard workflows as the Security component is not installed.');
+                    throw new LogicException('Cannot guard workflows as the Security component is not installed. Try running "composer require symfony/security".');
                 }
 
-                $eventName = sprintf('workflow.%s.guard.%s', $name, $transitionName);
-                $guard->addTag('kernel.event_listener', array('event' => $eventName, 'method' => 'onTransition'));
-                $configuration[$eventName] = $config['guard'];
-            }
-            if ($configuration) {
+                $guard = new Definition(Workflow\EventListener\GuardListener::class);
+                $guard->setPrivate(true);
+
                 $guard->setArguments(array(
-                    $configuration,
+                    $guardsConfiguration,
                     new Reference('workflow.security.expression_language'),
                     new Reference('security.token_storage'),
                     new Reference('security.authorization_checker'),
@@ -622,6 +642,9 @@ class FrameworkExtension extends Extension
                     new Reference('security.role_hierarchy'),
                     new Reference('validator', ContainerInterface::NULL_ON_INVALID_REFERENCE),
                 ));
+                foreach ($guardsConfiguration as $eventName => $config) {
+                    $guard->addTag('kernel.event_listener', array('event' => $eventName, 'method' => 'onTransition'));
+                }
 
                 $container->setDefinition(sprintf('%s.listener.guard', $workflowId), $guard);
                 $container->setParameter('workflow.has_guard_listeners', true);
@@ -763,10 +786,8 @@ class FrameworkExtension extends Extension
         if ($config['formats']) {
             $loader->load('request.xml');
 
-            $container
-                ->getDefinition('request.add_request_formats_listener')
-                ->replaceArgument(0, $config['formats'])
-            ;
+            $listener = $container->getDefinition('request.add_request_formats_listener');
+            $listener->replaceArgument(0, $config['formats']);
         }
     }
 
@@ -1037,7 +1058,7 @@ class FrameworkExtension extends Extension
         }
 
         if (!class_exists('Symfony\Component\Validator\Validation')) {
-            throw new LogicException('Validation support cannot be enabled as the Validator component is not installed.');
+            throw new LogicException('Validation support cannot be enabled as the Validator component is not installed. Try running "composer require symfony/validator".');
         }
 
         if (!isset($config['email_validation_mode'])) {
@@ -1347,8 +1368,12 @@ class FrameworkExtension extends Extension
         }
     }
 
-    private function registerPropertyInfoConfiguration(array $config, ContainerBuilder $container, XmlFileLoader $loader)
+    private function registerPropertyInfoConfiguration(ContainerBuilder $container, XmlFileLoader $loader)
     {
+        if (!interface_exists(PropertyInfoExtractorInterface::class)) {
+            throw new LogicException('PropertyInfo support cannot be enabled as the PropertyInfo component is not installed. Try running "composer require symfony/property-info".');
+        }
+
         $loader->load('property_info.xml');
 
         if (interface_exists('phpDocumentor\Reflection\DocBlockFactoryInterface')) {

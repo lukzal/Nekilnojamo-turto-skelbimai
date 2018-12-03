@@ -25,12 +25,15 @@
                         </li>					
                     </ul>
                     <ul class="navbar-nav">
+                            {% if app.session.get('userEmail') is empty %}
                             <li class="nav-item">
                                     <a href="{{ path("login") }}" class="nav-link">Prisijungti</a>
                             </li>	
                             <li class="nav-item">
                                    <a href="{{ path("registration") }}" class="nav-link">Registruotis</a>
                             </li>
+                            {% endif %}
+                            {% if app.session.get('userEmail') is not empty %}
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Naudotojo Meniu</a>
                                     <div class="dropdown-menu">
@@ -44,6 +47,7 @@
                                 <li class="nav-item">
                                     <a href="{{ path("logout") }}" class="nav-link">Atsijungti</a>
                                 </li>
+                                {% endif %}
                         </ul>   
                 </div>
         </nav>

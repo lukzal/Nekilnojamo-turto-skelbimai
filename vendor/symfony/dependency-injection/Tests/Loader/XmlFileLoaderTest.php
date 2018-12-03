@@ -19,6 +19,7 @@ use Symfony\Component\Config\Resource\GlobResource;
 use Symfony\Component\DependencyInjection\Argument\BoundArgument;
 use Symfony\Component\DependencyInjection\Argument\IteratorArgument;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Dumper\PhpDumper;
 use Symfony\Component\DependencyInjection\Loader\IniFileLoader;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
@@ -610,9 +611,9 @@ class XmlFileLoaderTest extends TestCase
         $resources = $container->getResources();
 
         $fixturesDir = \dirname(__DIR__).\DIRECTORY_SEPARATOR.'Fixtures'.\DIRECTORY_SEPARATOR;
-        $this->assertTrue(false !== array_search(new FileResource($fixturesDir.'xml'.\DIRECTORY_SEPARATOR.'services_prototype.xml'), $resources));
-        $this->assertTrue(false !== array_search(new GlobResource($fixturesDir.'Prototype', '/*', true), $resources));
         $resources = array_map('strval', $resources);
+        $this->assertContains((string) (new FileResource($fixturesDir.'xml'.\DIRECTORY_SEPARATOR.'services_prototype.xml')), $resources);
+        $this->assertContains((string) (new GlobResource($fixturesDir.'Prototype', '/*', true)), $resources);
         $this->assertContains('reflection.Symfony\Component\DependencyInjection\Tests\Fixtures\Prototype\Foo', $resources);
         $this->assertContains('reflection.Symfony\Component\DependencyInjection\Tests\Fixtures\Prototype\Sub\Bar', $resources);
     }
@@ -795,5 +796,17 @@ class XmlFileLoaderTest extends TestCase
             '$quz' => 'quz',
             '$factory' => 'factory',
         ), array_map(function (BoundArgument $v) { return $v->getValues()[0]; }, $definition->getBindings()));
+    }
+
+    public function testTsantosContainer()
+    {
+        $container = new ContainerBuilder();
+        $loader = new XmlFileLoader($container, new FileLocator(self::$fixturesPath.'/xml'));
+        $loader->load('services_tsantos.xml');
+        $container->compile();
+
+        $dumper = new PhpDumper($container);
+        $dump = $dumper->dump();
+        $this->assertStringEqualsFile(self::$fixturesPath.'/php/services_tsantos.php', $dumper->dump());
     }
 }
