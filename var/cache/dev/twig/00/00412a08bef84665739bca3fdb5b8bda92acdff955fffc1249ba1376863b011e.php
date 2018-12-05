@@ -76,35 +76,89 @@ class __TwigTemplate_3f3812345d95c9bc2c06ea3a535beb46e01ada606f2e603edfe7c01e7a0
       <div class=\"main\">
   
         <h3>Profilio redagavimas</h3>
-  
-        <form role=\"form\">
+        ";
+        // line 17
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["errors"]) || array_key_exists("errors", $context) ? $context["errors"] : (function () { throw new Twig_Error_Runtime('Variable "errors" does not exist.', 17, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["error"]) {
+            // line 18
+            echo "        <p class=\"badge badge-danger\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["error"], "text", array()), "html", null, true);
+            echo "</p>
+      ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['error'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 20
+        echo "
+        <form role=\"form\" action=\"";
+        // line 21
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("edit_profile_proc");
+        echo "\" method=\"POST\">
           <div class=\"form-group\">
             <label for=\"email\">E-mail</label>
-            <input type=\"email\" class=\"form-control\" id=\"email\" placeholder=\"E-mail\">
+            <input name=\"form[email]\" type=\"email\" class=\"form-control\" id=\"email\" placeholder=\"E-mail\" value=\"";
+        // line 24
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 24, $this->source); })()), "email", array()), "html", null, true);
+        echo "\">
           </div>
           <div class=\"form-group\">
             <label for=\"name\">Vardas</label>
-            <input type=\"text\" class=\"form-control\" id=\"name\" placeholder=\"Vardas\">
+            <input name=\"form[name]\" type=\"text\" class=\"form-control\" id=\"name\" placeholder=\"Vardas\" value=\"";
+        // line 28
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 28, $this->source); })()), "name", array()), "html", null, true);
+        echo "\">
           </div>
           <div class=\"form-group\">
             <label for=\"surname\">Pavarde</label>
-            <input type=\"text\" class=\"form-control\" id=\"surname\" placeholder=\"Pavarde\">
+            <input name=\"form[surname]\" type=\"text\" class=\"form-control\" id=\"surname\" placeholder=\"Pavarde\" value=\"";
+        // line 32
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 32, $this->source); })()), "surname", array()), "html", null, true);
+        echo "\">
           </div>
           <div class=\"form-group\">
-            <label for=\"password\">Senas Slaptažodis</label>
-            <input type=\"password\" class=\"form-control\" id=\"password\" placeholder=\"Senas Slaptažodis\">
+            <label for=\"old_password\">Senas Slaptažodis</label>
+            <input name=\"form[old_password]\" type=\"password\" class=\"form-control\" id=\"old_password\" placeholder=\"Senas Slaptažodis\" value=\"";
+        // line 36
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 36, $this->source); })()), "old_password", array()), "html", null, true);
+        echo "\">
           </div>
           <div class=\"form-group\">
-            <label for=\"password\">Naujas Slaptažodis</label>
-            <input type=\"password\" class=\"form-control\" id=\"password\" placeholder=\"Naujas Slaptažodis\">
+            <label for=\"new_password\">Naujas Slaptažodis</label>
+            <input name=\"form[new_password]\" type=\"password\" class=\"form-control\" id=\"new_password\" placeholder=\"Naujas Slaptažodis\" value=\"";
+        // line 40
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 40, $this->source); })()), "new_password", array()), "html", null, true);
+        echo "\">
           </div>
           <div class=\"form-group\">
             <label for=\"passwordAgain\">Pakartoti naują slaptažodį</label>
-            <input type=\"password\" class=\"form-control\" id=\"passwordAgain\" placeholder=\"Pakartoti\">
+            <input name=\"form[passwordAgain]\" type=\"password\" class=\"form-control\" id=\"passwordAgain\" placeholder=\"Pakartoti\" value=\"";
+        // line 44
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 44, $this->source); })()), "passwordAgain", array()), "html", null, true);
+        echo "\">
           </div>
+          <div class=\"form-group\">
+              <label for=\"code\">Asmens kodas</label>
+              <input name=\"form[code]\" type=\"number\" class=\"form-control\" id=\"code\" placeholder=\"Asmens kodas\"  value=\"";
+        // line 48
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 48, $this->source); })()), "code", array()), "html", null, true);
+        echo "\">
+            </div>
+            <div class=\"form-group\">
+              <label for=\"phone\">Telefono nr.</label>
+              <input name=\"form[phone]\" type=\"text\" class=\"form-control\" id=\"phone\" placeholder=\"Asmens kodas\"  value=\"";
+        // line 52
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 52, $this->source); })()), "phone", array()), "html", null, true);
+        echo "\">
+            </div>
           <button type=\"submit\" class=\"btn btn btn-primary\">
             Keisti
           </button>
+          <a href=\"";
+        // line 57
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
+        echo "\" class=\"btn btn-secondary\">Atšaukti</a>
         </form>
       
       </div>
@@ -130,7 +184,7 @@ class __TwigTemplate_3f3812345d95c9bc2c06ea3a535beb46e01ada606f2e603edfe7c01e7a0
 
     public function getDebugInfo()
     {
-        return array (  72 => 10,  66 => 9,  58 => 6,  52 => 5,  40 => 3,  15 => 1,);
+        return array (  160 => 57,  152 => 52,  145 => 48,  138 => 44,  131 => 40,  124 => 36,  117 => 32,  110 => 28,  103 => 24,  97 => 21,  94 => 20,  85 => 18,  81 => 17,  72 => 10,  66 => 9,  58 => 6,  52 => 5,  40 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -151,35 +205,47 @@ class __TwigTemplate_3f3812345d95c9bc2c06ea3a535beb46e01ada606f2e603edfe7c01e7a0
       <div class=\"main\">
   
         <h3>Profilio redagavimas</h3>
-  
-        <form role=\"form\">
+        {% for error in errors %}
+        <p class=\"badge badge-danger\">{{ error.text }}</p>
+      {% endfor %}
+
+        <form role=\"form\" action=\"{{ path('edit_profile_proc') }}\" method=\"POST\">
           <div class=\"form-group\">
             <label for=\"email\">E-mail</label>
-            <input type=\"email\" class=\"form-control\" id=\"email\" placeholder=\"E-mail\">
+            <input name=\"form[email]\" type=\"email\" class=\"form-control\" id=\"email\" placeholder=\"E-mail\" value=\"{{ data.email }}\">
           </div>
           <div class=\"form-group\">
             <label for=\"name\">Vardas</label>
-            <input type=\"text\" class=\"form-control\" id=\"name\" placeholder=\"Vardas\">
+            <input name=\"form[name]\" type=\"text\" class=\"form-control\" id=\"name\" placeholder=\"Vardas\" value=\"{{ data.name }}\">
           </div>
           <div class=\"form-group\">
             <label for=\"surname\">Pavarde</label>
-            <input type=\"text\" class=\"form-control\" id=\"surname\" placeholder=\"Pavarde\">
+            <input name=\"form[surname]\" type=\"text\" class=\"form-control\" id=\"surname\" placeholder=\"Pavarde\" value=\"{{ data.surname }}\">
           </div>
           <div class=\"form-group\">
-            <label for=\"password\">Senas Slaptažodis</label>
-            <input type=\"password\" class=\"form-control\" id=\"password\" placeholder=\"Senas Slaptažodis\">
+            <label for=\"old_password\">Senas Slaptažodis</label>
+            <input name=\"form[old_password]\" type=\"password\" class=\"form-control\" id=\"old_password\" placeholder=\"Senas Slaptažodis\" value=\"{{ data.old_password }}\">
           </div>
           <div class=\"form-group\">
-            <label for=\"password\">Naujas Slaptažodis</label>
-            <input type=\"password\" class=\"form-control\" id=\"password\" placeholder=\"Naujas Slaptažodis\">
+            <label for=\"new_password\">Naujas Slaptažodis</label>
+            <input name=\"form[new_password]\" type=\"password\" class=\"form-control\" id=\"new_password\" placeholder=\"Naujas Slaptažodis\" value=\"{{ data.new_password }}\">
           </div>
           <div class=\"form-group\">
             <label for=\"passwordAgain\">Pakartoti naują slaptažodį</label>
-            <input type=\"password\" class=\"form-control\" id=\"passwordAgain\" placeholder=\"Pakartoti\">
+            <input name=\"form[passwordAgain]\" type=\"password\" class=\"form-control\" id=\"passwordAgain\" placeholder=\"Pakartoti\" value=\"{{ data.passwordAgain }}\">
           </div>
+          <div class=\"form-group\">
+              <label for=\"code\">Asmens kodas</label>
+              <input name=\"form[code]\" type=\"number\" class=\"form-control\" id=\"code\" placeholder=\"Asmens kodas\"  value=\"{{ data.code }}\">
+            </div>
+            <div class=\"form-group\">
+              <label for=\"phone\">Telefono nr.</label>
+              <input name=\"form[phone]\" type=\"text\" class=\"form-control\" id=\"phone\" placeholder=\"Asmens kodas\"  value=\"{{ data.phone }}\">
+            </div>
           <button type=\"submit\" class=\"btn btn btn-primary\">
             Keisti
           </button>
+          <a href=\"{{ path(\"home\") }}\" class=\"btn btn-secondary\">Atšaukti</a>
         </form>
       
       </div>

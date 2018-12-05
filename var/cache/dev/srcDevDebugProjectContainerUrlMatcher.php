@@ -81,6 +81,7 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     '/logout' => array(array('_route' => 'logout', '_controller' => 'App\\Controller\\LoginController::logout'), null, null, null, false),
                     '/profile' => array(array('_route' => 'profile', '_controller' => 'App\\Controller\\ProfileController::index'), null, null, null, false),
                     '/profile/edit' => array(array('_route' => 'edit_profile', '_controller' => 'App\\Controller\\ProfileController::edit'), null, null, null, false),
+                    '/profile/edit_proc' => array(array('_route' => 'edit_profile_proc', '_controller' => 'App\\Controller\\ProfileController::editProc'), null, null, null, false),
                     '/registration' => array(array('_route' => 'registration', '_controller' => 'App\\Controller\\RegistrationController::index'), null, null, null, false),
                     '/register' => array(array('_route' => 'register', '_controller' => 'App\\Controller\\RegistrationController::register'), null, null, null, false),
                     '/remember_pass' => array(array('_route' => 'remember_pass', '_controller' => 'App\\Controller\\RememberPassController::index'), null, null, null, false),

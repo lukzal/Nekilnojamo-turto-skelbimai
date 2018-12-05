@@ -14,35 +14,47 @@
       <div class="main">
   
         <h3>Profilio redagavimas</h3>
-  
-        <form role="form">
+        {% for error in errors %}
+        <p class="badge badge-danger">{{ error.text }}</p>
+      {% endfor %}
+
+        <form role="form" action="{{ path('edit_profile_proc') }}" method="POST">
           <div class="form-group">
             <label for="email">E-mail</label>
-            <input type="email" class="form-control" id="email" placeholder="E-mail">
+            <input name="form[email]" type="email" class="form-control" id="email" placeholder="E-mail" value="{{ data.email }}">
           </div>
           <div class="form-group">
             <label for="name">Vardas</label>
-            <input type="text" class="form-control" id="name" placeholder="Vardas">
+            <input name="form[name]" type="text" class="form-control" id="name" placeholder="Vardas" value="{{ data.name }}">
           </div>
           <div class="form-group">
             <label for="surname">Pavarde</label>
-            <input type="text" class="form-control" id="surname" placeholder="Pavarde">
+            <input name="form[surname]" type="text" class="form-control" id="surname" placeholder="Pavarde" value="{{ data.surname }}">
           </div>
           <div class="form-group">
-            <label for="password">Senas Slaptažodis</label>
-            <input type="password" class="form-control" id="password" placeholder="Senas Slaptažodis">
+            <label for="old_password">Senas Slaptažodis</label>
+            <input name="form[old_password]" type="password" class="form-control" id="old_password" placeholder="Senas Slaptažodis" value="{{ data.old_password }}">
           </div>
           <div class="form-group">
-            <label for="password">Naujas Slaptažodis</label>
-            <input type="password" class="form-control" id="password" placeholder="Naujas Slaptažodis">
+            <label for="new_password">Naujas Slaptažodis</label>
+            <input name="form[new_password]" type="password" class="form-control" id="new_password" placeholder="Naujas Slaptažodis" value="{{ data.new_password }}">
           </div>
           <div class="form-group">
             <label for="passwordAgain">Pakartoti naują slaptažodį</label>
-            <input type="password" class="form-control" id="passwordAgain" placeholder="Pakartoti">
+            <input name="form[passwordAgain]" type="password" class="form-control" id="passwordAgain" placeholder="Pakartoti" value="{{ data.passwordAgain }}">
           </div>
+          <div class="form-group">
+              <label for="code">Asmens kodas</label>
+              <input name="form[code]" type="number" class="form-control" id="code" placeholder="Asmens kodas"  value="{{ data.code }}">
+            </div>
+            <div class="form-group">
+              <label for="phone">Telefono nr.</label>
+              <input name="form[phone]" type="text" class="form-control" id="phone" placeholder="Asmens kodas"  value="{{ data.phone }}">
+            </div>
           <button type="submit" class="btn btn btn-primary">
             Keisti
           </button>
+          <a href="{{ path("home") }}" class="btn btn-secondary">Atšaukti</a>
         </form>
       
       </div>

@@ -13,7 +13,7 @@
   
         <h3>Prisijungimas</h3>
         {% for error in errors %}
-          <p>{{ error.text }}</p>
+          <p class="badge badge-danger">{{ error.text }}</p>
         {% endfor %}
         <form role="form" action="{{ path('log') }}" method="post">
           <div class="form-group">

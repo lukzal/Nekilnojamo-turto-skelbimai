@@ -38,6 +38,7 @@ class srcDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
         'logout' => array(array(), array('_controller' => 'App\\Controller\\LoginController::logout'), array(), array(array('text', '/logout')), array(), array()),
         'profile' => array(array(), array('_controller' => 'App\\Controller\\ProfileController::index'), array(), array(array('text', '/profile')), array(), array()),
         'edit_profile' => array(array(), array('_controller' => 'App\\Controller\\ProfileController::edit'), array(), array(array('text', '/profile/edit')), array(), array()),
+        'edit_profile_proc' => array(array(), array('_controller' => 'App\\Controller\\ProfileController::editProc'), array(), array(array('text', '/profile/edit_proc')), array(), array()),
         'registration' => array(array(), array('_controller' => 'App\\Controller\\RegistrationController::index'), array(), array(array('text', '/registration')), array(), array()),
         'register' => array(array(), array('_controller' => 'App\\Controller\\RegistrationController::register'), array(), array(array('text', '/register')), array(), array()),
         'remember_pass' => array(array(), array('_controller' => 'App\\Controller\\RememberPassController::index'), array(), array(array('text', '/remember_pass')), array(), array()),
