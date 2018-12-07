@@ -51,17 +51,17 @@ class __TwigTemplate_7dd1a9b75b31e52fddbf81a2416e7f7f8a5a630e923df7af9d747b800c1
         ";
         // line 15
         $this->displayBlock('navbar', $context, $blocks);
-        // line 56
+        // line 58
         echo "
 
         <!-- End Top Nav Bar -->
         ";
-        // line 59
+        // line 61
         $this->displayBlock('body', $context, $blocks);
-        // line 66
+        // line 68
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 67
+        // line 69
         echo "    </body>
 </html>
 ";
@@ -161,21 +161,27 @@ class __TwigTemplate_7dd1a9b75b31e52fddbf81a2416e7f7f8a5a630e923df7af9d747b800c1
             // line 43
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("new_add");
             echo "\">Naujas skelbimas</a>
-                                        <a class=\"dropdown-item\" href=\"";
+                                        ";
             // line 44
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_panel");
-            echo "\">Administratoriaus panele</a>
-                                    </div>
+            if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 44, $this->source); })()), "session", array()), "get", array(0 => "userType"), "method") == "3")) {
+                // line 45
+                echo "                                        <a class=\"dropdown-item\" href=\"";
+                echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_panel");
+                echo "\">Administratoriaus panele</a>
+                                        ";
+            }
+            // line 47
+            echo "                                    </div>
                                 </li>
                                 <li class=\"nav-item\">
                                     <a href=\"";
-            // line 48
+            // line 50
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
             echo "\" class=\"nav-link\">Atsijungti</a>
                                 </li>
                                 ";
         }
-        // line 51
+        // line 53
         echo "                        </ul>   
                 </div>
         </nav>
@@ -186,17 +192,31 @@ class __TwigTemplate_7dd1a9b75b31e52fddbf81a2416e7f7f8a5a630e923df7af9d747b800c1
 
     }
 
-    // line 59
+    // line 61
     public function block_body($context, array $blocks = array())
     {
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        // line 60
+        // line 62
         echo "
         ";
-        // line 61
+        // line 63
         $this->displayBlock('ads', $context, $blocks);
+        // line 66
+        echo "
+        ";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+    }
+
+    // line 63
+    public function block_ads($context, array $blocks = array())
+    {
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "ads"));
+
         // line 64
         echo "
         ";
@@ -205,21 +225,7 @@ class __TwigTemplate_7dd1a9b75b31e52fddbf81a2416e7f7f8a5a630e923df7af9d747b800c1
 
     }
 
-    // line 61
-    public function block_ads($context, array $blocks = array())
-    {
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "ads"));
-
-        // line 62
-        echo "
-        ";
-        
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
-
-    }
-
-    // line 66
+    // line 68
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
@@ -237,7 +243,7 @@ class __TwigTemplate_7dd1a9b75b31e52fddbf81a2416e7f7f8a5a630e923df7af9d747b800c1
 
     public function getDebugInfo()
     {
-        return array (  223 => 66,  215 => 62,  209 => 61,  201 => 64,  199 => 61,  196 => 60,  190 => 59,  179 => 51,  173 => 48,  166 => 44,  162 => 43,  158 => 42,  154 => 41,  150 => 40,  145 => 37,  142 => 36,  136 => 33,  130 => 30,  127 => 29,  125 => 28,  118 => 24,  108 => 17,  105 => 16,  99 => 15,  92 => 11,  86 => 10,  74 => 5,  65 => 67,  62 => 66,  60 => 59,  55 => 56,  53 => 15,  48 => 12,  46 => 10,  38 => 5,  32 => 1,);
+        return array (  229 => 68,  221 => 64,  215 => 63,  207 => 66,  205 => 63,  202 => 62,  196 => 61,  185 => 53,  179 => 50,  174 => 47,  168 => 45,  166 => 44,  162 => 43,  158 => 42,  154 => 41,  150 => 40,  145 => 37,  142 => 36,  136 => 33,  130 => 30,  127 => 29,  125 => 28,  118 => 24,  108 => 17,  105 => 16,  99 => 15,  92 => 11,  86 => 10,  74 => 5,  65 => 69,  62 => 68,  60 => 61,  55 => 58,  53 => 15,  48 => 12,  46 => 10,  38 => 5,  32 => 1,);
     }
 
     public function getSourceContext()
@@ -285,7 +291,9 @@ class __TwigTemplate_7dd1a9b75b31e52fddbf81a2416e7f7f8a5a630e923df7af9d747b800c1
                                         <a class=\"dropdown-item\" href=\"{{ path(\"user_ads\") }}\">Mano skelbimai</a>
                                         <a class=\"dropdown-item\" href=\"{{ path(\"contracts\") }}\">Mano sutartys</a>
                                         <a class=\"dropdown-item\" href=\"{{ path(\"new_add\") }}\">Naujas skelbimas</a>
+                                        {% if app.session.get('userType') == \"3\" %}
                                         <a class=\"dropdown-item\" href=\"{{ path(\"admin_panel\") }}\">Administratoriaus panele</a>
+                                        {% endif %}
                                     </div>
                                 </li>
                                 <li class=\"nav-item\">

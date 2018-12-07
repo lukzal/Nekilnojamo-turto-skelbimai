@@ -79,12 +79,12 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     '/login' => array(array('_route' => 'login', '_controller' => 'App\\Controller\\LoginController::index'), null, null, null, false),
                     '/log' => array(array('_route' => 'log', '_controller' => 'App\\Controller\\LoginController::logUserIn'), null, null, null, false),
                     '/logout' => array(array('_route' => 'logout', '_controller' => 'App\\Controller\\LoginController::logout'), null, null, null, false),
-                    '/profile' => array(array('_route' => 'profile', '_controller' => 'App\\Controller\\ProfileController::index'), null, null, null, false),
-                    '/profile/edit' => array(array('_route' => 'edit_profile', '_controller' => 'App\\Controller\\ProfileController::edit'), null, null, null, false),
-                    '/profile/edit_proc' => array(array('_route' => 'edit_profile_proc', '_controller' => 'App\\Controller\\ProfileController::editProc'), null, null, null, false),
+                    '/profile_edit' => array(array('_route' => 'edit_profile', '_controller' => 'App\\Controller\\ProfileController::edit'), null, null, null, false),
+                    '/profile_edit_proc' => array(array('_route' => 'edit_profile_proc', '_controller' => 'App\\Controller\\ProfileController::editProc'), null, null, null, false),
                     '/registration' => array(array('_route' => 'registration', '_controller' => 'App\\Controller\\RegistrationController::index'), null, null, null, false),
                     '/register' => array(array('_route' => 'register', '_controller' => 'App\\Controller\\RegistrationController::register'), null, null, null, false),
                     '/remember_pass' => array(array('_route' => 'remember_pass', '_controller' => 'App\\Controller\\RememberPassController::index'), null, null, null, false),
+                    '/remember_pass_proc' => array(array('_route' => 'remember_pass_proc', '_controller' => 'App\\Controller\\RememberPassController::proc'), null, null, null, false),
                 );
 
                 if (!isset($routes[$trimmedPathinfo])) {
@@ -115,7 +115,8 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         $regexList = array(
             0 => '{^(?'
                     .'|/add/([^/]++)(*:20)'
-                    .'|/_error/(\\d+)(?:\\.([^/]++))?(*:55)'
+                    .'|/profile/([^/]++)(*:44)'
+                    .'|/_error/(\\d+)(?:\\.([^/]++))?(*:79)'
                 .')(?:/?)$}sD',
         );
 
@@ -125,7 +126,8 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     default:
                         $routes = array(
                             20 => array(array('_route' => 'add', '_controller' => 'App\\Controller\\AddController::index'), array('id'), null, null, false),
-                            55 => array(array('_route' => '_twig_error_test', '_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'), array('code', '_format'), null, null, false),
+                            44 => array(array('_route' => 'profile', '_controller' => 'App\\Controller\\ProfileController::index'), array('id'), null, null, false),
+                            79 => array(array('_route' => '_twig_error_test', '_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'), array('code', '_format'), null, null, false),
                         );
 
                         list($ret, $vars, $requiredMethods, $requiredSchemes, $hasTrailingSlash) = $routes[$m];
@@ -155,7 +157,7 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                         return $ret;
                 }
 
-                if (55 === $m) {
+                if (79 === $m) {
                     break;
                 }
                 $regex = substr_replace($regex, 'F', $m - $offset, 1 + strlen($m));

@@ -47,6 +47,8 @@ class LoginController extends AbstractController
                 $session = new Session();
                 $session->start();
                 $session->set('userEmail', $data["email"]);
+                $type = $this->userType($data["email"]);
+                $session->set('userType', $type);
             }else{
                 $data["errors"] = [["text" => "Duomenys neteisingi."]];
                 return $this->render('login/index.html.twig', $data);
@@ -88,5 +90,15 @@ class LoginController extends AbstractController
         $pass = $userByEmail->getSlaptazodis();
 
         return password_verify($entPass, $pass);
+    }
+
+    private function userType($email){
+        $userType = $this->getDoctrine()
+        ->getRepository(Naudotojai::class)
+        ->findOneBy(["el_pastas" => $email]);
+
+        $type = $userType->getRole();
+
+        return $type;
     }
 }

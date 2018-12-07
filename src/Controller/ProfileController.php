@@ -14,15 +14,21 @@ class ProfileController extends AbstractController
     public $changePass = false;
 
     /**
-     * @Route("/profile", name="profile")
+     * @Route("/profile/{id}", name="profile")
      */
-    public function index()
+    public function index($id)
     {
-        return $this->render('profile/index.html.twig');
+        $user = $this->getUserDetailsByID($id);
+
+        $data = [];
+        $data["data"] = [ "username" => $user->getNaudotojoVardas(), "name" => $user->getVardas(), "surname" =>  $user->getPavarde(),
+        "email" => $user->getElPastas(), "code" => $user->getAsmensKodas(), "phone" => $user->getTelefonoNr()];
+
+        return $this->render('profile/index.html.twig', $data);
     }
 
     /**
-     * @Route("/profile/edit", name="edit_profile")
+     * @Route("/profile_edit", name="edit_profile")
      */
     public function edit()
     {
@@ -44,8 +50,8 @@ class ProfileController extends AbstractController
         }
     }
 
-/**
-     * @Route("/profile/edit_proc", name="edit_profile_proc")
+    /**
+     * @Route("/profile_edit_proc", name="edit_profile_proc")
      */
     public function editProc(Request $request){
         $session = new Session();
@@ -121,6 +127,16 @@ class ProfileController extends AbstractController
         $user = $this->getDoctrine()
         ->getRepository(Naudotojai::class)
         ->findOneBy(["el_pastas" => $email]);
+
+        return $user;
+    }
+
+    private function getUserDetailsByID($id){
+        $user = new Naudotojai();
+
+        $user = $this->getDoctrine()
+        ->getRepository(Naudotojai::class)
+        ->findOneBy(["id" => $id]);
 
         return $user;
     }

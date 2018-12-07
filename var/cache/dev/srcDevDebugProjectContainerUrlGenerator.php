@@ -36,12 +36,13 @@ class srcDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
         'login' => array(array(), array('_controller' => 'App\\Controller\\LoginController::index'), array(), array(array('text', '/login')), array(), array()),
         'log' => array(array(), array('_controller' => 'App\\Controller\\LoginController::logUserIn'), array(), array(array('text', '/log')), array(), array()),
         'logout' => array(array(), array('_controller' => 'App\\Controller\\LoginController::logout'), array(), array(array('text', '/logout')), array(), array()),
-        'profile' => array(array(), array('_controller' => 'App\\Controller\\ProfileController::index'), array(), array(array('text', '/profile')), array(), array()),
-        'edit_profile' => array(array(), array('_controller' => 'App\\Controller\\ProfileController::edit'), array(), array(array('text', '/profile/edit')), array(), array()),
-        'edit_profile_proc' => array(array(), array('_controller' => 'App\\Controller\\ProfileController::editProc'), array(), array(array('text', '/profile/edit_proc')), array(), array()),
+        'profile' => array(array('id'), array('_controller' => 'App\\Controller\\ProfileController::index'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/profile')), array(), array()),
+        'edit_profile' => array(array(), array('_controller' => 'App\\Controller\\ProfileController::edit'), array(), array(array('text', '/profile_edit')), array(), array()),
+        'edit_profile_proc' => array(array(), array('_controller' => 'App\\Controller\\ProfileController::editProc'), array(), array(array('text', '/profile_edit_proc')), array(), array()),
         'registration' => array(array(), array('_controller' => 'App\\Controller\\RegistrationController::index'), array(), array(array('text', '/registration')), array(), array()),
         'register' => array(array(), array('_controller' => 'App\\Controller\\RegistrationController::register'), array(), array(array('text', '/register')), array(), array()),
         'remember_pass' => array(array(), array('_controller' => 'App\\Controller\\RememberPassController::index'), array(), array(array('text', '/remember_pass')), array(), array()),
+        'remember_pass_proc' => array(array(), array('_controller' => 'App\\Controller\\RememberPassController::proc'), array(), array(array('text', '/remember_pass_proc')), array(), array()),
         '_twig_error_test' => array(array('code', '_format'), array('_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'), array('code' => '\\d+'), array(array('variable', '.', '[^/]++', '_format'), array('variable', '/', '\\d+', 'code'), array('text', '/_error')), array(), array()),
     );
         }

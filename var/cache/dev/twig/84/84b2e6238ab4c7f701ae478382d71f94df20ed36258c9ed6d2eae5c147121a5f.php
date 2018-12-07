@@ -106,9 +106,26 @@ class __TwigTemplate_741ba28bc913a1144058fc5ed8f8e0f4988ee240e8d130fef32c38ee556
                     <td>avarpav@gmail.com</td>
                     <td>Paprastas vart.</td>
                     <td>Neužblokuotas</td>
-                    <td><button class=\"btn btn-primary btn-sm btn-block\">Šalinti</button>
-                        <button class=\"btn btn-primary btn-sm btn-block\">Blokuoti / Atblokuoti</button>
-                        <button class=\"btn btn-primary btn-sm btn-block\">Keisti tipą</button></td>
+                    <td><form action=\"";
+        // line 58
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("delete_user");
+        echo "\" method=\"POST\"><input type=\"hidden\" name=\"form[user_id]\" value=\"\">
+                        <button class=\"btn btn-primary btn-sm btn-block\" type=\"submit\">Šalinti</button></form>
+                        <form action=\"";
+        // line 60
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("ban_user");
+        echo "\" method=\"POST\"><input type=\"hidden\" name=\"form[user_id]\" value=\"\">
+                        <button class=\"btn btn-primary btn-sm btn-block\">Blokuoti / Atblokuoti</button></form>
+                        <form action=\"";
+        // line 62
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_type");
+        echo "\" method=\"POST\">
+                            <select name=\"form[user_type]\">
+                                <option value=\"1\">Paprastas</option>
+                                <option value=\"2\">Moderatorius</option>
+                                <option value=\"3\">Administratorius</option>
+                            </select>    
+                        <button class=\"btn btn-primary btn-sm btn-block\">Keisti tipą</button></td></form>
                 </tr>
                 <tr>
                         <td>1234</td>
@@ -147,7 +164,7 @@ class __TwigTemplate_741ba28bc913a1144058fc5ed8f8e0f4988ee240e8d130fef32c38ee556
 
     public function getDebugInfo()
     {
-        return array (  57 => 6,  51 => 5,  39 => 3,  15 => 1,);
+        return array (  121 => 62,  116 => 60,  111 => 58,  57 => 6,  51 => 5,  39 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -209,9 +226,17 @@ class __TwigTemplate_741ba28bc913a1144058fc5ed8f8e0f4988ee240e8d130fef32c38ee556
                     <td>avarpav@gmail.com</td>
                     <td>Paprastas vart.</td>
                     <td>Neužblokuotas</td>
-                    <td><button class=\"btn btn-primary btn-sm btn-block\">Šalinti</button>
-                        <button class=\"btn btn-primary btn-sm btn-block\">Blokuoti / Atblokuoti</button>
-                        <button class=\"btn btn-primary btn-sm btn-block\">Keisti tipą</button></td>
+                    <td><form action=\"{{ path(\"delete_user\") }}\" method=\"POST\"><input type=\"hidden\" name=\"form[user_id]\" value=\"\">
+                        <button class=\"btn btn-primary btn-sm btn-block\" type=\"submit\">Šalinti</button></form>
+                        <form action=\"{{ path(\"ban_user\") }}\" method=\"POST\"><input type=\"hidden\" name=\"form[user_id]\" value=\"\">
+                        <button class=\"btn btn-primary btn-sm btn-block\">Blokuoti / Atblokuoti</button></form>
+                        <form action=\"{{ path(\"user_type\") }}\" method=\"POST\">
+                            <select name=\"form[user_type]\">
+                                <option value=\"1\">Paprastas</option>
+                                <option value=\"2\">Moderatorius</option>
+                                <option value=\"3\">Administratorius</option>
+                            </select>    
+                        <button class=\"btn btn-primary btn-sm btn-block\">Keisti tipą</button></td></form>
                 </tr>
                 <tr>
                         <td>1234</td>

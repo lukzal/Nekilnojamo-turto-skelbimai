@@ -71,37 +71,46 @@ class __TwigTemplate_9386ac9f46cc12bada55685055d1ca42b1c02c0a7e9c346374971e73cec
                     <tbody>
                         <tr>
                             <td>Vartotojo vardas</td>
-                            <td>varpav</td>
+                            <td>";
+        // line 22
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 22, $this->source); })()), "username", array()), "html", null, true);
+        echo "</td>
                           </tr>
                         <tr>
                             <td>Vardas</td>
-                            <td>Vardenis</td>
+                            <td>";
+        // line 26
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 26, $this->source); })()), "name", array()), "html", null, true);
+        echo "</td>
                           </tr>
                         <tr>
                             <td>Pavardė</td>
-                            <td>Pavardenis</td>
+                            <td>";
+        // line 30
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 30, $this->source); })()), "surname", array()), "html", null, true);
+        echo "</td>
                           </tr>
-                      <tr>
-                        <td>Gimimo metai</td>
-                        <td>01/24/1988</td>
-                      </tr>
-                   
-                         <tr>
-                             <tr>
-                        <td>Lytis</td>
-                        <td>Vyras</td>
-                      </tr>
                         <tr>
-                        <td>Adresas</td>
-                        <td>Kaunas</td>
+                        <td>Asmens kodas</td>
+                        <td>";
+        // line 34
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 34, $this->source); })()), "code", array()), "html", null, true);
+        echo "</td>
                       </tr>
                       <tr>
                         <td>E-mail</td>
-                        <td><a href=\"mailto:info@support.com\">info@support.com</a></td>
+                        <td><a href=\"mailto:";
+        // line 38
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 38, $this->source); })()), "email", array()), "html", null, true);
+        echo "\">";
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 38, $this->source); })()), "email", array()), "html", null, true);
+        echo "</a></td>
                       </tr>
                         <td>Telefono numeris</td>
-                        <td>+37012345678
-                        </td>
+                        <td>+";
+        // line 41
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 41, $this->source); })()), "phone", array()), "html", null, true);
+        echo "</td>
                            
                       </tr>
                      
@@ -113,17 +122,10 @@ class __TwigTemplate_9386ac9f46cc12bada55685055d1ca42b1c02c0a7e9c346374971e73cec
               </div>
             </div>
             <center><a href=\"";
-        // line 63
+        // line 52
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("contact");
         echo "\" class=\"btn btn-primary\">Susisiekti</a></center>
             <br>
-            <center>
-                 <div class=\"panel-footer\">
-                        <a href=\"#\" class=\"btn btn-primary\">Naikinti Naudotoją</a>
-                        <a href=\"#\" class=\"btn btn-primary\">Blokuoti Naudotoją</a>
-                        </span>
-                    </div>
-                </center>
           </div>
         </div>
       </div>
@@ -147,7 +149,7 @@ class __TwigTemplate_9386ac9f46cc12bada55685055d1ca42b1c02c0a7e9c346374971e73cec
 
     public function getDebugInfo()
     {
-        return array (  117 => 63,  57 => 5,  51 => 4,  39 => 3,  15 => 1,);
+        return array (  126 => 52,  112 => 41,  104 => 38,  97 => 34,  90 => 30,  83 => 26,  76 => 22,  57 => 5,  51 => 4,  39 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -173,37 +175,26 @@ class __TwigTemplate_9386ac9f46cc12bada55685055d1ca42b1c02c0a7e9c346374971e73cec
                     <tbody>
                         <tr>
                             <td>Vartotojo vardas</td>
-                            <td>varpav</td>
+                            <td>{{ data.username }}</td>
                           </tr>
                         <tr>
                             <td>Vardas</td>
-                            <td>Vardenis</td>
+                            <td>{{ data.name }}</td>
                           </tr>
                         <tr>
                             <td>Pavardė</td>
-                            <td>Pavardenis</td>
+                            <td>{{ data.surname }}</td>
                           </tr>
-                      <tr>
-                        <td>Gimimo metai</td>
-                        <td>01/24/1988</td>
-                      </tr>
-                   
-                         <tr>
-                             <tr>
-                        <td>Lytis</td>
-                        <td>Vyras</td>
-                      </tr>
                         <tr>
-                        <td>Adresas</td>
-                        <td>Kaunas</td>
+                        <td>Asmens kodas</td>
+                        <td>{{ data.code }}</td>
                       </tr>
                       <tr>
                         <td>E-mail</td>
-                        <td><a href=\"mailto:info@support.com\">info@support.com</a></td>
+                        <td><a href=\"mailto:{{ data.email }}\">{{ data.email }}</a></td>
                       </tr>
                         <td>Telefono numeris</td>
-                        <td>+37012345678
-                        </td>
+                        <td>+{{ data.phone }}</td>
                            
                       </tr>
                      
@@ -216,13 +207,6 @@ class __TwigTemplate_9386ac9f46cc12bada55685055d1ca42b1c02c0a7e9c346374971e73cec
             </div>
             <center><a href=\"{{ path(\"contact\") }}\" class=\"btn btn-primary\">Susisiekti</a></center>
             <br>
-            <center>
-                 <div class=\"panel-footer\">
-                        <a href=\"#\" class=\"btn btn-primary\">Naikinti Naudotoją</a>
-                        <a href=\"#\" class=\"btn btn-primary\">Blokuoti Naudotoją</a>
-                        </span>
-                    </div>
-                </center>
           </div>
         </div>
       </div>

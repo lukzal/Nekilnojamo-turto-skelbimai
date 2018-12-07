@@ -11,11 +11,13 @@
       <div class="main">
   
         <h3>Slaptažodžio Priminimas</h3>
-  
-        <form role="form">
+        {% for error in errors %}
+        <p class="badge badge-danger">{{ error.text }}</p>
+      {% endfor %}
+        <form role="form" action="{{ path("remember_pass_proc") }}" method="POST">
           <div class="form-group">
             <label for="inputUsernameEmail">E-mail</label>
-            <input type="email" class="form-control" id="email">
+            <input name="form[email]" type="email" class="form-control" id="email" required>
           </div>
           <button type="submit" class="btn btn btn-primary">
             Pateikti
