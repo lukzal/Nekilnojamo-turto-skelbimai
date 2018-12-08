@@ -63,9 +63,15 @@ class Naudotojai
      */
     private $slaptazodis;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\NekilnojamasTurtas", mappedBy="naudotojas")
+     */
+    private $nekilnojamasTurtas;
+
     public function __construct()
     {
         $this->uzblokuotas = new ArrayCollection();
+        $this->nekilnojamasTurtas = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -196,6 +202,37 @@ class Naudotojai
     public function setSlaptazodis(string $slaptazodis): self
     {
         $this->slaptazodis = $slaptazodis;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|NekilnojamasTurtas[]
+     */
+    public function getNekilnojamasTurtas(): Collection
+    {
+        return $this->nekilnojamasTurtas;
+    }
+
+    public function addNekilnojamasTurtas(NekilnojamasTurtas $nekilnojamasTurtas): self
+    {
+        if (!$this->nekilnojamasTurtas->contains($nekilnojamasTurtas)) {
+            $this->nekilnojamasTurtas[] = $nekilnojamasTurtas;
+            $nekilnojamasTurtas->setNaudotojas($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNekilnojamasTurtas(NekilnojamasTurtas $nekilnojamasTurtas): self
+    {
+        if ($this->nekilnojamasTurtas->contains($nekilnojamasTurtas)) {
+            $this->nekilnojamasTurtas->removeElement($nekilnojamasTurtas);
+            // set the owning side to null (unless already changed)
+            if ($nekilnojamasTurtas->getNaudotojas() === $this) {
+                $nekilnojamasTurtas->setNaudotojas(null);
+            }
+        }
 
         return $this;
     }
