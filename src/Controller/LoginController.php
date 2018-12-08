@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Naudotojai;
+use App\Entity\Blokavimai;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 class LoginController extends AbstractController
@@ -44,6 +45,12 @@ class LoginController extends AbstractController
         if($form->isSubmitted()){
             $data = $form->getData();
             if($this->userExists($data["email"]) && $this->isPasswordCorrect($data["email"], $data["password"])){
+                if($this->isUserBanned($data["email"])){
+                    if(!($this->didBanEnd($data["email"]))){
+                        $data["errors"] = [["text" => "Vartotojas užblokuotas."]];
+                        return $this->render('login/index.html.twig', $data);
+                    }
+                }
                 $session = new Session();
                 $session->start();
                 $session->set('userEmail', $data["email"]);
@@ -100,5 +107,52 @@ class LoginController extends AbstractController
         $type = $userType->getRole();
 
         return $type;
+    }
+
+    private function isUserBanned($email){
+        $user = $this->getDoctrine()
+        ->getRepository(Naudotojai::class)
+        ->findOneBy(["el_pastas" => $email]);
+
+        $id = $user->getId();
+        
+        $banned = $this->getDoctrine()
+        ->getRepository(Blokavimai::class)
+        ->findOneBy(["naudotojo_id" => $id]);
+
+        if(!$banned)
+            return false;
+
+        return true;
+    }
+
+    private function didBanEnd($email){
+        $user = $this->getDoctrine()
+        ->getRepository(Naudotojai::class)
+        ->findOneBy(["el_pastas" => $email]);
+
+        $id = $user->getId();
+        
+        $banned = $this->getDoctrine()
+        ->getRepository(Blokavimai::class)
+        ->findOneBy(["naudotojo_id" => $id]);
+
+        $ended = $banned->getBaigiasi();
+        $now = new \DateTime();
+
+        if($now > $ended){
+            $this->removeBan($banned, $user);
+
+            return true;
+        }
+
+        return false;
+    }
+
+    private function removeBan($ban, $user){
+        $em = $this->getDoctrine()->getManager();
+        $user->removeUzblokuota($ban);
+                $em->remove($ban);
+                $em->flush();
     }
 }

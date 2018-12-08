@@ -107,7 +107,7 @@ class __TwigTemplate_9386ac9f46cc12bada55685055d1ca42b1c02c0a7e9c346374971e73cec
         echo "</a></td>
                       </tr>
                         <td>Telefono numeris</td>
-                        <td>+";
+                        <td>";
         // line 41
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 41, $this->source); })()), "phone", array()), "html", null, true);
         echo "</td>
@@ -194,7 +194,7 @@ class __TwigTemplate_9386ac9f46cc12bada55685055d1ca42b1c02c0a7e9c346374971e73cec
                         <td><a href=\"mailto:{{ data.email }}\">{{ data.email }}</a></td>
                       </tr>
                         <td>Telefono numeris</td>
-                        <td>+{{ data.phone }}</td>
+                        <td>{{ data.phone }}</td>
                            
                       </tr>
                      

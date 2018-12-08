@@ -71,6 +71,7 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     '/admin/users' => array(array('_route' => 'admin_panel_users', '_controller' => 'App\\Controller\\AdminPanelController::users'), null, null, null, false),
                     '/admin/delete_user' => array(array('_route' => 'delete_user', '_controller' => 'App\\Controller\\AdminPanelController::delete'), null, null, null, false),
                     '/admin/ban_user' => array(array('_route' => 'ban_user', '_controller' => 'App\\Controller\\AdminPanelController::ban'), null, null, null, false),
+                    '/admin/unban_user' => array(array('_route' => 'unban_user', '_controller' => 'App\\Controller\\AdminPanelController::unban'), null, null, null, false),
                     '/admin/user_type' => array(array('_route' => 'user_type', '_controller' => 'App\\Controller\\AdminPanelController::changeType'), null, null, null, false),
                     '/comment/new' => array(array('_route' => 'comment', '_controller' => 'App\\Controller\\CommentController::index'), null, null, null, false),
                     '/comment/edit' => array(array('_route' => 'edit_com', '_controller' => 'App\\Controller\\CommentController::edit'), null, null, null, false),
