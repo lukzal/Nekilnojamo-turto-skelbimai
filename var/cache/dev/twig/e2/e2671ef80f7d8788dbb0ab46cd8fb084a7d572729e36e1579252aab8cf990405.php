@@ -101,7 +101,7 @@ class __TwigTemplate_2b0a3a1d7899826cd38ce73562442ab49b83b4c5fa86a37e0f8d810cdc4
                     <h3>Skelbimo Pavadinimas</h3>
                     <span><a href=\"";
         // line 41
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("profile");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("profile", array("id" => 14));
         echo "\">Vardas pavarde</a></span>
                     <div class=\"wp-block property list no-border\">
                         <div class=\"wp-block-content clearfix\">
@@ -316,7 +316,7 @@ class __TwigTemplate_2b0a3a1d7899826cd38ce73562442ab49b83b4c5fa86a37e0f8d810cdc4
             <div class=\"col-md-5\">
                 <div class=\"product-info\">
                     <h3>Skelbimo Pavadinimas</h3>
-                    <span><a href=\"{{ path(\"profile\") }}\">Vardas pavarde</a></span>
+                    <span><a href=\"{{ path(\"profile\", { 'id': 14 }) }}\">Vardas pavarde</a></span>
                     <div class=\"wp-block property list no-border\">
                         <div class=\"wp-block-content clearfix\">
                             <p class=\"description mb-15\">{{ description }}</p>

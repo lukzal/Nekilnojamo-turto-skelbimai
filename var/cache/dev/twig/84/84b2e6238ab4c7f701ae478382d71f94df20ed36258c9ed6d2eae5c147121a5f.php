@@ -67,77 +67,97 @@ class __TwigTemplate_741ba28bc913a1144058fc5ed8f8e0f4988ee240e8d130fef32c38ee556
 
 </style>
 <link href=\"https://www.jqueryscript.net/demo/jQuery-Plugin-For-Sortable-Bootstrap-Tables-Bootstrap-Sortable/Contents/bootstrap-sortable.css\" rel=\"stylesheet\" type=\"text/css\">
-<div class=\"container\">
-    <br/>
-\t<div class=\"row justify-content-center\">
-                        <div class=\"col-12 col-md-8 col-lg-8\">
-                            <form class=\"card card-sm\">
-                                <div class=\"card-body row no-gutters align-items-center\">
-                                    <div class=\"col-auto\">
-                                        <i class=\"fas fa-search h4 text-body\"></i>
-                                    </div>
-                                    <!--end of col-->
-                                    <div class=\"col\">
-                                        <input class=\"form-control form-control-lg form-control-borderless\" type=\"search\" placeholder=\"Ieškoti vartotojų\">
-                                    </div>
-                                    <!--end of col-->
-                                    <div class=\"col-auto\">
-                                        <button class=\"btn btn-lg btn-success\" type=\"submit\">Ieškoti</button>
-                                    </div>
-                                    <!--end of col-->
-                                </div>
-                            </form>
-                        </div>
-                        <!--end of col-->
-                    </div>
-</div>
+
 <br>
 <div class=\"container\">
-\t<div class=\"row\">
+    <h3>Administruoti Naudotojus</h3><br>
+
+    ";
+        // line 24
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["errors"]) || array_key_exists("errors", $context) ? $context["errors"] : (function () { throw new Twig_Error_Runtime('Variable "errors" does not exist.', 24, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["error"]) {
+            // line 25
+            echo "    <p class=\"badge badge-danger\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["error"], "text", array()), "html", null, true);
+            echo "</p>
+  ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['error'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 27
+        echo "\t<div class=\"row\">
         <div class=\"table-responsive col-md-12\">
         <table id=\"sort2\" class=\"grid table table-bordered sortable\">
             <thead>
-                <tr><th>Vart. ID</th><th>Vart. Vardas</th><th>Vart. El. Paštas</th><th>Tipas</th><th>Būsena</th><th>Veiksmai</th></tr>
+                <tr><th>Vart. ID</th><th>Vart. Vardas</th><th>Vart. El. Paštas</th><th>Rolė</th><th>Būsena</th><th>Veiksmai</th></tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>123</td>
-                    <td>varpav</td>
-                    <td>avarpav@gmail.com</td>
-                    <td>Paprastas vart.</td>
-                    <td>Neužblokuotas</td>
+                ";
+        // line 34
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["users"]) || array_key_exists("users", $context) ? $context["users"] : (function () { throw new Twig_Error_Runtime('Variable "users" does not exist.', 34, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["user"]) {
+            // line 35
+            echo "                <tr>
+                    <td>";
+            // line 36
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "id", array()), "html", null, true);
+            echo "</td>
+                    <td>";
+            // line 37
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "username", array()), "html", null, true);
+            echo "</td>
+                    <td>";
+            // line 38
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "email", array()), "html", null, true);
+            echo "</td>
+                    <td>";
+            // line 39
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "type", array()), "html", null, true);
+            echo "</td>
+                    <td>";
+            // line 40
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "banned", array()), "html", null, true);
+            echo "</td>
                     <td><form action=\"";
-        // line 58
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("delete_user");
-        echo "\" method=\"POST\"><input type=\"hidden\" name=\"form[user_id]\" value=\"\">
+            // line 41
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("delete_user");
+            echo "\" method=\"POST\"><input type=\"hidden\" name=\"form[user_id]\" value=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "id", array()), "html", null, true);
+            echo "\">
                         <button class=\"btn btn-primary btn-sm btn-block\" type=\"submit\">Šalinti</button></form>
                         <form action=\"";
-        // line 60
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("ban_user");
-        echo "\" method=\"POST\"><input type=\"hidden\" name=\"form[user_id]\" value=\"\">
+            // line 43
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("ban_user");
+            echo "\" method=\"POST\"><input type=\"hidden\" name=\"form[user_id]\" value=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "id", array()), "html", null, true);
+            echo "\">
                         <button class=\"btn btn-primary btn-sm btn-block\">Blokuoti / Atblokuoti</button></form>
                         <form action=\"";
-        // line 62
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_type");
-        echo "\" method=\"POST\">
-                            <select name=\"form[user_type]\">
+            // line 45
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_type");
+            echo "\" method=\"POST\">  
+                        <input type=\"hidden\" name=\"form[user_id]\" value=\"";
+            // line 46
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "id", array()), "html", null, true);
+            echo "\">
+                        <button class=\"btn btn-primary btn-sm btn-block\">Keisti tipą</button>
+                        <center><select class=\"browser-default custom-select\" name=\"form[user_type]\">
                                 <option value=\"1\">Paprastas</option>
                                 <option value=\"2\">Moderatorius</option>
                                 <option value=\"3\">Administratorius</option>
-                            </select>    
-                        <button class=\"btn btn-primary btn-sm btn-block\">Keisti tipą</button></td></form>
+                            </select></center>
+                    </td></form>
                 </tr>
-                <tr>
-                        <td>1234</td>
-                        <td>varpaav</td>
-                        <td>avarpav@gmail.com</td>
-                        <td>Paprastas vart.</td>
-                        <td>Neužblokuotas</td>
-                        <td><button class=\"btn btn-primary btn-sm btn-block\">Šalinti</button>
-                            <button class=\"btn btn-primary btn-sm btn-block\">Blokuoti / Atblokuoti</button>
-                            <button class=\"btn btn-primary btn-sm btn-block\">Keisti tipą</button></td>
-                    </tr>
-            </tbody>
+                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['user'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 56
+        echo "            </tbody>
         </table>
         </div>
     </div>
@@ -164,7 +184,7 @@ class __TwigTemplate_741ba28bc913a1144058fc5ed8f8e0f4988ee240e8d130fef32c38ee556
 
     public function getDebugInfo()
     {
-        return array (  121 => 62,  116 => 60,  111 => 58,  57 => 6,  51 => 5,  39 => 3,  15 => 1,);
+        return array (  160 => 56,  144 => 46,  140 => 45,  133 => 43,  126 => 41,  122 => 40,  118 => 39,  114 => 38,  110 => 37,  106 => 36,  103 => 35,  99 => 34,  90 => 27,  81 => 25,  77 => 24,  57 => 6,  51 => 5,  39 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -187,67 +207,43 @@ class __TwigTemplate_741ba28bc913a1144058fc5ed8f8e0f4988ee240e8d130fef32c38ee556
 
 </style>
 <link href=\"https://www.jqueryscript.net/demo/jQuery-Plugin-For-Sortable-Bootstrap-Tables-Bootstrap-Sortable/Contents/bootstrap-sortable.css\" rel=\"stylesheet\" type=\"text/css\">
-<div class=\"container\">
-    <br/>
-\t<div class=\"row justify-content-center\">
-                        <div class=\"col-12 col-md-8 col-lg-8\">
-                            <form class=\"card card-sm\">
-                                <div class=\"card-body row no-gutters align-items-center\">
-                                    <div class=\"col-auto\">
-                                        <i class=\"fas fa-search h4 text-body\"></i>
-                                    </div>
-                                    <!--end of col-->
-                                    <div class=\"col\">
-                                        <input class=\"form-control form-control-lg form-control-borderless\" type=\"search\" placeholder=\"Ieškoti vartotojų\">
-                                    </div>
-                                    <!--end of col-->
-                                    <div class=\"col-auto\">
-                                        <button class=\"btn btn-lg btn-success\" type=\"submit\">Ieškoti</button>
-                                    </div>
-                                    <!--end of col-->
-                                </div>
-                            </form>
-                        </div>
-                        <!--end of col-->
-                    </div>
-</div>
+
 <br>
 <div class=\"container\">
+    <h3>Administruoti Naudotojus</h3><br>
+
+    {% for error in errors %}
+    <p class=\"badge badge-danger\">{{ error.text }}</p>
+  {% endfor %}
 \t<div class=\"row\">
         <div class=\"table-responsive col-md-12\">
         <table id=\"sort2\" class=\"grid table table-bordered sortable\">
             <thead>
-                <tr><th>Vart. ID</th><th>Vart. Vardas</th><th>Vart. El. Paštas</th><th>Tipas</th><th>Būsena</th><th>Veiksmai</th></tr>
+                <tr><th>Vart. ID</th><th>Vart. Vardas</th><th>Vart. El. Paštas</th><th>Rolė</th><th>Būsena</th><th>Veiksmai</th></tr>
             </thead>
             <tbody>
+                {% for user in users %}
                 <tr>
-                    <td>123</td>
-                    <td>varpav</td>
-                    <td>avarpav@gmail.com</td>
-                    <td>Paprastas vart.</td>
-                    <td>Neužblokuotas</td>
-                    <td><form action=\"{{ path(\"delete_user\") }}\" method=\"POST\"><input type=\"hidden\" name=\"form[user_id]\" value=\"\">
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.type }}</td>
+                    <td>{{ user.banned }}</td>
+                    <td><form action=\"{{ path(\"delete_user\") }}\" method=\"POST\"><input type=\"hidden\" name=\"form[user_id]\" value=\"{{ user.id }}\">
                         <button class=\"btn btn-primary btn-sm btn-block\" type=\"submit\">Šalinti</button></form>
-                        <form action=\"{{ path(\"ban_user\") }}\" method=\"POST\"><input type=\"hidden\" name=\"form[user_id]\" value=\"\">
+                        <form action=\"{{ path(\"ban_user\") }}\" method=\"POST\"><input type=\"hidden\" name=\"form[user_id]\" value=\"{{ user.id }}\">
                         <button class=\"btn btn-primary btn-sm btn-block\">Blokuoti / Atblokuoti</button></form>
-                        <form action=\"{{ path(\"user_type\") }}\" method=\"POST\">
-                            <select name=\"form[user_type]\">
+                        <form action=\"{{ path(\"user_type\") }}\" method=\"POST\">  
+                        <input type=\"hidden\" name=\"form[user_id]\" value=\"{{ user.id }}\">
+                        <button class=\"btn btn-primary btn-sm btn-block\">Keisti tipą</button>
+                        <center><select class=\"browser-default custom-select\" name=\"form[user_type]\">
                                 <option value=\"1\">Paprastas</option>
                                 <option value=\"2\">Moderatorius</option>
                                 <option value=\"3\">Administratorius</option>
-                            </select>    
-                        <button class=\"btn btn-primary btn-sm btn-block\">Keisti tipą</button></td></form>
+                            </select></center>
+                    </td></form>
                 </tr>
-                <tr>
-                        <td>1234</td>
-                        <td>varpaav</td>
-                        <td>avarpav@gmail.com</td>
-                        <td>Paprastas vart.</td>
-                        <td>Neužblokuotas</td>
-                        <td><button class=\"btn btn-primary btn-sm btn-block\">Šalinti</button>
-                            <button class=\"btn btn-primary btn-sm btn-block\">Blokuoti / Atblokuoti</button>
-                            <button class=\"btn btn-primary btn-sm btn-block\">Keisti tipą</button></td>
-                    </tr>
+                {% endfor %}
             </tbody>
         </table>
         </div>
