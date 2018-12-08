@@ -167,6 +167,6 @@ class __TwigTemplate_6a85674b3b455c85d33cb1e88fbaa81cd7695a906f3bf59836c84981329
         </div>
     </div>
 </div>
-", "@Twig/Exception/traces.html.twig", "C:\\xampp\\htdocs\\vendor\\symfony\\twig-bundle\\Resources\\views\\Exception\\traces.html.twig");
+", "@Twig/Exception/traces.html.twig", "C:\\xampp\\htdocs\\Nekilnojamo-turto-skelbimai\\vendor\\symfony\\twig-bundle\\Resources\\views\\Exception\\traces.html.twig");
     }
 }

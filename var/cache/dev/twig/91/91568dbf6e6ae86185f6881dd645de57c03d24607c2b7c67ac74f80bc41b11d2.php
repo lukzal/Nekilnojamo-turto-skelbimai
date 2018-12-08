@@ -111,6 +111,6 @@ class __TwigTemplate_cf7fa9690ccbb72a1d8363e27e9aa81da358b10ebd9f8e598d0ff6d9981
         </div>
 
 {% endblock %}
-", "contract/edit.html.twig", "C:\\xampp\\htdocs\\templates\\contract\\edit.html.twig");
+", "contract/edit.html.twig", "C:\\xampp\\htdocs\\Nekilnojamo-turto-skelbimai\\templates\\contract\\edit.html.twig");
     }
 }

@@ -468,6 +468,6 @@ class __TwigTemplate_c1bec28cc49b14e7c23fb4cc74424eb4242d3df687838d642dffef0fd8c
         {% endif %}
     </div>
 </div>
-", "@Twig/Exception/exception.html.twig", "C:\\xampp\\htdocs\\vendor\\symfony\\twig-bundle\\Resources\\views\\Exception\\exception.html.twig");
+", "@Twig/Exception/exception.html.twig", "C:\\xampp\\htdocs\\Nekilnojamo-turto-skelbimai\\vendor\\symfony\\twig-bundle\\Resources\\views\\Exception\\exception.html.twig");
     }
 }

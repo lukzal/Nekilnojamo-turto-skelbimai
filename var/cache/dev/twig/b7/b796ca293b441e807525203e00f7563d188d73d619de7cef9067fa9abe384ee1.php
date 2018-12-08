@@ -214,6 +214,6 @@ class __TwigTemplate_3bb03601d04af3e4af3accb39fd506df7593f6c0d810f1b1e0567b2be2d
 <script src=\"https://www.jqueryscript.net/demo/jQuery-Plugin-For-Sortable-Bootstrap-Tables-Bootstrap-Sortable/Scripts/bootstrap-sortable.js\"></script> 
 
 {% endblock %}
-", "contract/index.html.twig", "C:\\xampp\\htdocs\\templates\\contract\\index.html.twig");
+", "contract/index.html.twig", "C:\\xampp\\htdocs\\Nekilnojamo-turto-skelbimai\\templates\\contract\\index.html.twig");
     }
 }

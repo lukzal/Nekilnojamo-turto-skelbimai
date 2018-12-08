@@ -250,6 +250,6 @@ class __TwigTemplate_07db56d8f307049166105d22bee8db5c6a13423cb7adc65b797c91b431b
     </div>
   </div>
 {% endblock %}
-", "registration/index.html.twig", "C:\\xampp\\htdocs\\templates\\registration\\index.html.twig");
+", "registration/index.html.twig", "C:\\xampp\\htdocs\\Nekilnojamo-turto-skelbimai\\templates\\registration\\index.html.twig");
     }
 }

@@ -415,6 +415,6 @@ class __TwigTemplate_d8057c15a274c586e3d847314cbc18d1ae023cbbb70df7e5a9560d7bafb
     });
 
 /*]]>*/</script>
-", "@Twig/base_js.html.twig", "C:\\xampp\\htdocs\\vendor\\symfony\\twig-bundle\\Resources\\views\\base_js.html.twig");
+", "@Twig/base_js.html.twig", "C:\\xampp\\htdocs\\Nekilnojamo-turto-skelbimai\\vendor\\symfony\\twig-bundle\\Resources\\views\\base_js.html.twig");
     }
 }

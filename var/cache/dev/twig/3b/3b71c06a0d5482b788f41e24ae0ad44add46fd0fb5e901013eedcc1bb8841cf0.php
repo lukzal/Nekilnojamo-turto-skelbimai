@@ -160,6 +160,6 @@ class __TwigTemplate_08353ffaf7b8161f4d7fb05ba30a11eb6e9acd8a61afaec684be2b2a66d
     </div>
   </div>
 {% endblock %}
-", "remember_pass/index.html.twig", "C:\\xampp\\htdocs\\templates\\remember_pass\\index.html.twig");
+", "remember_pass/index.html.twig", "C:\\xampp\\htdocs\\Nekilnojamo-turto-skelbimai\\templates\\remember_pass\\index.html.twig");
     }
 }

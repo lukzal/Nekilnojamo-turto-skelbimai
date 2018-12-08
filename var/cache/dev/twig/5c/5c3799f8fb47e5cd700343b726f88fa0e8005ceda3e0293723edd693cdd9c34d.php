@@ -186,6 +186,6 @@ class __TwigTemplate_40d435caf6dbfa7808769e9903458d9faf4b3e52fc8a677617e4086b91e
         {{ include('@Twig/base_js.html.twig') }}
     </body>
 </html>
-", "@Twig/layout.html.twig", "C:\\xampp\\htdocs\\vendor\\symfony\\twig-bundle\\Resources\\views\\layout.html.twig");
+", "@Twig/layout.html.twig", "C:\\xampp\\htdocs\\Nekilnojamo-turto-skelbimai\\vendor\\symfony\\twig-bundle\\Resources\\views\\layout.html.twig");
     }
 }

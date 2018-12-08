@@ -318,6 +318,6 @@ class __TwigTemplate_7dd1a9b75b31e52fddbf81a2416e7f7f8a5a630e923df7af9d747b800c1
         {% block javascripts %}{% endblock %}
     </body>
 </html>
-", "base.html.twig", "C:\\xampp\\htdocs\\templates\\base.html.twig");
+", "base.html.twig", "C:\\xampp\\htdocs\\Nekilnojamo-turto-skelbimai\\templates\\base.html.twig");
     }
 }

@@ -175,6 +175,6 @@ class __TwigTemplate_e4eb9072798c87beeb81a6158862503b8d2a7e6d05ef4b4f955e9f881fc
     </div>
   </div>
 {% endblock %}
-", "login/index.html.twig", "C:\\xampp\\htdocs\\templates\\login\\index.html.twig");
+", "login/index.html.twig", "C:\\xampp\\htdocs\\Nekilnojamo-turto-skelbimai\\templates\\login\\index.html.twig");
     }
 }
