@@ -12,43 +12,43 @@
       <div class="main">
   
         
+          <h3>Naudotojo Registracija</h3>
         {% for error in errors %}
           <p class="badge badge-danger">{{ error.text }}</p>
         {% endfor %}
         {% if data is defined %}
-        <h3>Naudotojo Registracija</h3>
         <form role="form" action="{{ path('register') }}" method="POST">
           <div class="form-group">
             <label for="username">Vartotojo vardas</label>
-            <input name="form[username]" type="text" class="form-control" id="username" placeholder="Vartotojo vardas" value="{{ data.username }}">
+            <input name="form[username]" type="text" class="form-control" id="username" placeholder="Vartotojo vardas" value="{{ data.username }}" required>
           </div>
           <div class="form-group">
             <label for="email">E-mail</label>
-            <input name="form[email]" type="email" class="form-control" id="email" placeholder="E-mail" value="{{ data.email }}" >
+            <input name="form[email]" type="email" class="form-control" id="email" placeholder="E-mail" value="{{ data.email }}" required>
           </div>
           <div class="form-group">
             <label for="name">Vardas</label>
-            <input name="form[name]" type="text" class="form-control" id="name" placeholder="Vardas" value="{{ data.name }}">
+            <input name="form[name]" type="text" class="form-control" id="name" placeholder="Vardas" value="{{ data.name }}" required>
           </div>
           <div class="form-group">
             <label for="surname">Pavarde</label>
-            <input name="form[surname]" type="text" class="form-control" id="surname" placeholder="Pavarde" value="{{ data.surname }}">
+            <input name="form[surname]" type="text" class="form-control" id="surname" placeholder="Pavarde" value="{{ data.surname }}" required >
           </div>
           <div class="form-group">
             <label for="password">Slaptažodis</label>
-            <input name="form[password]" type="password" class="form-control" id="password" placeholder="Slaptažodis"  value="{{ data.password }}">
+            <input name="form[password]" type="password" class="form-control" id="password" placeholder="Slaptažodis"  value="{{ data.password }}" required minlength=4>
           </div>
           <div class="form-group">
             <label for="passwordAgain">Pakartoti slaptažodį</label>
-            <input name="form[password_again]" type="password" class="form-control" id="passwordAgain" placeholder="Pakartoti"  value="{{ data.password }}">
+            <input name="form[password_again]" type="password" class="form-control" id="passwordAgain" placeholder="Pakartoti"  value="{{ data.password }}" required minlength=4>
           </div>
           <div class="form-group">
             <label for="code">Asmens kodas</label>
-            <input name="form[code]" type="number" class="form-control" id="passwordAgain" placeholder="Asmens kodas"  value="{{ data.code }}">
+            <input name="form[code]" type="number" class="form-control" id="passwordAgain" placeholder="Asmens kodas" min="10000000000" max="99999999999" value="{{ data.code }}" required>
           </div>
           <div class="form-group">
             <label for="phone">Telefono nr.</label>
-            <input name="form[phone]" type="text" class="form-control" id="passwordAgain" placeholder="Asmens kodas"  value="{{ data.phone }}">
+            <input name="form[phone]" type="tel" class="form-control" id="passwordAgain" placeholder="Asmens kodas"  value="{{ data.phone }}" required minlength=8>
           </div>
           <button type="submit" class="btn btn btn-primary">
             Registruotis

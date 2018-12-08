@@ -28,6 +28,7 @@ class srcDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
         'admin_panel_users' => array(array(), array('_controller' => 'App\\Controller\\AdminPanelController::users'), array(), array(array('text', '/admin/users')), array(), array()),
         'delete_user' => array(array(), array('_controller' => 'App\\Controller\\AdminPanelController::delete'), array(), array(array('text', '/admin/delete_user')), array(), array()),
         'ban_user' => array(array(), array('_controller' => 'App\\Controller\\AdminPanelController::ban'), array(), array(array('text', '/admin/ban_user')), array(), array()),
+        'unban_user' => array(array(), array('_controller' => 'App\\Controller\\AdminPanelController::unban'), array(), array(array('text', '/admin/unban_user')), array(), array()),
         'user_type' => array(array(), array('_controller' => 'App\\Controller\\AdminPanelController::changeType'), array(), array(array('text', '/admin/user_type')), array(), array()),
         'comment' => array(array(), array('_controller' => 'App\\Controller\\CommentController::index'), array(), array(array('text', '/comment/new')), array(), array()),
         'edit_com' => array(array(), array('_controller' => 'App\\Controller\\CommentController::edit'), array(), array(array('text', '/comment/edit')), array(), array()),

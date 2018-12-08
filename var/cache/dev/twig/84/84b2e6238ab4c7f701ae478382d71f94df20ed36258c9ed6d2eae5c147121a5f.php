@@ -91,7 +91,7 @@ class __TwigTemplate_741ba28bc913a1144058fc5ed8f8e0f4988ee240e8d130fef32c38ee556
         <div class=\"table-responsive col-md-12\">
         <table id=\"sort2\" class=\"grid table table-bordered sortable\">
             <thead>
-                <tr><th>Vart. ID</th><th>Vart. Vardas</th><th>Vart. El. Paštas</th><th>Rolė</th><th>Būsena</th><th>Veiksmai</th></tr>
+                <tr><th>Vart. ID</th><th>Vart. Vardas</th><th>Vart. El. Paštas</th><th>Rolė</th><th>Būsena</th><th>Veiksmai</th><th>Blokavimas</th></tr>
             </thead>
             <tbody>
                 ";
@@ -130,17 +130,10 @@ class __TwigTemplate_741ba28bc913a1144058fc5ed8f8e0f4988ee240e8d130fef32c38ee556
                         <button class=\"btn btn-primary btn-sm btn-block\" type=\"submit\">Šalinti</button></form>
                         <form action=\"";
             // line 43
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("ban_user");
-            echo "\" method=\"POST\"><input type=\"hidden\" name=\"form[user_id]\" value=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "id", array()), "html", null, true);
-            echo "\">
-                        <button class=\"btn btn-primary btn-sm btn-block\">Blokuoti / Atblokuoti</button></form>
-                        <form action=\"";
-            // line 45
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_type");
             echo "\" method=\"POST\">  
                         <input type=\"hidden\" name=\"form[user_id]\" value=\"";
-            // line 46
+            // line 44
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "id", array()), "html", null, true);
             echo "\">
                         <button class=\"btn btn-primary btn-sm btn-block\">Keisti tipą</button>
@@ -149,14 +142,44 @@ class __TwigTemplate_741ba28bc913a1144058fc5ed8f8e0f4988ee240e8d130fef32c38ee556
                                 <option value=\"2\">Moderatorius</option>
                                 <option value=\"3\">Administratorius</option>
                             </select></center>
-                    </td></form>
+                            </form>
+                    </td>
+                    <td>
+                        ";
+            // line 54
+            if ((twig_get_attribute($this->env, $this->source, $context["user"], "banned", array()) == "Neužblokuotas")) {
+                // line 55
+                echo "                        <form action=\"";
+                echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("ban_user");
+                echo "\" method=\"POST\"><input type=\"hidden\" name=\"form[user_id]\" value=\"";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "id", array()), "html", null, true);
+                echo "\">
+                            <input class=\"form-control\" type=\"text\" name=\"form[reason]\" placeholder=\"Priežastis\" required>
+                            <input class=\"form-control\" type=\"date\" name=\"form[ends]\" min=\"";
+                // line 57
+                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, "now", "Y-m-d"), "html", null, true);
+                echo "\" required>
+                        <button class=\"btn btn-primary btn-sm btn-block\">Blokuoti</button></form>
+                        ";
+            } else {
+                // line 60
+                echo "                        <form action=\"";
+                echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("unban_user");
+                echo "\" method=\"POST\"><input type=\"hidden\" name=\"form[user_id]\" value=\"";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "id", array()), "html", null, true);
+                echo "\">
+                        <button class=\"btn btn-primary btn-sm btn-block\">Atblokuoti</button></form>
+                        ";
+            }
+            // line 63
+            echo "                    </td>
                 </tr>
                 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['user'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 56
+        // line 66
         echo "            </tbody>
         </table>
         </div>
@@ -184,7 +207,7 @@ class __TwigTemplate_741ba28bc913a1144058fc5ed8f8e0f4988ee240e8d130fef32c38ee556
 
     public function getDebugInfo()
     {
-        return array (  160 => 56,  144 => 46,  140 => 45,  133 => 43,  126 => 41,  122 => 40,  118 => 39,  114 => 38,  110 => 37,  106 => 36,  103 => 35,  99 => 34,  90 => 27,  81 => 25,  77 => 24,  57 => 6,  51 => 5,  39 => 3,  15 => 1,);
+        return array (  183 => 66,  175 => 63,  166 => 60,  160 => 57,  152 => 55,  150 => 54,  137 => 44,  133 => 43,  126 => 41,  122 => 40,  118 => 39,  114 => 38,  110 => 37,  106 => 36,  103 => 35,  99 => 34,  90 => 27,  81 => 25,  77 => 24,  57 => 6,  51 => 5,  39 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -219,7 +242,7 @@ class __TwigTemplate_741ba28bc913a1144058fc5ed8f8e0f4988ee240e8d130fef32c38ee556
         <div class=\"table-responsive col-md-12\">
         <table id=\"sort2\" class=\"grid table table-bordered sortable\">
             <thead>
-                <tr><th>Vart. ID</th><th>Vart. Vardas</th><th>Vart. El. Paštas</th><th>Rolė</th><th>Būsena</th><th>Veiksmai</th></tr>
+                <tr><th>Vart. ID</th><th>Vart. Vardas</th><th>Vart. El. Paštas</th><th>Rolė</th><th>Būsena</th><th>Veiksmai</th><th>Blokavimas</th></tr>
             </thead>
             <tbody>
                 {% for user in users %}
@@ -231,8 +254,6 @@ class __TwigTemplate_741ba28bc913a1144058fc5ed8f8e0f4988ee240e8d130fef32c38ee556
                     <td>{{ user.banned }}</td>
                     <td><form action=\"{{ path(\"delete_user\") }}\" method=\"POST\"><input type=\"hidden\" name=\"form[user_id]\" value=\"{{ user.id }}\">
                         <button class=\"btn btn-primary btn-sm btn-block\" type=\"submit\">Šalinti</button></form>
-                        <form action=\"{{ path(\"ban_user\") }}\" method=\"POST\"><input type=\"hidden\" name=\"form[user_id]\" value=\"{{ user.id }}\">
-                        <button class=\"btn btn-primary btn-sm btn-block\">Blokuoti / Atblokuoti</button></form>
                         <form action=\"{{ path(\"user_type\") }}\" method=\"POST\">  
                         <input type=\"hidden\" name=\"form[user_id]\" value=\"{{ user.id }}\">
                         <button class=\"btn btn-primary btn-sm btn-block\">Keisti tipą</button>
@@ -241,7 +262,19 @@ class __TwigTemplate_741ba28bc913a1144058fc5ed8f8e0f4988ee240e8d130fef32c38ee556
                                 <option value=\"2\">Moderatorius</option>
                                 <option value=\"3\">Administratorius</option>
                             </select></center>
-                    </td></form>
+                            </form>
+                    </td>
+                    <td>
+                        {% if user.banned == \"Neužblokuotas\" %}
+                        <form action=\"{{ path(\"ban_user\") }}\" method=\"POST\"><input type=\"hidden\" name=\"form[user_id]\" value=\"{{ user.id }}\">
+                            <input class=\"form-control\" type=\"text\" name=\"form[reason]\" placeholder=\"Priežastis\" required>
+                            <input class=\"form-control\" type=\"date\" name=\"form[ends]\" min=\"{{ \"now\"|date(\"Y-m-d\") }}\" required>
+                        <button class=\"btn btn-primary btn-sm btn-block\">Blokuoti</button></form>
+                        {% else %}
+                        <form action=\"{{ path(\"unban_user\") }}\" method=\"POST\"><input type=\"hidden\" name=\"form[user_id]\" value=\"{{ user.id }}\">
+                        <button class=\"btn btn-primary btn-sm btn-block\">Atblokuoti</button></form>
+                        {% endif %}
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>

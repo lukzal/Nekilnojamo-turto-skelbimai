@@ -28,7 +28,7 @@
         <div class="table-responsive col-md-12">
         <table id="sort2" class="grid table table-bordered sortable">
             <thead>
-                <tr><th>Vart. ID</th><th>Vart. Vardas</th><th>Vart. El. Paštas</th><th>Rolė</th><th>Būsena</th><th>Veiksmai</th></tr>
+                <tr><th>Vart. ID</th><th>Vart. Vardas</th><th>Vart. El. Paštas</th><th>Rolė</th><th>Būsena</th><th>Veiksmai</th><th>Blokavimas</th></tr>
             </thead>
             <tbody>
                 {% for user in users %}
@@ -40,8 +40,6 @@
                     <td>{{ user.banned }}</td>
                     <td><form action="{{ path("delete_user") }}" method="POST"><input type="hidden" name="form[user_id]" value="{{ user.id }}">
                         <button class="btn btn-primary btn-sm btn-block" type="submit">Šalinti</button></form>
-                        <form action="{{ path("ban_user") }}" method="POST"><input type="hidden" name="form[user_id]" value="{{ user.id }}">
-                        <button class="btn btn-primary btn-sm btn-block">Blokuoti / Atblokuoti</button></form>
                         <form action="{{ path("user_type") }}" method="POST">  
                         <input type="hidden" name="form[user_id]" value="{{ user.id }}">
                         <button class="btn btn-primary btn-sm btn-block">Keisti tipą</button>
@@ -50,7 +48,19 @@
                                 <option value="2">Moderatorius</option>
                                 <option value="3">Administratorius</option>
                             </select></center>
-                    </td></form>
+                            </form>
+                    </td>
+                    <td>
+                        {% if user.banned == "Neužblokuotas" %}
+                        <form action="{{ path("ban_user") }}" method="POST"><input type="hidden" name="form[user_id]" value="{{ user.id }}">
+                            <input class="form-control" type="text" name="form[reason]" placeholder="Priežastis" required>
+                            <input class="form-control" type="date" name="form[ends]" min="{{ "now"|date("Y-m-d") }}" required>
+                        <button class="btn btn-primary btn-sm btn-block">Blokuoti</button></form>
+                        {% else %}
+                        <form action="{{ path("unban_user") }}" method="POST"><input type="hidden" name="form[user_id]" value="{{ user.id }}">
+                        <button class="btn btn-primary btn-sm btn-block">Atblokuoti</button></form>
+                        {% endif %}
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>

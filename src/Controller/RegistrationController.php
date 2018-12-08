@@ -21,7 +21,8 @@ class RegistrationController extends AbstractController
         $error = [];
         $data["errors"] = $error;
 
-        $data["data"] = ["username" => "", "email" => "email@gmail.com", "name" => "aa", "surname" => "sur", "password" => "pass", "phone" => "+37068375757", "code" => 156165];
+        $data["data"] = ["username" => "", "email" => "", "name" => "", 
+        "surname" => "", "password" => "", "phone" => "", "code" => ""];
 
         return $this->render('registration/index.html.twig', $data);
     }
@@ -64,7 +65,7 @@ class RegistrationController extends AbstractController
                 ->setVardas($data['name'])
                 ->setPavarde($data['surname'])
                 ->setElPastas($data['email'])
-                ->setAsmensKodas($data['code'])
+                ->setAsmensKodas((int)$data['code'])
                 ->setTelefonoNr($data['phone'])
                 ->setRole(1)
                 ->setSlaptazodis($pass);
