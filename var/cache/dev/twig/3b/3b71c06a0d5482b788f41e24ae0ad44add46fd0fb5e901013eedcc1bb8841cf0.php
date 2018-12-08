@@ -75,11 +75,27 @@ class __TwigTemplate_08353ffaf7b8161f4d7fb05ba30a11eb6e9acd8a61afaec684be2b2a66d
       <div class=\"main\">
   
         <h3>Slaptažodžio Priminimas</h3>
-  
-        <form role=\"form\">
+        ";
+        // line 14
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["errors"]) || array_key_exists("errors", $context) ? $context["errors"] : (function () { throw new Twig_Error_Runtime('Variable "errors" does not exist.', 14, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["error"]) {
+            // line 15
+            echo "        <p class=\"badge badge-danger\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["error"], "text", array()), "html", null, true);
+            echo "</p>
+      ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['error'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 17
+        echo "        <form role=\"form\" action=\"";
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("remember_pass_proc");
+        echo "\" method=\"POST\">
           <div class=\"form-group\">
             <label for=\"inputUsernameEmail\">E-mail</label>
-            <input type=\"email\" class=\"form-control\" id=\"email\">
+            <input name=\"form[email]\" type=\"email\" class=\"form-control\" id=\"email\" required>
           </div>
           <button type=\"submit\" class=\"btn btn btn-primary\">
             Pateikti
@@ -108,7 +124,7 @@ class __TwigTemplate_08353ffaf7b8161f4d7fb05ba30a11eb6e9acd8a61afaec684be2b2a66d
 
     public function getDebugInfo()
     {
-        return array (  72 => 8,  66 => 7,  58 => 5,  52 => 4,  40 => 3,  15 => 1,);
+        return array (  93 => 17,  84 => 15,  80 => 14,  72 => 8,  66 => 7,  58 => 5,  52 => 4,  40 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -126,11 +142,13 @@ class __TwigTemplate_08353ffaf7b8161f4d7fb05ba30a11eb6e9acd8a61afaec684be2b2a66d
       <div class=\"main\">
   
         <h3>Slaptažodžio Priminimas</h3>
-  
-        <form role=\"form\">
+        {% for error in errors %}
+        <p class=\"badge badge-danger\">{{ error.text }}</p>
+      {% endfor %}
+        <form role=\"form\" action=\"{{ path(\"remember_pass_proc\") }}\" method=\"POST\">
           <div class=\"form-group\">
             <label for=\"inputUsernameEmail\">E-mail</label>
-            <input type=\"email\" class=\"form-control\" id=\"email\">
+            <input name=\"form[email]\" type=\"email\" class=\"form-control\" id=\"email\" required>
           </div>
           <button type=\"submit\" class=\"btn btn btn-primary\">
             Pateikti

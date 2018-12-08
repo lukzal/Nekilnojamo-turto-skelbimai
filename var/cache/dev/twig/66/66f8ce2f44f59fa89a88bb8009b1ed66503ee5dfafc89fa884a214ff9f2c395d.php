@@ -82,7 +82,7 @@ class __TwigTemplate_e4eb9072798c87beeb81a6158862503b8d2a7e6d05ef4b4f955e9f881fc
         $context['_seq'] = twig_ensure_traversable((isset($context["errors"]) || array_key_exists("errors", $context) ? $context["errors"] : (function () { throw new Twig_Error_Runtime('Variable "errors" does not exist.', 15, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["error"]) {
             // line 16
-            echo "          <p>";
+            echo "          <p class=\"badge badge-danger\">";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["error"], "text", array()), "html", null, true);
             echo "</p>
         ";
@@ -153,7 +153,7 @@ class __TwigTemplate_e4eb9072798c87beeb81a6158862503b8d2a7e6d05ef4b4f955e9f881fc
   
         <h3>Prisijungimas</h3>
         {% for error in errors %}
-          <p>{{ error.text }}</p>
+          <p class=\"badge badge-danger\">{{ error.text }}</p>
         {% endfor %}
         <form role=\"form\" action=\"{{ path('log') }}\" method=\"post\">
           <div class=\"form-group\">

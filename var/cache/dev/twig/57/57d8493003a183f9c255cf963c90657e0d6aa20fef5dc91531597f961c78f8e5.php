@@ -81,7 +81,7 @@ class __TwigTemplate_07db56d8f307049166105d22bee8db5c6a13423cb7adc65b797c91b431b
         $context['_seq'] = twig_ensure_traversable((isset($context["errors"]) || array_key_exists("errors", $context) ? $context["errors"] : (function () { throw new Twig_Error_Runtime('Variable "errors" does not exist.', 15, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["error"]) {
             // line 16
-            echo "          <p>";
+            echo "          <p class=\"badge badge-danger\">";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["error"], "text", array()), "html", null, true);
             echo "</p>
         ";
@@ -203,7 +203,7 @@ class __TwigTemplate_07db56d8f307049166105d22bee8db5c6a13423cb7adc65b797c91b431b
   
         
         {% for error in errors %}
-          <p>{{ error.text }}</p>
+          <p class=\"badge badge-danger\">{{ error.text }}</p>
         {% endfor %}
         {% if data is defined %}
         <h3>Naudotojo Registracija</h3>
