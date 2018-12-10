@@ -97,17 +97,25 @@ class __TwigTemplate_3bb03601d04af3e4af3accb39fd506df7593f6c0d810f1b1e0567b2be2d
         <div class=\"table-responsive col-md-12\">
         <table id=\"sort2\" class=\"grid table table-bordered sortable\">
             <thead>
-                <tr><th>Sutar. ID</th><th>Vart. Vardas</th><th>Vart. El. Paštas</th><th>Būsena</th><th>Veiksmai</th></tr>
+                <tr><th>Sutarties nr</th><th>Pirkėjas</th><th>Data</th><th>Veiksmai</th></tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>123</td>
-                    <td>varpav</td>
-                    <td>avarpav@gmail.com</td>
-                    <td>Pasirašyta</td>
+                    <td>";
+        // line 53
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["sutartis"]) || array_key_exists("sutartis", $context) ? $context["sutartis"] : (function () { throw new Twig_Error_Runtime('Variable "sutartis" does not exist.', 53, $this->source); })()), "id", array()), "html", null, true);
+        echo "</td>
+                    <td>";
+        // line 54
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["sutartis"]) || array_key_exists("sutartis", $context) ? $context["sutartis"] : (function () { throw new Twig_Error_Runtime('Variable "sutartis" does not exist.', 54, $this->source); })()), "numeris", array()), "html", null, true);
+        echo "</td>
+                    <td>";
+        // line 55
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["sutartis"]) || array_key_exists("sutartis", $context) ? $context["sutartis"] : (function () { throw new Twig_Error_Runtime('Variable "sutartis" does not exist.', 55, $this->source); })()), "numeris", array()), "html", null, true);
+        echo "</td>
                     <td><button class=\"btn btn-primary btn-sm btn-block\">Patvirtinti / Nutraukti</button>
                         <a href=\"";
-        // line 58
+        // line 57
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("edit_contracts");
         echo "\" class=\"btn btn-primary btn-sm btn-block\">Redaguoti</a>
                         <button class=\"btn btn-primary btn-sm btn-block\">Siusti kopiją</button></td>
@@ -139,7 +147,7 @@ class __TwigTemplate_3bb03601d04af3e4af3accb39fd506df7593f6c0d810f1b1e0567b2be2d
 
     public function getDebugInfo()
     {
-        return array (  111 => 58,  57 => 6,  51 => 5,  39 => 3,  15 => 1,);
+        return array (  119 => 57,  114 => 55,  110 => 54,  106 => 53,  57 => 6,  51 => 5,  39 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -192,14 +200,13 @@ class __TwigTemplate_3bb03601d04af3e4af3accb39fd506df7593f6c0d810f1b1e0567b2be2d
         <div class=\"table-responsive col-md-12\">
         <table id=\"sort2\" class=\"grid table table-bordered sortable\">
             <thead>
-                <tr><th>Sutar. ID</th><th>Vart. Vardas</th><th>Vart. El. Paštas</th><th>Būsena</th><th>Veiksmai</th></tr>
+                <tr><th>Sutarties nr</th><th>Pirkėjas</th><th>Data</th><th>Veiksmai</th></tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>123</td>
-                    <td>varpav</td>
-                    <td>avarpav@gmail.com</td>
-                    <td>Pasirašyta</td>
+                    <td>{{ sutartis.id }}</td>
+                    <td>{{ sutartis.numeris }}</td>
+                    <td>{{ sutartis.numeris }}</td>
                     <td><button class=\"btn btn-primary btn-sm btn-block\">Patvirtinti / Nutraukti</button>
                         <a href=\"{{ path(\"edit_contracts\") }}\" class=\"btn btn-primary btn-sm btn-block\">Redaguoti</a>
                         <button class=\"btn btn-primary btn-sm btn-block\">Siusti kopiją</button></td>

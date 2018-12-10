@@ -46,18 +46,27 @@
         <div class="table-responsive col-md-12">
         <table id="sort2" class="grid table table-bordered sortable">
             <thead>
-                <tr><th>Sutar. ID</th><th>Vart. Vardas</th><th>Vart. El. Paštas</th><th>Būsena</th><th>Veiksmai</th></tr>
+                <tr><th>Sutarties numeris</th><th>Papildomos sąlygos</th><th>Veiksmai</th></tr>
             </thead>
             <tbody>
+            {% for sutartis in sutartys%}
                 <tr>
-                    <td>123</td>
-                    <td>varpav</td>
-                    <td>avarpav@gmail.com</td>
-                    <td>Pasirašyta</td>
-                    <td><button class="btn btn-primary btn-sm btn-block">Patvirtinti / Nutraukti</button>
-                        <a href="{{ path("edit_contracts") }}" class="btn btn-primary btn-sm btn-block">Redaguoti</a>
-                        <button class="btn btn-primary btn-sm btn-block">Siusti kopiją</button></td>
+                    <td>{{ sutartis.numeris }}</td>
+                    <td>{{ sutartis.papildomossalygos }}</td>
+                    <td><form method="POST" name="salinti">
+                            <option value="{{sutartis.id}}"></option>
+                    <button type="submit" name="salinti" class="btn btn-primary btn-sm btn-block">Nutraukti</button>
+                    </form>
+                     <form action="{{ path("edit_contracts") }}" method="POST" name="redaguoti">
+                            <option value="{{sutartis.id}}"></option>
+                    <button type="submit" name="redaguoti" class="btn btn-primary btn-sm btn-block">Redaguoti</button>
+                    </form>
+                     <form method="POST" name="siusti">
+                            <option value="{{sutartis.id}}"></option>
+                    <button type="submit" name="siusti" class="btn btn-primary btn-sm btn-block">Siusti kopiją</button>
+                    </form></td>
                 </tr>
+            {% endfor %}
             </tbody>
         </table>
         </div>

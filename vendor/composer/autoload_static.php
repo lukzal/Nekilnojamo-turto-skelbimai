@@ -29,6 +29,7 @@ class ComposerStaticInitf2602d1d95c7fb7307cd95b497d9cb7f
             'Symfony\\Component\\Yaml\\' => 23,
             'Symfony\\Component\\Validator\\' => 28,
             'Symfony\\Component\\Translation\\' => 30,
+            'Symfony\\Component\\Security\\' => 27,
             'Symfony\\Component\\Routing\\' => 26,
             'Symfony\\Component\\PropertyAccess\\' => 33,
             'Symfony\\Component\\OptionsResolver\\' => 34,
@@ -48,6 +49,7 @@ class ComposerStaticInitf2602d1d95c7fb7307cd95b497d9cb7f
             'Symfony\\Component\\Cache\\' => 24,
             'Symfony\\Bundle\\TwigBundle\\' => 26,
             'Symfony\\Bundle\\SwiftmailerBundle\\' => 33,
+            'Symfony\\Bundle\\SecurityBundle\\' => 30,
             'Symfony\\Bundle\\MakerBundle\\' => 27,
             'Symfony\\Bundle\\FrameworkBundle\\' => 31,
             'Symfony\\Bridge\\Twig\\' => 20,
@@ -120,6 +122,10 @@ class ComposerStaticInitf2602d1d95c7fb7307cd95b497d9cb7f
         'Symfony\\Component\\Translation\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/translation',
+        ),
+        'Symfony\\Component\\Security\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/security',
         ),
         'Symfony\\Component\\Routing\\' => 
         array (
@@ -196,6 +202,10 @@ class ComposerStaticInitf2602d1d95c7fb7307cd95b497d9cb7f
         'Symfony\\Bundle\\SwiftmailerBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/swiftmailer-bundle',
+        ),
+        'Symfony\\Bundle\\SecurityBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/security-bundle',
         ),
         'Symfony\\Bundle\\MakerBundle\\' => 
         array (

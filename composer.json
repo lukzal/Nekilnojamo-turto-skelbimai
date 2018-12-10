@@ -13,6 +13,8 @@
         "symfony/form": "*",
         "symfony/framework-bundle": "*",
         "symfony/orm-pack": "^1.0",
+        "symfony/security": "4.1.*",
+        "symfony/security-bundle": "4.1.*",
         "symfony/swiftmailer-bundle": "^3.2",
         "symfony/twig-bundle": "*",
         "symfony/validator": "4.1.*",
