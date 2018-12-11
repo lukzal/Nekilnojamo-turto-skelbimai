@@ -47,6 +47,11 @@ class RememberPassController extends AbstractController
                 $error = [["text" => "Laukelis turi būti užpildytas!"]];
                 $data["errors"] = $error;
                 return $this->render('remember_pass/index.html.twig', $data);
+            }elseif(!($this->userExists($data["email"]))){
+                $data = [];
+                $error = [["text" => "Vartotojas tokiu el. paštu neegzistuoja!"]];
+                $data["errors"] = $error;
+                return $this->render('remember_pass/index.html.twig', $data);
             }
 
             $newPass = $this->generateRandomString(10);
@@ -75,7 +80,7 @@ class RememberPassController extends AbstractController
 
             
             $data = [];
-            $error = [["text" => "Naujas slaptazodis issiustas, jei nurodytas vartotojas egzistuoja"]];
+            $error = [["text" => "Naujas slaptazodis issiustas"]];
             $data["errors"] = $error;
             return $this->render('remember_pass/index.html.twig', $data);
         }
@@ -89,6 +94,18 @@ class RememberPassController extends AbstractController
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
         return $randomString;
+    }
+
+    private function userExists($email){
+        $userByEmail = $this->getDoctrine()
+        ->getRepository(Naudotojai::class)
+        ->findOneBy(["el_pastas" => $email]);
+
+        if(!$userByEmail){
+            return false;
+        }
+
+        return true;
     }
 
 
