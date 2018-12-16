@@ -1,6 +1,6 @@
 <?php
 
-namespace ContainerVaxeX2j;
+namespace ContainerKFR1VN4;
 
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;

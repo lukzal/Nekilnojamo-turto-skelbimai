@@ -34,13 +34,24 @@ class Skelbimas
     /**
      * @ORM\Column(type="datetime")
      */
-    private $galiojimo_pabaiga;
+    private $galiojimo_data;
 
     /**
      * @ORM\Column(type="decimal", precision=10, scale=2)
      */
     private $kaina;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Naudotojai")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $pardavejas;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\NekilnojamasTurtas", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $nekilnojamas_turtas;
 
     public function getId(): ?int
     {
@@ -83,14 +94,14 @@ class Skelbimas
         return $this;
     }
 
-    public function getGaliojimoPabaiga(): ?\DateTimeInterface
+    public function getGaliojimoData(): ?\DateTimeInterface
     {
-        return $this->galiojimo_pabaiga;
+        return $this->galiojimo_data;
     }
 
-    public function setGaliojimoPabaiga(\DateTimeInterface $galiojimo_pabaiga): self
+    public function setGaliojimoData(\DateTimeInterface $galiojimo_data): self
     {
-        $this->galiojimo_pabaiga = $galiojimo_pabaiga;
+        $this->galiojimo_data = $galiojimo_data;
 
         return $this;
     }
@@ -103,6 +114,30 @@ class Skelbimas
     public function setKaina($kaina): self
     {
         $this->kaina = $kaina;
+
+        return $this;
+    }
+
+    public function getPardavejas(): ?Naudotojai
+    {
+        return $this->pardavejas;
+    }
+
+    public function setPardavejas(?Naudotojai $pardavejas): self
+    {
+        $this->pardavejas = $pardavejas;
+
+        return $this;
+    }
+
+    public function getNekilnojamasTurtas(): ?NekilnojamasTurtas
+    {
+        return $this->nekilnojamas_turtas;
+    }
+
+    public function setNekilnojamasTurtas(NekilnojamasTurtas $nekilnojamas_turtas): self
+    {
+        $this->nekilnojamas_turtas = $nekilnojamas_turtas;
 
         return $this;
     }

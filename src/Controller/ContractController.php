@@ -34,7 +34,7 @@ class ContractController extends AbstractController
         $saugojamosSutartys = [];
         foreach($sutartys as $sut) {
             foreach($nekilnojamasturtas as $nek)
-            if ($sut->getNekilnojamasTurtas()->getId() == $nek->getId()){
+            if ($sut->getBustas()->getId() == $nek->getId()){
                 $saugojamosSutartys[] = $sut;
             }
                 

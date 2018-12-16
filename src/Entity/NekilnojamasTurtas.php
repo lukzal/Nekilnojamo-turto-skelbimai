@@ -22,6 +22,22 @@ class NekilnojamasTurtas
     private $namo_numeris;
 
     /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Naudotojai")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $naudotojas;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Butas")
+     */
+    private $buto_numeris;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Namas")
+     */
+    private $sklypo_plotas;
+
+    /**
      * @ORM\Column(type="integer")
      */
     private $plotas;
@@ -54,7 +70,7 @@ class NekilnojamasTurtas
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $gatves_adresas;
+    private $gatves_numeris;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -79,6 +95,42 @@ class NekilnojamasTurtas
     public function setNamoNumeris(int $namo_numeris): self
     {
         $this->namo_numeris = $namo_numeris;
+
+        return $this;
+    }
+
+    public function getNaudotojas(): ?Naudotojai
+    {
+        return $this->naudotojas;
+    }
+
+    public function setNaudotojas(?Naudotojai $naudotojas): self
+    {
+        $this->naudotojas = $naudotojas;
+
+        return $this;
+    }
+
+    public function getButoNumeris(): ?Butas
+    {
+        return $this->buto_numeris;
+    }
+
+    public function setButoNumeris(?Butas $buto_numeris): self
+    {
+        $this->buto_numeris = $buto_numeris;
+
+        return $this;
+    }
+
+    public function getSklypoPlotas(): ?Namas
+    {
+        return $this->sklypo_plotas;
+    }
+
+    public function setSklypoPlotas(?Namas $sklypo_plotas): self
+    {
+        $this->sklypo_plotas = $sklypo_plotas;
 
         return $this;
     }
@@ -155,14 +207,14 @@ class NekilnojamasTurtas
         return $this;
     }
 
-    public function getGatvesAdresas(): ?string
+    public function getGatvesNumeris(): ?string
     {
-        return $this->gatves_adresas;
+        return $this->gatves_numeris;
     }
 
-    public function setGatvesAdresas(string $gatves_adresas): self
+    public function setGatvesNumeris(string $gatves_numeris): self
     {
-        $this->gatves_adresas = $gatves_adresas;
+        $this->gatves_numeris = $gatves_numeris;
 
         return $this;
     }
