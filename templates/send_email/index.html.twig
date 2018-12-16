@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Siųsti sutarties kopiją{% endblock %}
+{% block includes %}
+<link href="/templates/send_email/style.css" rel="stylesheet">
+{% endblock %}
+{% block body %}
+<div class="container bootstrap snippet">
+    <div class="row">
+      <div class="main">
+        <h3>Sutarties kopijos siuntimas</h3>
+        <form role="form" action="{{ path("send_email_proc") }}" method="POST">
+          <div class="form-group">
+            <label for="inputEmail">Jūsų elektroninio pašto adresas</label>
+            <input name="form[email]" type="email" class="form-control" id="email" required>
+          </div>
+          <button type="submit" class="btn btn btn-primary">
+            Siųsti
+          </button>
+        </form>
+      
+      </div>
+      
+    </div>
+  </div>
+{% endblock %}

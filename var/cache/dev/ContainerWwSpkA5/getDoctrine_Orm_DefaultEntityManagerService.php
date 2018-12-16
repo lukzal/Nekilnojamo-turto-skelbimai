@@ -54,6 +54,8 @@ $a->setRepositoryFactory(new \Doctrine\Bundle\DoctrineBundle\Repository\Containe
     return ($this->privates['App\Repository\NaudotojaiRepository'] ?? $this->load('getNaudotojaiRepositoryService.php'));
 }, 'App\\Repository\\NekilnojamasTurtasRepository' => function () {
     return ($this->privates['App\Repository\NekilnojamasTurtasRepository'] ?? $this->load('getNekilnojamasTurtasRepositoryService.php'));
+}, 'App\\Repository\\NuomaRepository' => function () {
+    return ($this->privates['App\Repository\NuomaRepository'] ?? $this->load('getNuomaRepositoryService.php'));
 }, 'App\\Repository\\PirkimasRepository' => function () {
     return ($this->privates['App\Repository\PirkimasRepository'] ?? $this->load('getPirkimasRepositoryService.php'));
 }, 'App\\Repository\\SkelbimasRepository' => function () {

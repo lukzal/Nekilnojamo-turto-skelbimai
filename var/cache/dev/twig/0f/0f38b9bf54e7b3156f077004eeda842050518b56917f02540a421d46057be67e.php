@@ -109,7 +109,7 @@ class __TwigTemplate_b27b85a54f0a52b7b3544060314e19a11f79e5163a1339380ae920dbd32
             echo "                <tr>
                     <td>";
             // line 54
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["sutartis"], "numeris", array()), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["sutartis"], "id", array()), "html", null, true);
             echo "</td>
                     <td>";
             // line 55
@@ -229,7 +229,7 @@ class __TwigTemplate_b27b85a54f0a52b7b3544060314e19a11f79e5163a1339380ae920dbd32
             <tbody>
             {% for sutartis in sutartys%}
                 <tr>
-                    <td>{{ sutartis.numeris }}</td>
+                    <td>{{ sutartis.id }}</td>
                     <td>{{ sutartis.papildomossalygos }}</td>
                       <td><form action=\"{{ path(\"delete_sutartis\") }}\" method=\"POST\"><input type=\"hidden\" name=\"form[sutartis_id]\" value=\"{{ sutartis.id }}\">
                         <button class=\"btn btn-primary btn-sm btn-block\" type=\"submit\">Nutraukti</button></form>

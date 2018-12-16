@@ -51,7 +51,7 @@
             <tbody>
             {% for sutartis in sutartys%}
                 <tr>
-                    <td>{{ sutartis.numeris }}</td>
+                    <td>{{ sutartis.id }}</td>
                     <td>{{ sutartis.papildomossalygos }}</td>
                       <td><form action="{{ path("delete_sutartis") }}" method="POST"><input type="hidden" name="form[sutartis_id]" value="{{ sutartis.id }}">
                         <button class="btn btn-primary btn-sm btn-block" type="submit">Nutraukti</button></form>

@@ -393,7 +393,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
       <tag name="controller.argument_value_resolver" priority="-50"/>
-      <argument type="service" id=".service_locator._CHxP5E"/>
+      <argument type="service" id=".service_locator.G1judhc"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false">
       <tag name="controller.argument_value_resolver" priority="-100"/>
@@ -538,14 +538,6 @@
       </call>
       <call method="addListener">
         <argument>kernel.request</argument>
-        <argument type="collection">
-          <argument type="service" id="debug.debug_handlers_listener"/>
-          <argument>configure</argument>
-        </argument>
-        <argument>2048</argument>
-      </call>
-      <call method="addListener">
-        <argument>console.command</argument>
         <argument type="collection">
           <argument type="service" id="debug.debug_handlers_listener"/>
           <argument>configure</argument>
@@ -3680,10 +3672,12 @@
         <argument key="mailer" type="service" id="swiftmailer.mailer.default"/>
       </argument>
     </service>
-    <service id=".service_locator._CHxP5E" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.G1judhc" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Controller\ContractController::siusti_proc" type="service" id=".service_locator.3FFBWiy"/>
         <argument key="App\Controller\RememberPassController::proc" type="service" id=".service_locator.3FFBWiy"/>
+        <argument key="App\Controller\ContractController:siusti_proc" type="service" id=".service_locator.3FFBWiy"/>
         <argument key="App\Controller\RememberPassController:proc" type="service" id=".service_locator.3FFBWiy"/>
       </argument>
     </service>
@@ -4107,7 +4101,7 @@
     <service id="security.authentication.session_strategy.main" alias="security.authentication.session_strategy"/>
     <service id="security.user_checker.main" alias="security.user_checker" public="false"/>
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator._CHxP5E"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.G1judhc"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface" alias="logger" public="false"/>

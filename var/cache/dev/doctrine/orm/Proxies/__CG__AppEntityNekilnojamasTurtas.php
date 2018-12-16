@@ -64,10 +64,10 @@ class NekilnojamasTurtas extends \App\Entity\NekilnojamasTurtas implements \Doct
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'id', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'namo_numeris', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'plotas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'kambariu_skaicius', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'pastato_tipas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'metai', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'sildymas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'apsauga', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'gatves_adresas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'miestas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'aukstai', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'sklypo_plotas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'buto_numeris', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'naudotojas'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'id', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'namo_numeris', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'naudotojas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'buto_numeris', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'sklypo_plotas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'plotas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'kambariu_skaicius', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'pastato_tipas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'metai', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'sildymas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'apsauga', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'gatves_numeris', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'miestas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'aukstai'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'id', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'namo_numeris', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'plotas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'kambariu_skaicius', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'pastato_tipas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'metai', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'sildymas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'apsauga', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'gatves_adresas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'miestas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'aukstai', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'sklypo_plotas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'buto_numeris', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'naudotojas'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'id', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'namo_numeris', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'naudotojas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'buto_numeris', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'sklypo_plotas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'plotas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'kambariu_skaicius', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'pastato_tipas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'metai', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'sildymas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'apsauga', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'gatves_numeris', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'miestas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'aukstai'];
     }
 
     /**
@@ -213,6 +213,72 @@ class NekilnojamasTurtas extends \App\Entity\NekilnojamasTurtas implements \Doct
     /**
      * {@inheritDoc}
      */
+    public function getNaudotojas(): ?\App\Entity\Naudotojai
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNaudotojas', []);
+
+        return parent::getNaudotojas();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setNaudotojas(?\App\Entity\Naudotojai $naudotojas): \App\Entity\NekilnojamasTurtas
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNaudotojas', [$naudotojas]);
+
+        return parent::setNaudotojas($naudotojas);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getButoNumeris(): ?\App\Entity\Butas
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getButoNumeris', []);
+
+        return parent::getButoNumeris();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setButoNumeris(?\App\Entity\Butas $buto_numeris): \App\Entity\NekilnojamasTurtas
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setButoNumeris', [$buto_numeris]);
+
+        return parent::setButoNumeris($buto_numeris);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getSklypoPlotas(): ?\App\Entity\Namas
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSklypoPlotas', []);
+
+        return parent::getSklypoPlotas();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setSklypoPlotas(?\App\Entity\Namas $sklypo_plotas): \App\Entity\NekilnojamasTurtas
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSklypoPlotas', [$sklypo_plotas]);
+
+        return parent::setSklypoPlotas($sklypo_plotas);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function getPlotas(): ?int
     {
 
@@ -345,23 +411,23 @@ class NekilnojamasTurtas extends \App\Entity\NekilnojamasTurtas implements \Doct
     /**
      * {@inheritDoc}
      */
-    public function getGatvesAdresas(): ?string
+    public function getGatvesNumeris(): ?string
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getGatvesAdresas', []);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getGatvesNumeris', []);
 
-        return parent::getGatvesAdresas();
+        return parent::getGatvesNumeris();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function setGatvesAdresas(string $gatves_adresas): \App\Entity\NekilnojamasTurtas
+    public function setGatvesNumeris(string $gatves_numeris): \App\Entity\NekilnojamasTurtas
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setGatvesAdresas', [$gatves_adresas]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setGatvesNumeris', [$gatves_numeris]);
 
-        return parent::setGatvesAdresas($gatves_adresas);
+        return parent::setGatvesNumeris($gatves_numeris);
     }
 
     /**
@@ -406,72 +472,6 @@ class NekilnojamasTurtas extends \App\Entity\NekilnojamasTurtas implements \Doct
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAukstai', [$aukstai]);
 
         return parent::setAukstai($aukstai);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getSklypoPlotas(): ?\App\Entity\Namas
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSklypoPlotas', []);
-
-        return parent::getSklypoPlotas();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setSklypoPlotas(?\App\Entity\Namas $sklypo_plotas): \App\Entity\NekilnojamasTurtas
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSklypoPlotas', [$sklypo_plotas]);
-
-        return parent::setSklypoPlotas($sklypo_plotas);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getButoNumeris(): ?\App\Entity\Butas
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getButoNumeris', []);
-
-        return parent::getButoNumeris();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setButoNumeris(?\App\Entity\Butas $buto_numeris): \App\Entity\NekilnojamasTurtas
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setButoNumeris', [$buto_numeris]);
-
-        return parent::setButoNumeris($buto_numeris);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getNaudotojas(): ?\App\Entity\Naudotojai
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNaudotojas', []);
-
-        return parent::getNaudotojas();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setNaudotojas(?\App\Entity\Naudotojai $naudotojas): \App\Entity\NekilnojamasTurtas
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNaudotojas', [$naudotojas]);
-
-        return parent::setNaudotojas($naudotojas);
     }
 
 }

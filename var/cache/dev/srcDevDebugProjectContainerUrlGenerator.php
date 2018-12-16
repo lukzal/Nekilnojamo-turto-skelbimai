@@ -35,6 +35,7 @@ class srcDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
         'contracts' => array(array(), array('_controller' => 'App\\Controller\\ContractController::index'), array(), array(array('text', '/contracts')), array(), array()),
         'delete_sutartis' => array(array(), array('_controller' => 'App\\Controller\\ContractController::dalete'), array(), array(array('text', '/contracts/dalete')), array(), array()),
         'siusti_kopija' => array(array(), array('_controller' => 'App\\Controller\\ContractController::siusti'), array(), array(array('text', '/contracts/siusti')), array(), array()),
+        'send_email_proc' => array(array(), array('_controller' => 'App\\Controller\\ContractController::siusti_proc'), array(), array(array('text', '/contracts/siusti_proc')), array(), array()),
         'sign_contracts' => array(array(), array('_controller' => 'App\\Controller\\ContractController::sign'), array(), array(array('text', '/contracts/sign')), array(), array()),
         'edit_contracts' => array(array(), array('_controller' => 'App\\Controller\\ContractController::edit'), array(), array(array('text', '/contracts/edit')), array(), array()),
         'edit_contracts_proc' => array(array(), array('_controller' => 'App\\Controller\\ContractController::edit_proc'), array(), array(array('text', '/contracts/edit_contracts_proc')), array(), array()),

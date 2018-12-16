@@ -78,6 +78,7 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     '/contracts' => array(array('_route' => 'contracts', '_controller' => 'App\\Controller\\ContractController::index'), null, null, null, false),
                     '/contracts/dalete' => array(array('_route' => 'delete_sutartis', '_controller' => 'App\\Controller\\ContractController::dalete'), null, null, null, false),
                     '/contracts/siusti' => array(array('_route' => 'siusti_kopija', '_controller' => 'App\\Controller\\ContractController::siusti'), null, null, null, false),
+                    '/contracts/siusti_proc' => array(array('_route' => 'send_email_proc', '_controller' => 'App\\Controller\\ContractController::siusti_proc'), null, null, null, false),
                     '/contracts/sign' => array(array('_route' => 'sign_contracts', '_controller' => 'App\\Controller\\ContractController::sign'), null, null, null, false),
                     '/contracts/edit' => array(array('_route' => 'edit_contracts', '_controller' => 'App\\Controller\\ContractController::edit'), null, null, null, false),
                     '/contracts/edit_contracts_proc' => array(array('_route' => 'edit_contracts_proc', '_controller' => 'App\\Controller\\ContractController::edit_proc'), null, null, null, false),
