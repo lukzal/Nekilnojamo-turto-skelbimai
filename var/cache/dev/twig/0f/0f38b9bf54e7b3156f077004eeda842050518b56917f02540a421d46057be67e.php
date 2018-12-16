@@ -115,37 +115,35 @@ class __TwigTemplate_b27b85a54f0a52b7b3544060314e19a11f79e5163a1339380ae920dbd32
             // line 55
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["sutartis"], "papildomossalygos", array()), "html", null, true);
             echo "</td>
-                    <td><form method=\"POST\" name=\"salinti\">
-                            <option value=\"";
-            // line 57
+                      <td><form action=\"";
+            // line 56
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("delete_sutartis");
+            echo "\" method=\"POST\"><input type=\"hidden\" name=\"form[sutartis_id]\" value=\"";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["sutartis"], "id", array()), "html", null, true);
-            echo "\"></option>
-                    <button type=\"submit\" name=\"salinti\" class=\"btn btn-primary btn-sm btn-block\">Nutraukti</button>
-                    </form>
-                     <form action=\"";
-            // line 60
+            echo "\">
+                        <button class=\"btn btn-primary btn-sm btn-block\" type=\"submit\">Nutraukti</button></form>
+                        <form action=\"";
+            // line 58
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("edit_contracts");
-            echo "\" method=\"POST\" name=\"redaguoti\">
-                            <option value=\"";
-            // line 61
+            echo "\" method=\"POST\"><input type=\"hidden\" name=\"form[sutartis_id]\" value=\"";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["sutartis"], "id", array()), "html", null, true);
-            echo "\"></option>
-                    <button type=\"submit\" name=\"redaguoti\" class=\"btn btn-primary btn-sm btn-block\">Redaguoti</button>
-                    </form>
-                     <form method=\"POST\" name=\"siusti\">
-                            <option value=\"";
-            // line 65
+            echo "\">
+                        <button class=\"btn btn-primary btn-sm btn-block\">Redaguoti</button></form>
+                        <form action=\"";
+            // line 60
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("siusti_kopija");
+            echo "\" method=\"POST\"><input type=\"hidden\" name=\"form[sutartis_id]\" value=\"";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["sutartis"], "id", array()), "html", null, true);
-            echo "\"></option>
-                    <button type=\"submit\" name=\"siusti\" class=\"btn btn-primary btn-sm btn-block\">Siusti kopiją</button>
-                    </form></td>
+            echo "\">
+                        <button class=\"btn btn-primary btn-sm btn-block\" type=\"submit\">Siųsti kopiją</button>
+                    </td></form>
                 </tr>
             ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['sutartis'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 70
+        // line 65
         echo "            </tbody>
         </table>
         </div>
@@ -173,7 +171,7 @@ class __TwigTemplate_b27b85a54f0a52b7b3544060314e19a11f79e5163a1339380ae920dbd32
 
     public function getDebugInfo()
     {
-        return array (  149 => 70,  138 => 65,  131 => 61,  127 => 60,  121 => 57,  116 => 55,  112 => 54,  109 => 53,  105 => 52,  57 => 6,  51 => 5,  39 => 3,  15 => 1,);
+        return array (  147 => 65,  134 => 60,  127 => 58,  120 => 56,  116 => 55,  112 => 54,  109 => 53,  105 => 52,  57 => 6,  51 => 5,  39 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -233,18 +231,13 @@ class __TwigTemplate_b27b85a54f0a52b7b3544060314e19a11f79e5163a1339380ae920dbd32
                 <tr>
                     <td>{{ sutartis.numeris }}</td>
                     <td>{{ sutartis.papildomossalygos }}</td>
-                    <td><form method=\"POST\" name=\"salinti\">
-                            <option value=\"{{sutartis.id}}\"></option>
-                    <button type=\"submit\" name=\"salinti\" class=\"btn btn-primary btn-sm btn-block\">Nutraukti</button>
-                    </form>
-                     <form action=\"{{ path(\"edit_contracts\") }}\" method=\"POST\" name=\"redaguoti\">
-                            <option value=\"{{sutartis.id}}\"></option>
-                    <button type=\"submit\" name=\"redaguoti\" class=\"btn btn-primary btn-sm btn-block\">Redaguoti</button>
-                    </form>
-                     <form method=\"POST\" name=\"siusti\">
-                            <option value=\"{{sutartis.id}}\"></option>
-                    <button type=\"submit\" name=\"siusti\" class=\"btn btn-primary btn-sm btn-block\">Siusti kopiją</button>
-                    </form></td>
+                      <td><form action=\"{{ path(\"delete_sutartis\") }}\" method=\"POST\"><input type=\"hidden\" name=\"form[sutartis_id]\" value=\"{{ sutartis.id }}\">
+                        <button class=\"btn btn-primary btn-sm btn-block\" type=\"submit\">Nutraukti</button></form>
+                        <form action=\"{{ path(\"edit_contracts\") }}\" method=\"POST\"><input type=\"hidden\" name=\"form[sutartis_id]\" value=\"{{ sutartis.id }}\">
+                        <button class=\"btn btn-primary btn-sm btn-block\">Redaguoti</button></form>
+                        <form action=\"{{ path(\"siusti_kopija\") }}\" method=\"POST\"><input type=\"hidden\" name=\"form[sutartis_id]\" value=\"{{ sutartis.id }}\">
+                        <button class=\"btn btn-primary btn-sm btn-block\" type=\"submit\">Siųsti kopiją</button>
+                    </td></form>
                 </tr>
             {% endfor %}
             </tbody>

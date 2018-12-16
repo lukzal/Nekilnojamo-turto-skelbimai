@@ -21,11 +21,6 @@ class Pirkimas
      */
     private $kaina;
 
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Sutartis", mappedBy="kaina", cascade={"persist", "remove"})
-     */
-    private $sutartis;
-
     public function getId(): ?int
     {
         return $this->id;

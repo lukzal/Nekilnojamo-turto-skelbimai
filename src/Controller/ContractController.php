@@ -47,13 +47,47 @@ class ContractController extends AbstractController
 
 
     /**
+     * @Route("/contracts/dalete", name="delete_sutartis")
+     */
+    public function dalete(Request $request)
+    {
+        $form = $this->createFormBuilder()
+        ->add('sutartis_id')
+        ->getForm();
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted()){
+            $data = $form->getData();
+
+            $sutartis = $this->getDoctrine()
+            ->getRepository(Sutartis::class)
+            ->findOneBy(["id" => $data["sutartis_id"]]);
+
+            $em = $this->getDoctrine()->getManager();
+            
+            $em->remove($sutartis);
+            $em->flush();
+        }
+        return $this->render('contract/index.html.twig');
+    }
+
+     /**
+     * @Route("/contracts/siusti", name="siusti_kopija")
+     */
+    public function siusti()
+    {
+        return $this->render('contract/index.html.twig', [
+            'controller_name' => 'ContractController',
+        ]);
+    }
+
+     /**
      * @Route("/contracts/sign", name="sign_contracts")
      */
     public function sign()
     {
-        return $this->render('contract/sign.html.twig', [
-            'controller_name' => 'ContractController',
-        ]);
+        return $this->render('contract/sign.html.twig');
     }
 
      /**
@@ -61,36 +95,56 @@ class ContractController extends AbstractController
      */
     public function edit(Request $request)
     {
-        /*$form = $this->createFormBuilder()
-        ->add('sutartis', EntityType::class, [
-            'required' => false,
-            'class' => Sutartis::class,
-            'constraints' => [
-                new NotBlank()
-            ],
-        ])
-        ->getForm()->handleRequest($request);*/
+        $form = $this->createFormBuilder()
+        ->add('sutartis_id')
+        ->getForm();
 
-        /*if ($form->isSubmitted() && $form->isValid()) {
-            $selected = $form->get('sutartis')->getId();
-            dump($selected);
-            
+        $form->handleRequest($request);
+
+        if($form->isSubmitted()){
+            $data = $form->getData();
+
+            $session = new Session();
+            $session->set('sutartiesid', $data["sutartis_id"]);
+
+           return $this->render('contract/edit.html.twig');
+
         }
-        else return new Response ('noob');
-        return new Response ($selected ->getId());
-        $entityManager = $this->getDoctrine()->getManager();*/
+    }
+ /**
+     * @Route("/contracts/edit_contracts_proc", name="edit_contracts_proc")
+     */
+    public function edit_proc(Request $request)
+    {
+        $session = new Session();
+        $sutarties_id = $session->get("sutartiesid");
+        
+            $form = $this->createFormBuilder()
+            ->add('papildomossalygos')
+            ->getForm();
 
-        /*if (!$sutartis) {
-            throw $this->createNotFoundException(
-                'No product found for id '.$id
-            );
-        }*/
-    
-        /*$sutartis[$id]->setPapildomosSalygos('Senas');
-        $entityManager->flush();*/
-    
-        //return new Response( $sutartis[0]->getPapildomosSalygos());
-        return $this->render('contract/edit.html.twig', [
-            'controller_name' => 'ContractController']);
+            $form->handleRequest($request);
+
+            if($sutarties_id){
+             if($form->isSubmitted()){
+                    $data = $form->getData();
+
+                    $sutartis = $this->getDoctrine()
+                    ->getRepository(Sutartis::class)
+                    ->findOneBy(["id" => $sutarties_id]);
+
+            $em = $this->getDoctrine()->getManager();
+            if($sutartis != null){
+            $sutartis->setPapildomosSalygos($data['papildomossalygos']);
+            $em->persist($sutartis);
+            $em->flush();
+            return $this->redirectToRoute("contracts");
+            }
+        }
     }
 }
+}
+
+     
+
+

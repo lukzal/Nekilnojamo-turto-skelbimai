@@ -2,3 +2,5 @@
 ###> symfony/framework-bundle ###
 /Other Stuff/
 ###< symfony/framework-bundle ###
+src/Entity/Klientas.php
+src/Entity/Klientas.php

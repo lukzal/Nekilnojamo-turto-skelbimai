@@ -58,15 +58,14 @@ class __TwigTemplate_067d9c2798fc209b5131227704fb53c0adc5f9f0e1afbb1d5496ae4e03e
 <div class=\"container\">
         <h1>Sutarties redagavimas</h1>
         <h6>Visa kita informacija bus pridėta automatiškai</h6><br>
-    <form>
-      <div class=\"form-group col-lg-12\">
-        <textarea type=\"text\" name=\"tekstas\" rows=\"5\" class=\"form-control textarea input-normal\" placeholder=\"Naujos Sąlygos\" required></textarea>
-      </div>
-      <div class=\"form-group col-lg-12\">
-      <button type=\"submit\" class=\"btn btn-primary btn-block\">Išsaugoti</button>
-      
-      </div>
-    </form>
+    <form role=\"form\" action=\"";
+        // line 10
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("edit_contracts_proc");
+        echo "\" method=\"POST\">
+          <div class=\"form-group\">
+            <input name=\"form[papildomossalygos]\" type=\"text\" class=\"form-control\" id=\"papildomossalygos\" placeholder=\"Papildomos sąlygos\"\">
+            <button type=\"submit\" class=\"btn btn btn-primary\">Keisti</button>
+          </div>
         </div>
 
 ";
@@ -87,7 +86,7 @@ class __TwigTemplate_067d9c2798fc209b5131227704fb53c0adc5f9f0e1afbb1d5496ae4e03e
 
     public function getDebugInfo()
     {
-        return array (  57 => 6,  51 => 5,  39 => 3,  15 => 1,);
+        return array (  63 => 10,  57 => 6,  51 => 5,  39 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -101,15 +100,11 @@ class __TwigTemplate_067d9c2798fc209b5131227704fb53c0adc5f9f0e1afbb1d5496ae4e03e
 <div class=\"container\">
         <h1>Sutarties redagavimas</h1>
         <h6>Visa kita informacija bus pridėta automatiškai</h6><br>
-    <form>
-      <div class=\"form-group col-lg-12\">
-        <textarea type=\"text\" name=\"tekstas\" rows=\"5\" class=\"form-control textarea input-normal\" placeholder=\"Naujos Sąlygos\" required></textarea>
-      </div>
-      <div class=\"form-group col-lg-12\">
-      <button type=\"submit\" class=\"btn btn-primary btn-block\">Išsaugoti</button>
-      
-      </div>
-    </form>
+    <form role=\"form\" action=\"{{ path('edit_contracts_proc') }}\" method=\"POST\">
+          <div class=\"form-group\">
+            <input name=\"form[papildomossalygos]\" type=\"text\" class=\"form-control\" id=\"papildomossalygos\" placeholder=\"Papildomos sąlygos\"\">
+            <button type=\"submit\" class=\"btn btn btn-primary\">Keisti</button>
+          </div>
         </div>
 
 {% endblock %}

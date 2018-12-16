@@ -48,8 +48,6 @@ $a->setRepositoryFactory(new \Doctrine\Bundle\DoctrineBundle\Repository\Containe
     return ($this->privates['App\Repository\BlokavimaiRepository'] ?? $this->load('getBlokavimaiRepositoryService.php'));
 }, 'App\\Repository\\ButasRepository' => function () {
     return ($this->privates['App\Repository\ButasRepository'] ?? $this->load('getButasRepositoryService.php'));
-}, 'App\\Repository\\KlientasRepository' => function () {
-    return ($this->privates['App\Repository\KlientasRepository'] ?? $this->load('getKlientasRepositoryService.php'));
 }, 'App\\Repository\\NamasRepository' => function () {
     return ($this->privates['App\Repository\NamasRepository'] ?? $this->load('getNamasRepositoryService.php'));
 }, 'App\\Repository\\NaudotojaiRepository' => function () {

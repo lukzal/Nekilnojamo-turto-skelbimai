@@ -22,7 +22,7 @@ class Skelbimas
     private $pavadinimas;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string", length=255)
      */
     private $skelbimas;
 
@@ -41,16 +41,6 @@ class Skelbimas
      */
     private $kaina;
 
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\NekilnojamasTurtas", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $nekilnojamas_turtas;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Naudotojai")
-     */
-    private $naudotojas;
 
     public function getId(): ?int
     {
@@ -113,30 +103,6 @@ class Skelbimas
     public function setKaina($kaina): self
     {
         $this->kaina = $kaina;
-
-        return $this;
-    }
-
-    public function getNekilnojamasTurtas(): ?NekilnojamasTurtas
-    {
-        return $this->nekilnojamas_turtas;
-    }
-
-    public function setNekilnojamasTurtas(NekilnojamasTurtas $nekilnojamas_turtas): self
-    {
-        $this->nekilnojamas_turtas = $nekilnojamas_turtas;
-
-        return $this;
-    }
-
-    public function getNaudotojas(): ?Naudotojai
-    {
-        return $this->naudotojas;
-    }
-
-    public function setNaudotojas(?Naudotojai $naudotojas): self
-    {
-        $this->naudotojas = $naudotojas;
 
         return $this;
     }

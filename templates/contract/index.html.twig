@@ -53,18 +53,13 @@
                 <tr>
                     <td>{{ sutartis.numeris }}</td>
                     <td>{{ sutartis.papildomossalygos }}</td>
-                    <td><form method="POST" name="salinti">
-                            <option value="{{sutartis.id}}"></option>
-                    <button type="submit" name="salinti" class="btn btn-primary btn-sm btn-block">Nutraukti</button>
-                    </form>
-                     <form action="{{ path("edit_contracts") }}" method="POST" name="redaguoti">
-                            <option value="{{sutartis.id}}"></option>
-                    <button type="submit" name="redaguoti" class="btn btn-primary btn-sm btn-block">Redaguoti</button>
-                    </form>
-                     <form method="POST" name="siusti">
-                            <option value="{{sutartis.id}}"></option>
-                    <button type="submit" name="siusti" class="btn btn-primary btn-sm btn-block">Siusti kopiją</button>
-                    </form></td>
+                      <td><form action="{{ path("delete_sutartis") }}" method="POST"><input type="hidden" name="form[sutartis_id]" value="{{ sutartis.id }}">
+                        <button class="btn btn-primary btn-sm btn-block" type="submit">Nutraukti</button></form>
+                        <form action="{{ path("edit_contracts") }}" method="POST"><input type="hidden" name="form[sutartis_id]" value="{{ sutartis.id }}">
+                        <button class="btn btn-primary btn-sm btn-block">Redaguoti</button></form>
+                        <form action="{{ path("siusti_kopija") }}" method="POST"><input type="hidden" name="form[sutartis_id]" value="{{ sutartis.id }}">
+                        <button class="btn btn-primary btn-sm btn-block" type="submit">Siųsti kopiją</button>
+                    </td></form>
                 </tr>
             {% endfor %}
             </tbody>
