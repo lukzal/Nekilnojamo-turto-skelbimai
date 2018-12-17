@@ -63,7 +63,7 @@ class __TwigTemplate_067d9c2798fc209b5131227704fb53c0adc5f9f0e1afbb1d5496ae4e03e
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("edit_contracts_proc");
         echo "\" method=\"POST\">
           <div class=\"form-group\">
-            <input name=\"form[papildomossalygos]\" type=\"text\" class=\"form-control\" id=\"papildomossalygos\" placeholder=\"Papildomos sąlygos\"\">
+            <input name=\"form[papildomossalygos]\" rows=\"5\" type=\"text\" class=\"form-control\" id=\"papildomossalygos\" placeholder=\"Papildomos sąlygos\"\">
             <button type=\"submit\" class=\"btn btn btn-primary\">Keisti</button>
             <a href=\"";
         // line 14
@@ -106,7 +106,7 @@ class __TwigTemplate_067d9c2798fc209b5131227704fb53c0adc5f9f0e1afbb1d5496ae4e03e
         <h6>Visa kita informacija bus pridėta automatiškai</h6><br>
     <form role=\"form\" action=\"{{ path('edit_contracts_proc') }}\" method=\"POST\">
           <div class=\"form-group\">
-            <input name=\"form[papildomossalygos]\" type=\"text\" class=\"form-control\" id=\"papildomossalygos\" placeholder=\"Papildomos sąlygos\"\">
+            <input name=\"form[papildomossalygos]\" rows=\"5\" type=\"text\" class=\"form-control\" id=\"papildomossalygos\" placeholder=\"Papildomos sąlygos\"\">
             <button type=\"submit\" class=\"btn btn btn-primary\">Keisti</button>
             <a href=\"{{ path(\"contracts\") }}\" class=\"btn btn-secondary\">Atšaukti</a>
           </div>

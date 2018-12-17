@@ -22,14 +22,14 @@
         <div class="table-responsive col-md-12">
         <table id="sort2" class="grid table table-bordered sortable">
             <thead>
-                <tr><th>Sutarties numeris</th><th>Papildomos sąlygos</th><th>Veiksmai</th></tr>
+                <tr><th>Sutarties numeris</th><th>Sutarties data</th><th>Papildomos sąlygos</th><th>Veiksmai</th></tr>
             </thead>
             <tbody>
             {% for sutartis in sutartys%}
                 <tr>
                     <td>{{ sutartis.id }}</td>
+                    <td>{{ sutartis.data|date("Y-m-d H:i:s")}}</td>
                     <td>{{ sutartis.papildomossalygos }}</td>
-                    <td>{{ sutartis.data }}</td>
                       <td><form action="{{ path("delete_sutartis") }}" method="POST"><input type="hidden" name="form[sutartis_id]" value="{{ sutartis.id }}">
                         <button class="btn btn-primary btn-sm btn-block" type="submit">Nutraukti</button></form>
                         <form action="{{ path("edit_contracts") }}" method="POST"><input type="hidden" name="form[sutartis_id]" value="{{ sutartis.id }}">
@@ -42,6 +42,7 @@
             {% for sutartis in sutartys1%}
                 <tr>
                     <td>{{ sutartis.id }}</td>
+                    <td>{{ sutartis.data|date("Y-m-d H:i:s")}}</td>
                     <td>{{ sutartis.papildomossalygos }}</td>
                       <td><form action="{{ path("delete_sutartis") }}" method="POST"><input type="hidden" name="form[sutartis_id]" value="{{ sutartis.id }}">
                         <button class="btn btn-primary btn-sm btn-block" type="submit">Nutraukti</button></form>
