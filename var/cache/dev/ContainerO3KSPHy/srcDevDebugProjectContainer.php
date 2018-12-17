@@ -1,6 +1,6 @@
 <?php
 
-namespace ContainerWwSpkA5;
+namespace ContainerO3KSPHy;
 
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
@@ -62,6 +62,7 @@ class srcDevDebugProjectContainer extends Container
             'App\\Controller\\ContractController' => 'getContractControllerService.php',
             'App\\Controller\\HomeController' => 'getHomeControllerService.php',
             'App\\Controller\\LoginController' => 'getLoginControllerService.php',
+            'App\\Controller\\ModeratorController' => 'getModeratorControllerService.php',
             'App\\Controller\\ProfileController' => 'getProfileControllerService.php',
             'App\\Controller\\RegistrationController' => 'getRegistrationControllerService.php',
             'App\\Controller\\RememberPassController' => 'getRememberPassControllerService.php',

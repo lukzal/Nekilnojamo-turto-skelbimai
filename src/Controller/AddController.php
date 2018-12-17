@@ -4,6 +4,14 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpFoundation\Response;
+use Doctrine\ORM\EntityManagerInterface;
+use App\Controller\ContractController;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class AddController extends AbstractController
 {
@@ -12,6 +20,7 @@ class AddController extends AbstractController
      */
     public function index()
     {
+
         $arr = array('id' => 1,
                     'description' => 'Skelbimo aprasymas',
                     'kaina' => 2000);

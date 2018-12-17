@@ -9,7 +9,11 @@ use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 include_once $this->targetDirs[3].'\\vendor\\symfony\\http-kernel\\Controller\\ArgumentValueResolverInterface.php';
 include_once $this->targetDirs[3].'\\vendor\\symfony\\http-kernel\\Controller\\ArgumentResolver\\ServiceValueResolver.php';
 
-return $this->privates['argument_resolver.service'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver(new \Symfony\Component\DependencyInjection\ServiceLocator(array('App\\Controller\\RememberPassController::proc' => function () {
+return $this->privates['argument_resolver.service'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver(new \Symfony\Component\DependencyInjection\ServiceLocator(array('App\\Controller\\ContractController::siusti_proc' => function () {
+    return ($this->privates['.service_locator.3FFBWiy'] ?? $this->load('get_ServiceLocator_3FFBWiyService.php'));
+}, 'App\\Controller\\RememberPassController::proc' => function () {
+    return ($this->privates['.service_locator.3FFBWiy'] ?? $this->load('get_ServiceLocator_3FFBWiyService.php'));
+}, 'App\\Controller\\ContractController:siusti_proc' => function () {
     return ($this->privates['.service_locator.3FFBWiy'] ?? $this->load('get_ServiceLocator_3FFBWiyService.php'));
 }, 'App\\Controller\\RememberPassController:proc' => function () {
     return ($this->privates['.service_locator.3FFBWiy'] ?? $this->load('get_ServiceLocator_3FFBWiyService.php'));

@@ -67,30 +67,6 @@ class __TwigTemplate_b27b85a54f0a52b7b3544060314e19a11f79e5163a1339380ae920dbd32
 
 </style>
 <link href=\"https://www.jqueryscript.net/demo/jQuery-Plugin-For-Sortable-Bootstrap-Tables-Bootstrap-Sortable/Contents/bootstrap-sortable.css\" rel=\"stylesheet\" type=\"text/css\">
-<div class=\"container\">
-    <br/>
-\t<div class=\"row justify-content-center\">
-                        <div class=\"col-12 col-md-8 col-lg-8\">
-                            <form class=\"card card-sm\">
-                                <div class=\"card-body row no-gutters align-items-center\">
-                                    <div class=\"col-auto\">
-                                        <i class=\"fas fa-search h4 text-body\"></i>
-                                    </div>
-                                    <!--end of col-->
-                                    <div class=\"col\">
-                                        <input class=\"form-control form-control-lg form-control-borderless\" type=\"search\" placeholder=\"Ieškoti sutarčių\">
-                                    </div>
-                                    <!--end of col-->
-                                    <div class=\"col-auto\">
-                                        <button class=\"btn btn-lg btn-success\" type=\"submit\">Ieškoti</button>
-                                    </div>
-                                    <!--end of col-->
-                                </div>
-                            </form>
-                        </div>
-                        <!--end of col-->
-                    </div>
-</div>
 <br>
 <div class=\"container\">
 \t<div class=\"row\">
@@ -101,36 +77,79 @@ class __TwigTemplate_b27b85a54f0a52b7b3544060314e19a11f79e5163a1339380ae920dbd32
             </thead>
             <tbody>
             ";
-        // line 52
+        // line 28
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["sutartys"]) || array_key_exists("sutartys", $context) ? $context["sutartys"] : (function () { throw new Twig_Error_Runtime('Variable "sutartys" does not exist.', 52, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["sutartys"]) || array_key_exists("sutartys", $context) ? $context["sutartys"] : (function () { throw new Twig_Error_Runtime('Variable "sutartys" does not exist.', 28, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["sutartis"]) {
-            // line 53
+            // line 29
             echo "                <tr>
                     <td>";
-            // line 54
+            // line 30
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["sutartis"], "id", array()), "html", null, true);
             echo "</td>
                     <td>";
-            // line 55
+            // line 31
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["sutartis"], "papildomossalygos", array()), "html", null, true);
             echo "</td>
                       <td><form action=\"";
-            // line 56
+            // line 32
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("delete_sutartis");
             echo "\" method=\"POST\"><input type=\"hidden\" name=\"form[sutartis_id]\" value=\"";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["sutartis"], "id", array()), "html", null, true);
             echo "\">
                         <button class=\"btn btn-primary btn-sm btn-block\" type=\"submit\">Nutraukti</button></form>
                         <form action=\"";
-            // line 58
+            // line 34
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("edit_contracts");
             echo "\" method=\"POST\"><input type=\"hidden\" name=\"form[sutartis_id]\" value=\"";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["sutartis"], "id", array()), "html", null, true);
             echo "\">
                         <button class=\"btn btn-primary btn-sm btn-block\">Redaguoti</button></form>
                         <form action=\"";
-            // line 60
+            // line 36
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("siusti_kopija");
+            echo "\" method=\"POST\"><input type=\"hidden\" name=\"form[sutartis_id]\" value=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["sutartis"], "id", array()), "html", null, true);
+            echo "\">
+                        <button class=\"btn btn-primary btn-sm btn-block\" type=\"submit\">Siųsti kopiją</button>
+                    </form></td>
+                </tr>
+            ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['sutartis'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 41
+        echo "            ";
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["sutartys1"]) || array_key_exists("sutartys1", $context) ? $context["sutartys1"] : (function () { throw new Twig_Error_Runtime('Variable "sutartys1" does not exist.', 41, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["sutartis"]) {
+            // line 42
+            echo "                <tr>
+                    <td>";
+            // line 43
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["sutartis"], "id", array()), "html", null, true);
+            echo "</td>
+                    <td>";
+            // line 44
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["sutartis"], "papildomossalygos", array()), "html", null, true);
+            echo "</td>
+                      <td><form action=\"";
+            // line 45
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("delete_sutartis");
+            echo "\" method=\"POST\"><input type=\"hidden\" name=\"form[sutartis_id]\" value=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["sutartis"], "id", array()), "html", null, true);
+            echo "\">
+                        <button class=\"btn btn-primary btn-sm btn-block\" type=\"submit\">Nutraukti</button></form>
+                        <form action=\"";
+            // line 47
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("edit_contracts");
+            echo "\" method=\"POST\"><input type=\"hidden\" name=\"form[sutartis_id]\" value=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["sutartis"], "id", array()), "html", null, true);
+            echo "\">
+                        <button class=\"btn btn-primary btn-sm btn-block\">Redaguoti</button></form>
+                        <form action=\"";
+            // line 49
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("siusti_kopija");
             echo "\" method=\"POST\"><input type=\"hidden\" name=\"form[sutartis_id]\" value=\"";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["sutartis"], "id", array()), "html", null, true);
@@ -143,7 +162,7 @@ class __TwigTemplate_b27b85a54f0a52b7b3544060314e19a11f79e5163a1339380ae920dbd32
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['sutartis'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 65
+        // line 54
         echo "            </tbody>
         </table>
         </div>
@@ -171,7 +190,7 @@ class __TwigTemplate_b27b85a54f0a52b7b3544060314e19a11f79e5163a1339380ae920dbd32
 
     public function getDebugInfo()
     {
-        return array (  147 => 65,  134 => 60,  127 => 58,  120 => 56,  116 => 55,  112 => 54,  109 => 53,  105 => 52,  57 => 6,  51 => 5,  39 => 3,  15 => 1,);
+        return array (  166 => 54,  153 => 49,  146 => 47,  139 => 45,  135 => 44,  131 => 43,  128 => 42,  123 => 41,  110 => 36,  103 => 34,  96 => 32,  92 => 31,  88 => 30,  85 => 29,  81 => 28,  57 => 6,  51 => 5,  39 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -194,30 +213,6 @@ class __TwigTemplate_b27b85a54f0a52b7b3544060314e19a11f79e5163a1339380ae920dbd32
 
 </style>
 <link href=\"https://www.jqueryscript.net/demo/jQuery-Plugin-For-Sortable-Bootstrap-Tables-Bootstrap-Sortable/Contents/bootstrap-sortable.css\" rel=\"stylesheet\" type=\"text/css\">
-<div class=\"container\">
-    <br/>
-\t<div class=\"row justify-content-center\">
-                        <div class=\"col-12 col-md-8 col-lg-8\">
-                            <form class=\"card card-sm\">
-                                <div class=\"card-body row no-gutters align-items-center\">
-                                    <div class=\"col-auto\">
-                                        <i class=\"fas fa-search h4 text-body\"></i>
-                                    </div>
-                                    <!--end of col-->
-                                    <div class=\"col\">
-                                        <input class=\"form-control form-control-lg form-control-borderless\" type=\"search\" placeholder=\"Ieškoti sutarčių\">
-                                    </div>
-                                    <!--end of col-->
-                                    <div class=\"col-auto\">
-                                        <button class=\"btn btn-lg btn-success\" type=\"submit\">Ieškoti</button>
-                                    </div>
-                                    <!--end of col-->
-                                </div>
-                            </form>
-                        </div>
-                        <!--end of col-->
-                    </div>
-</div>
 <br>
 <div class=\"container\">
 \t<div class=\"row\">
@@ -228,6 +223,19 @@ class __TwigTemplate_b27b85a54f0a52b7b3544060314e19a11f79e5163a1339380ae920dbd32
             </thead>
             <tbody>
             {% for sutartis in sutartys%}
+                <tr>
+                    <td>{{ sutartis.id }}</td>
+                    <td>{{ sutartis.papildomossalygos }}</td>
+                      <td><form action=\"{{ path(\"delete_sutartis\") }}\" method=\"POST\"><input type=\"hidden\" name=\"form[sutartis_id]\" value=\"{{ sutartis.id }}\">
+                        <button class=\"btn btn-primary btn-sm btn-block\" type=\"submit\">Nutraukti</button></form>
+                        <form action=\"{{ path(\"edit_contracts\") }}\" method=\"POST\"><input type=\"hidden\" name=\"form[sutartis_id]\" value=\"{{ sutartis.id }}\">
+                        <button class=\"btn btn-primary btn-sm btn-block\">Redaguoti</button></form>
+                        <form action=\"{{ path(\"siusti_kopija\") }}\" method=\"POST\"><input type=\"hidden\" name=\"form[sutartis_id]\" value=\"{{ sutartis.id }}\">
+                        <button class=\"btn btn-primary btn-sm btn-block\" type=\"submit\">Siųsti kopiją</button>
+                    </form></td>
+                </tr>
+            {% endfor %}
+            {% for sutartis in sutartys1%}
                 <tr>
                     <td>{{ sutartis.id }}</td>
                     <td>{{ sutartis.papildomossalygos }}</td>

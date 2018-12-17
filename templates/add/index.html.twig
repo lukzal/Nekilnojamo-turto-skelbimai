@@ -140,8 +140,8 @@
                                             </li>
                                             <center>
                                             <a href="{{ path("comment") }}" class="btn btn-primary btn-sm">Naujas komentaras</a>
-                                            
-                                            <a href="{{ path("sign_contracts") }}" class="btn btn-primary btn-sm">Pasirašyti sutarti</a>
+                                            <form action="{{ path("sign_contracts") }}" method="POST"><input type="hidden" name="form[nekilnojamas_turtas_id]">
+                                            <button class="btn btn-primary btn-sm btn-block" type="submit">Pasirašyti sutarti</button></form>
                                         </center>
                                             </ul>
                                         </div>

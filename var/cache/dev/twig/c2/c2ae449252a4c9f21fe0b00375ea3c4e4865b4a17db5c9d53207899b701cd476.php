@@ -216,11 +216,11 @@ class __TwigTemplate_ebfe11af3eff8df34cd5cb1c9ed76eb7ef5ee166ac7bf9efc0e63fe267e
         // line 142
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("comment");
         echo "\" class=\"btn btn-primary btn-sm\">Naujas komentaras</a>
-                                            
-                                            <a href=\"";
-        // line 144
+                                            <form action=\"";
+        // line 143
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("sign_contracts");
-        echo "\" class=\"btn btn-primary btn-sm\">Pasirašyti sutarti</a>
+        echo "\" method=\"POST\"><input type=\"hidden\" name=\"form[nekilnojamas_turtas_id]\">
+                                            <button class=\"btn btn-primary btn-sm btn-block\" type=\"submit\">Pasirašyti sutarti</button></form>
                                         </center>
                                             </ul>
                                         </div>
@@ -271,7 +271,7 @@ class __TwigTemplate_ebfe11af3eff8df34cd5cb1c9ed76eb7ef5ee166ac7bf9efc0e63fe267e
 
     public function getDebugInfo()
     {
-        return array (  253 => 25,  247 => 24,  222 => 144,  217 => 142,  152 => 80,  115 => 46,  110 => 44,  104 => 41,  90 => 29,  88 => 24,  71 => 9,  65 => 8,  54 => 5,  41 => 3,  15 => 1,);
+        return array (  253 => 25,  247 => 24,  221 => 143,  217 => 142,  152 => 80,  115 => 46,  110 => 44,  104 => 41,  90 => 29,  88 => 24,  71 => 9,  65 => 8,  54 => 5,  41 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -418,8 +418,8 @@ class __TwigTemplate_ebfe11af3eff8df34cd5cb1c9ed76eb7ef5ee166ac7bf9efc0e63fe267e
                                             </li>
                                             <center>
                                             <a href=\"{{ path(\"comment\") }}\" class=\"btn btn-primary btn-sm\">Naujas komentaras</a>
-                                            
-                                            <a href=\"{{ path(\"sign_contracts\") }}\" class=\"btn btn-primary btn-sm\">Pasirašyti sutarti</a>
+                                            <form action=\"{{ path(\"sign_contracts\") }}\" method=\"POST\"><input type=\"hidden\" name=\"form[nekilnojamas_turtas_id]\">
+                                            <button class=\"btn btn-primary btn-sm btn-block\" type=\"submit\">Pasirašyti sutarti</button></form>
                                         </center>
                                             </ul>
                                         </div>

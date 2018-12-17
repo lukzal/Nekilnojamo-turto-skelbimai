@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sutartys{% endblock %}
+
+{% block body %}
+<style>
+    .form-control-borderless {
+        border: none;
+    }
+    
+    .form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+        border: none;
+        outline: none;
+        box-shadow: none;
+    }
+
+</style>
+<link href="https://www.jqueryscript.net/demo/jQuery-Plugin-For-Sortable-Bootstrap-Tables-Bootstrap-Sortable/Contents/bootstrap-sortable.css" rel="stylesheet" type="text/css">
+<div class="container">
+<form role="form" action="{{ path('filtruoti') }}" method="post">
+Fitruoti pagal:
+<div class="row">
+        <div class="table-responsive col-md-8">
+         <table id="sort" class="table table-bordered">
+            <tbody>
+                <tr>
+                    <td><div class="form-group">
+                    <label for="dnuo">Data nuo:</label>
+                    <input name="form[dnuo]" type="Date" class="form-control" id="dnuo">
+                    </div></td>
+                    <td> <div class="form-group">
+                    <label for="diki">Data iki:</label>
+                    <input name="form[diki]" type="Date" class="form-control" id="diki">
+                    </div></td>
+                </tr>
+                <tr>       
+                    <td><div class="form-group">
+                    <label for="inuo">ID nuo:</label>
+                    <input name="form[inuo]" type="number" class="form-control" id="inuo">
+                    </div></td>
+                    <td><div class="form-group">
+                    <label for="iiki">ID iki:</label>
+                    <input name="form[iiki]" type="number" class="form-control" id="iiki">
+                    </div></td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+<button type="submit" class="btn btn btn-primary">Fitruoti</button></form>
+ <br>
+ </br>
+<div class="container">
+<form role="form" action="{{ path('rikiuoti') }}" method="post">
+          <div class="form-group">
+            Rikiuoti pagal:
+            <center><select class="browser-default custom-select" name="form[rikiavimas]">
+                                <option value="id_maz">ID ↓</option>
+                                <option value="id_did">ID ↑</option>
+                                <option value="data_maz">Data ↓</option>
+                                <option value="data_did">Data ↑</option>
+                            </select></center>
+          </div>
+          <button type="submit" class="btn btn btn-primary">Rikiuoti</button></form>
+          </br>
+<div class="container">
+	<div class="row">
+        <div class="table-responsive col-md-12">
+        <table id="sort2" class="grid table table-bordered sortable">
+            <thead>
+                <tr><th>Sutarties numeris</th><th>Pasirašymo data</th><th>Papildomos sąlygos</th></tr>
+            </thead>
+            <tbody>
+            {% for sutartis in sutartys%}
+                <tr>
+                    <td>{{ sutartis.id }}</td>
+                    <td>{{ sutartis.data }}</td>
+                    <td>{{ sutartis.papildomossalygos }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script> 
+<script src="https://www.jqueryscript.net/demo/jQuery-Plugin-For-Sortable-Bootstrap-Tables-Bootstrap-Sortable/Scripts/bootstrap-sortable.js"></script> 
+
+{% endblock %}

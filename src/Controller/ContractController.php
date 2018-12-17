@@ -31,6 +31,7 @@ class ContractController extends AbstractController
         $id = $user -> getId(); 
         $nekilnojamasturtas = $this->getDoctrine()->getRepository(NekilnojamasTurtas::class)->findBy(['naudotojas' => $id]); 
         $sutartys = $this->getDoctrine()->getRepository(Sutartis::class)->findAll(); 
+        $klientosutartys = $this->getDoctrine()->getRepository(Sutartis::class)->findBy(['klientas' => $id]); 
         $saugojamosSutartys = [];
         foreach($sutartys as $sut) {
             foreach($nekilnojamasturtas as $nek)
@@ -39,22 +40,11 @@ class ContractController extends AbstractController
             }
                 
         }
+        $errors = [];
+        $sutartisData["errors"] = $errors;
         $sutartisData['sutartys'] = $saugojamosSutartys;
-        $a = '30';
-       //return $this->render('contract/index.html.twig', $sutartisData);
-       return new Response($this->getDoctrine()->getRepository(Sutartis::class)->findAllKazkas($a));
-       /////kliento sutartys
-    }
-
-    public function findAllKazkas($id): array
-    {
-        $qb = $this->createQueryBuilder('p')
-            ->andWhere('p.id > :id')
-            ->setParameter('id', $id)
-            ->orderBy('p.id', 'ASC')
-            ->getQuery();
-
-        return $qb->execute();
+        $sutartisData['sutartys1'] = $klientosutartys;
+       return $this->render('contract/index.html.twig', $sutartisData);
     }
 
     /**
@@ -62,7 +52,6 @@ class ContractController extends AbstractController
      */
     public function dalete(Request $request)
     {
-        //šalina ir namus
         $form = $this->createFormBuilder()
         ->add('sutartis_id')
         ->getForm();
@@ -121,12 +110,15 @@ class ContractController extends AbstractController
 
         if($form->isSubmitted()){
             $data = $form->getData();
+            if(empty($data["email"])){
+                $data = [];
+                $error = [["text" => "Laukelis turi būti užpildytas!"]];
+                $data["errors"] = $error;
+                return $this->render('send_email/index.html.twig', $data);
+            }
 
             $sutartis = $this->getDoctrine()->getRepository(Sutartis::class)->findOneBy(['id' => $sutarties_id]);
-            $id = 'Sutarties ID:'.$sutartis -> getId();
-            $salygos= 'Sutarties papildomos sąlygos:'.$sutartis -> getPapildomosSalygos();
-            $mail1 = 'Sutarties ID:'.$sutartis -> getId();
-            $mail2 = 'Sutarties ID:'.$sutartis -> getId();
+            $salygos= 'Sutarties papildomos sąlygos yra: '.$sutartis -> getPapildomosSalygos();
             $message = (new \Swift_Message('Sutarties numeriu '.$sutarties_id.' kopija'))
             ->setFrom('nek.turtas.site@gmail.com')
             ->setTo($data["email"])
@@ -144,10 +136,61 @@ class ContractController extends AbstractController
      /**
      * @Route("/contracts/sign", name="sign_contracts")
      */
-    public function sign()
+    public function sign(Request $request)
     {
+        $form = $this->createFormBuilder()
+        ->add('nekilnojamas_turtas_id')
+        ->getForm();
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted()){
+            $data = $form->getData();
+
+            $session = new Session();
+           // $session->set('nekID', $data["nekilnojamas_turtas_id"]);
+           $session->set('nekID', '24');
+        }
         return $this->render('contract/sign.html.twig');
+       // return new Response($time);
     }
+    /**
+     * @Route("/contracts/sign_porc", name="sign_contracts_proc")
+     */
+    public function sign_proc(Request $request)
+    {
+        $session = new Session();
+        $email = $session->get("userEmail");
+        $nekid = $session->get("nekID");
+        $user = $this->getDoctrine()->getRepository(Naudotojai::class)->findOneBy(['el_pastas' => $email]);
+        $namas = $this->getDoctrine()->getRepository(NekilnojamasTurtas::class)->findOneBy(['id' => $nekid]);
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $form = $this->createFormBuilder()
+        ->add('papildomossalygos')
+        ->getForm();
+
+        $form->handleRequest($request);
+        $time = date('Y-m-d H:i:s');
+        if($nekid){
+         if($form->isSubmitted()){
+                $data = $form->getData();
+
+                $sutartis = new Sutartis();
+                $sutartis->setBustas($namas);
+                $sutartis->setKlientas($user);
+                $sutartis->setData(new \DateTime());
+                $sutartis->setPapildomosSalygos($data['papildomossalygos']);
+                $sutartis->getKainaPerMenesi(null);
+                $sutartis->setKaina(null);
+
+                $entityManager->persist($sutartis);
+                $entityManager->flush();
+         }
+    }
+    return $this->redirectToRoute("contracts");
+   //return new Response($nekid);
+}
 
      /**
      * @Route("/contracts/edit", name="edit_contracts")
@@ -165,10 +208,8 @@ class ContractController extends AbstractController
 
             $session = new Session();
             $session->set('sutartiesid', $data["sutartis_id"]);
-
-           return $this->render('contract/edit.html.twig');
-
         }
+        return $this->render('contract/edit.html.twig');
     }
  /**
      * @Route("/contracts/edit_contracts_proc", name="edit_contracts_proc")

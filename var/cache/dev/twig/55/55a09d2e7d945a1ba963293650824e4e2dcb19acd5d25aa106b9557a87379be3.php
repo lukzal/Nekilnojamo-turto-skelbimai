@@ -51,17 +51,17 @@ class __TwigTemplate_f447c3fb1aac4e4a38feb96591de1c6b9985dc99686641aac8396f44963
         ";
         // line 15
         $this->displayBlock('navbar', $context, $blocks);
-        // line 58
+        // line 61
         echo "
 
         <!-- End Top Nav Bar -->
         ";
-        // line 61
+        // line 64
         $this->displayBlock('body', $context, $blocks);
-        // line 68
+        // line 71
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 69
+        // line 72
         echo "    </body>
 </html>
 ";
@@ -171,17 +171,26 @@ class __TwigTemplate_f447c3fb1aac4e4a38feb96591de1c6b9985dc99686641aac8396f44963
                                         ";
             }
             // line 47
+            echo "                                        ";
+            if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 47, $this->source); })()), "session", array()), "get", array(0 => "userType"), "method") == "2")) {
+                // line 48
+                echo "                                        <a class=\"dropdown-item\" href=\"";
+                echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("index");
+                echo "\">Visos sutartys</a>
+                                        ";
+            }
+            // line 50
             echo "                                    </div>
                                 </li>
                                 <li class=\"nav-item\">
                                     <a href=\"";
-            // line 50
+            // line 53
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
             echo "\" class=\"nav-link\">Atsijungti</a>
                                 </li>
                                 ";
         }
-        // line 53
+        // line 56
         echo "                        </ul>   
                 </div>
         </nav>
@@ -192,18 +201,18 @@ class __TwigTemplate_f447c3fb1aac4e4a38feb96591de1c6b9985dc99686641aac8396f44963
 
     }
 
-    // line 61
+    // line 64
     public function block_body($context, array $blocks = array())
     {
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        // line 62
+        // line 65
         echo "
         ";
-        // line 63
-        $this->displayBlock('ads', $context, $blocks);
         // line 66
+        $this->displayBlock('ads', $context, $blocks);
+        // line 69
         echo "
         ";
         
@@ -211,13 +220,13 @@ class __TwigTemplate_f447c3fb1aac4e4a38feb96591de1c6b9985dc99686641aac8396f44963
 
     }
 
-    // line 63
+    // line 66
     public function block_ads($context, array $blocks = array())
     {
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "ads"));
 
-        // line 64
+        // line 67
         echo "
         ";
         
@@ -225,7 +234,7 @@ class __TwigTemplate_f447c3fb1aac4e4a38feb96591de1c6b9985dc99686641aac8396f44963
 
     }
 
-    // line 68
+    // line 71
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
@@ -243,7 +252,7 @@ class __TwigTemplate_f447c3fb1aac4e4a38feb96591de1c6b9985dc99686641aac8396f44963
 
     public function getDebugInfo()
     {
-        return array (  229 => 68,  221 => 64,  215 => 63,  207 => 66,  205 => 63,  202 => 62,  196 => 61,  185 => 53,  179 => 50,  174 => 47,  168 => 45,  166 => 44,  162 => 43,  158 => 42,  154 => 41,  150 => 40,  145 => 37,  142 => 36,  136 => 33,  130 => 30,  127 => 29,  125 => 28,  118 => 24,  108 => 17,  105 => 16,  99 => 15,  92 => 11,  86 => 10,  74 => 5,  65 => 69,  62 => 68,  60 => 61,  55 => 58,  53 => 15,  48 => 12,  46 => 10,  38 => 5,  32 => 1,);
+        return array (  238 => 71,  230 => 67,  224 => 66,  216 => 69,  214 => 66,  211 => 65,  205 => 64,  194 => 56,  188 => 53,  183 => 50,  177 => 48,  174 => 47,  168 => 45,  166 => 44,  162 => 43,  158 => 42,  154 => 41,  150 => 40,  145 => 37,  142 => 36,  136 => 33,  130 => 30,  127 => 29,  125 => 28,  118 => 24,  108 => 17,  105 => 16,  99 => 15,  92 => 11,  86 => 10,  74 => 5,  65 => 72,  62 => 71,  60 => 64,  55 => 61,  53 => 15,  48 => 12,  46 => 10,  38 => 5,  32 => 1,);
     }
 
     public function getSourceContext()
@@ -293,6 +302,9 @@ class __TwigTemplate_f447c3fb1aac4e4a38feb96591de1c6b9985dc99686641aac8396f44963
                                         <a class=\"dropdown-item\" href=\"{{ path(\"new_add\") }}\">Naujas skelbimas</a>
                                         {% if app.session.get('userType') == \"3\" %}
                                         <a class=\"dropdown-item\" href=\"{{ path(\"admin_panel\") }}\">Administratoriaus panele</a>
+                                        {% endif %}
+                                        {% if app.session.get('userType') == \"2\" %}
+                                        <a class=\"dropdown-item\" href=\"{{ path(\"index\") }}\">Visos sutartys</a>
                                         {% endif %}
                                     </div>
                                 </li>

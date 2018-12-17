@@ -58,18 +58,20 @@ class __TwigTemplate_b0b0845bb6523eb7fdea622c9b5257b0c0ac5e46cd0acfc76e89d65d8f0
 <div class=\"container\">
         <h1>Sutarties pasirašymas</h1>
         <h6>Visa kita informacija bus pridėta automatiškai</h6><br>
-    <form>
-      <div class=\"form-group col-lg-12\">
-        <textarea type=\"text\" name=\"message\" rows=\"5\" class=\"form-control textarea input-normal\" placeholder=\"Papildomos sutarties sąlygos\" required></textarea>
-      </div>
-      <div class=\"form-group col-lg-12\">
-      <input type=\"checkbox\" name=\"contract\"> Sutinku pasirašyti sutartį<br>
-      </div>
-      <div class=\"form-group col-lg-12\">
-      <button type=\"submit\" class=\"btn btn-primary btn-block\">Pasirašyti</button>
-      </div>
+      <form role=\"form\" action=\"";
+        // line 10
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("sign_contracts_proc");
+        echo "\" method=\"POST\">
+          <div class=\"form-group\">
+            <input name=\"form[papildomossalygos]\" type=\"text\" class=\"form-control\" id=\"papildomossalygos\" placeholder=\"Papildomos sąlygos\"\">
+          </div>
+      <button type=\"submit\" class=\"btn btn btn-primary\">Pasirašyti sutartį</button>
     </form>
-        </div>
+    <a href=\"";
+        // line 16
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
+        echo "\" class=\"btn btn-secondary\">Atšaukti</a>
+</div>
 
 ";
         
@@ -89,7 +91,7 @@ class __TwigTemplate_b0b0845bb6523eb7fdea622c9b5257b0c0ac5e46cd0acfc76e89d65d8f0
 
     public function getDebugInfo()
     {
-        return array (  57 => 6,  51 => 5,  39 => 3,  15 => 1,);
+        return array (  72 => 16,  63 => 10,  57 => 6,  51 => 5,  39 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -103,18 +105,14 @@ class __TwigTemplate_b0b0845bb6523eb7fdea622c9b5257b0c0ac5e46cd0acfc76e89d65d8f0
 <div class=\"container\">
         <h1>Sutarties pasirašymas</h1>
         <h6>Visa kita informacija bus pridėta automatiškai</h6><br>
-    <form>
-      <div class=\"form-group col-lg-12\">
-        <textarea type=\"text\" name=\"message\" rows=\"5\" class=\"form-control textarea input-normal\" placeholder=\"Papildomos sutarties sąlygos\" required></textarea>
-      </div>
-      <div class=\"form-group col-lg-12\">
-      <input type=\"checkbox\" name=\"contract\"> Sutinku pasirašyti sutartį<br>
-      </div>
-      <div class=\"form-group col-lg-12\">
-      <button type=\"submit\" class=\"btn btn-primary btn-block\">Pasirašyti</button>
-      </div>
+      <form role=\"form\" action=\"{{ path('sign_contracts_proc') }}\" method=\"POST\">
+          <div class=\"form-group\">
+            <input name=\"form[papildomossalygos]\" type=\"text\" class=\"form-control\" id=\"papildomossalygos\" placeholder=\"Papildomos sąlygos\"\">
+          </div>
+      <button type=\"submit\" class=\"btn btn btn-primary\">Pasirašyti sutartį</button>
     </form>
-        </div>
+    <a href=\"{{ path('home') }}\" class=\"btn btn-secondary\">Atšaukti</a>
+</div>
 
 {% endblock %}
 ", "contract/sign.html.twig", "C:\\xampp\\htdocs\\Nekilnojamo-turto-skelbimai\\templates\\contract\\sign.html.twig");

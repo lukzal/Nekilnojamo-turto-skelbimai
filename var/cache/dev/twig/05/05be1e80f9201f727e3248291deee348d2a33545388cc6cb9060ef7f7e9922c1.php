@@ -65,6 +65,10 @@ class __TwigTemplate_067d9c2798fc209b5131227704fb53c0adc5f9f0e1afbb1d5496ae4e03e
           <div class=\"form-group\">
             <input name=\"form[papildomossalygos]\" type=\"text\" class=\"form-control\" id=\"papildomossalygos\" placeholder=\"Papildomos sąlygos\"\">
             <button type=\"submit\" class=\"btn btn btn-primary\">Keisti</button>
+            <a href=\"";
+        // line 14
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("contracts");
+        echo "\" class=\"btn btn-secondary\">Atšaukti</a>
           </div>
         </div>
 
@@ -86,7 +90,7 @@ class __TwigTemplate_067d9c2798fc209b5131227704fb53c0adc5f9f0e1afbb1d5496ae4e03e
 
     public function getDebugInfo()
     {
-        return array (  63 => 10,  57 => 6,  51 => 5,  39 => 3,  15 => 1,);
+        return array (  70 => 14,  63 => 10,  57 => 6,  51 => 5,  39 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -104,6 +108,7 @@ class __TwigTemplate_067d9c2798fc209b5131227704fb53c0adc5f9f0e1afbb1d5496ae4e03e
           <div class=\"form-group\">
             <input name=\"form[papildomossalygos]\" type=\"text\" class=\"form-control\" id=\"papildomossalygos\" placeholder=\"Papildomos sąlygos\"\">
             <button type=\"submit\" class=\"btn btn btn-primary\">Keisti</button>
+            <a href=\"{{ path(\"contracts\") }}\" class=\"btn btn-secondary\">Atšaukti</a>
           </div>
         </div>
 
