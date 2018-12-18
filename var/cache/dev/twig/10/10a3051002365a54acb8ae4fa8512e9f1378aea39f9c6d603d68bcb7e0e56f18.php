@@ -89,13 +89,9 @@ class __TwigTemplate_02d01697b565b3e938a487b2bef2dd74275da65c459194b70bfe0317830
       </div>
     </div>
     
-    <div class=\"form-group\">
-      <label class=\"col-md-4 control-label\" for=\"source_image\">Nuotraukos</label>
-      <div class=\"col-md-4\">
-        <input id=\"source_image\" name=\"source_image\" class=\"input-file\" type=\"file\" multiple>
-      </div>
-    </div>
-    
+    ";
+        // line 47
+        echo "    
     <div class=\"form-group\">
       <label class=\"col-md-4 control-label\" for=\"source_description\">Aprašymas</label>
       <div class=\"col-md-4\">                     
@@ -138,7 +134,7 @@ class __TwigTemplate_02d01697b565b3e938a487b2bef2dd74275da65c459194b70bfe0317830
 
     public function getDebugInfo()
     {
-        return array (  57 => 6,  51 => 5,  39 => 3,  15 => 1,);
+        return array (  94 => 47,  57 => 6,  51 => 5,  39 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -183,12 +179,12 @@ class __TwigTemplate_02d01697b565b3e938a487b2bef2dd74275da65c459194b70bfe0317830
       </div>
     </div>
     
-    <div class=\"form-group\">
+    {# <div class=\"form-group\">
       <label class=\"col-md-4 control-label\" for=\"source_image\">Nuotraukos</label>
       <div class=\"col-md-4\">
         <input id=\"source_image\" name=\"source_image\" class=\"input-file\" type=\"file\" multiple>
       </div>
-    </div>
+    </div> #}
     
     <div class=\"form-group\">
       <label class=\"col-md-4 control-label\" for=\"source_description\">Aprašymas</label>

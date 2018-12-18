@@ -31,7 +31,7 @@
                     <td>{{ skelbimas.Pavadinimas }}</td>
                     <td>{{ skelbimas.SukurimoData|date("Y-m-d H:i:s")}}</td>
                       <td><form action="{{ path("delete_skelbimas") }}" method="POST"><input type="hidden" name="form[skelbimas_id]" value="{{ skelbimas.id }}">
-                        <button class="btn btn-primary btn-sm btn-block" type="submit">Trinti</button></form>
+                        <button class="btn btn-primary btn-sm btn-block" onclick="confirm('Patvirtinkite trynimą')" type="submit">Trinti</button></form>
                         <form action="{{ path("edit_add") }}" method="POST"><input type="hidden" name="form[skelbimas_id]" value="{{ skelbimas.id }}">
                         <button class="btn btn-primary btn-sm btn-block">Redaguoti</button></form>
                     </td></form>

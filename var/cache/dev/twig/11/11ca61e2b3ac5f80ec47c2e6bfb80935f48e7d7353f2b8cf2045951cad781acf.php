@@ -78,24 +78,9 @@ class __TwigTemplate_1326aa4ce4550f1c8be4e757d335ad4965e53e2f60a38af6add58b71468
       </div>
     </div>
     
-    <div class=\"form-group\">
-      <label class=\"col-md-4 control-label\" for=\"article_snippet\">Būsto informacija</label>  
-      <div class=\"col-md-4\">
-      <input id=\"article_snippet\" name=\"article_snippet\" type=\"text\" placeholder=\"Plotas\" class=\"form-control input-md\" required>
-      <input id=\"article_snippet\" name=\"article_snippet\" type=\"text\" placeholder=\"Kambarių skaičius\" class=\"form-control input-md\" required>
-      <input id=\"article_snippet\" name=\"article_snippet\" type=\"number\" placeholder=\"Metai\" class=\"form-control input-md\" required>
-      <input id=\"article_snippet\" name=\"article_snippet\" type=\"text\" placeholder=\"Pastato tipas\" class=\"form-control input-md\" required>
-      <input id=\"article_snippet\" name=\"article_snippet\" type=\"text\" placeholder=\"Šildymas\" class=\"form-control input-md\" required>
-      </div>
-    </div>
-    
-    <div class=\"form-group\">
-      <label class=\"col-md-4 control-label\" for=\"source_image\">Nuotraukos</label>
-      <div class=\"col-md-4\">
-        <input id=\"source_image\" name=\"source_image\" class=\"input-file\" type=\"file\" multiple>
-      </div>
-    </div>
-    
+    ";
+        // line 47
+        echo "    
     <div class=\"form-group\">
       <label class=\"col-md-4 control-label\" for=\"source_description\">Aprašymas</label>
       <div class=\"col-md-4\">                     
@@ -103,16 +88,9 @@ class __TwigTemplate_1326aa4ce4550f1c8be4e757d335ad4965e53e2f60a38af6add58b71468
       </div>
     </div>
     
-    <div class=\"form-group\">
-      <label class=\"col-md-4 control-label\" for=\"article_categories\">Kategorija</label>
-      <div class=\"col-md-4\">
-        <select id=\"article_categories\" name=\"article_categories\" class=\"form-control\">
-            <option value=\"\">Nuoma</option>
-            <option value=\"\">Pardavimas</option>
-        </select>
-      </div>
-    </div>
-    
+    ";
+        // line 64
+        echo "    
     <button class=\"btn btn-primary\" type=\"submit\" name=\"submit\">Pateikti</button>
     
     </fieldset>
@@ -138,7 +116,7 @@ class __TwigTemplate_1326aa4ce4550f1c8be4e757d335ad4965e53e2f60a38af6add58b71468
 
     public function getDebugInfo()
     {
-        return array (  57 => 6,  51 => 5,  39 => 3,  15 => 1,);
+        return array (  93 => 64,  83 => 47,  57 => 6,  51 => 5,  39 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -172,7 +150,7 @@ class __TwigTemplate_1326aa4ce4550f1c8be4e757d335ad4965e53e2f60a38af6add58b71468
       </div>
     </div>
     
-    <div class=\"form-group\">
+    {# <div class=\"form-group\">
       <label class=\"col-md-4 control-label\" for=\"article_snippet\">Būsto informacija</label>  
       <div class=\"col-md-4\">
       <input id=\"article_snippet\" name=\"article_snippet\" type=\"text\" placeholder=\"Plotas\" class=\"form-control input-md\" required>
@@ -188,7 +166,7 @@ class __TwigTemplate_1326aa4ce4550f1c8be4e757d335ad4965e53e2f60a38af6add58b71468
       <div class=\"col-md-4\">
         <input id=\"source_image\" name=\"source_image\" class=\"input-file\" type=\"file\" multiple>
       </div>
-    </div>
+    </div> #}
     
     <div class=\"form-group\">
       <label class=\"col-md-4 control-label\" for=\"source_description\">Aprašymas</label>
@@ -197,7 +175,7 @@ class __TwigTemplate_1326aa4ce4550f1c8be4e757d335ad4965e53e2f60a38af6add58b71468
       </div>
     </div>
     
-    <div class=\"form-group\">
+    {# <div class=\"form-group\">
       <label class=\"col-md-4 control-label\" for=\"article_categories\">Kategorija</label>
       <div class=\"col-md-4\">
         <select id=\"article_categories\" name=\"article_categories\" class=\"form-control\">
@@ -205,7 +183,7 @@ class __TwigTemplate_1326aa4ce4550f1c8be4e757d335ad4965e53e2f60a38af6add58b71468
             <option value=\"\">Pardavimas</option>
         </select>
       </div>
-    </div>
+    </div> #}
     
     <button class=\"btn btn-primary\" type=\"submit\" name=\"submit\">Pateikti</button>
     

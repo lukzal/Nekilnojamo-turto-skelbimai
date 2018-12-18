@@ -36,22 +36,124 @@ class AddController extends AbstractController
     }
 
     /**
-     * @Route("/new_add", name="new_add")
+     * @Route("/add/add", name="new_add")
      */
-    public function new()
-    {
+    // public function new()
+    // {
 
-        return $this->render('add/new.html.twig');
+    //     return $this->render('add/new.html.twig');
+    // }
+
+    public function new(Request $request)
+    {
+        $session = new Session();
+    $email = $session->get("userEmail");
+    $user = $this->getDoctrine()->getRepository(Naudotojai::class)->findOneBy(['el_pastas' => $email]);
+    $id=$user->getId();
+    $form = $this->createFormBuilder()
+        ->add('pavadinimas')
+        ->add('kaina')
+        ->add('aprasymas')
+        ->getForm();
+
+        $namas = $this->getDoctrine()->getRepository(NekilnojamasTurtas::class)->findOneBy(['id' => '25']);
+        $entityManager = $this->getDoctrine()->getManager();
+
+
+        $form->handleRequest($request);
+        $time = date('Y-m-d H:i:s');
+        if($id){
+         if($form->isSubmitted()){
+                $data = $form->getData();
+
+                $skelbimas = new Skelbimas();
+                $skelbimas->setPardavejas($user);
+                $skelbimas->setNekilnojamasTurtas($namas);
+                $skelbimas->setPavadinimas($data['pavadinimas']);
+                $skelbimas->setSkelbimas($data['aprasymas']);
+                $skelbimas->setSukurimoData(new \DateTime());
+                $skelbimas->setGaliojimoData("2018-12-18 00:00:00");
+                $skelbimas->setKaina($data['kaina']);
+
+                $entityManager->persist($skelbimas);
+                $entityManager->flush();
+         }             
+}
+return $this->redirectToRoute("home");
+
     }
 
-    /**
-     * @Route("/edit_add", name="edit_add")
-     */
-    public function edit()
-    {
+    // /**
+    //  * @Route("/edit_add", name="edit_add")
+    //  */
+    // public function edit()
+    // {
 
+    //     return $this->render('add/edit.html.twig');
+    // }
+
+
+     /**
+     * @Route("/userAds/edit", name="edit_add")
+     */
+    public function edit(Request $request)
+    {
+        $form = $this->createFormBuilder()
+        ->add('skelbimas_id')
+        ->getForm();
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted()){
+            $data = $form->getData();
+
+            $session = new Session();
+            $session->set('skelbimoid', $data["skelbimas_id"]);
+        }
         return $this->render('add/edit.html.twig');
     }
+ /**
+     * @Route("/userAds/edit_ads_proc", name="edit_ads_proc")
+     */
+    public function edit_proc(Request $request)
+    {
+        $session = new Session();
+        $skelbimo_id = $session->get("skelbimoid");
+        
+            $form = $this->createFormBuilder()
+            ->add('pavadinimas')
+            ->add('kaina')
+            ->add('aprasymas')
+            ->getForm();
+
+            $form->handleRequest($request);
+
+            if($skelbimo_id){
+             if($form->isSubmitted()){
+                    $data = $form->getData();
+
+                    $skelbimas = $this->getDoctrine()
+                    ->getRepository(Skelbimas::class)
+                    ->findOneBy(["id" => $sutarties_id]);
+
+            $em = $this->getDoctrine()->getManager();
+            if($skelbimas != null){
+            $skelbimas->setId($data['skelbimoid'])
+            ->setPavadinimas($data['pavadinimas'])
+            ->setKaina($data['kaina'])
+            ->setSkelbimas($data['aprasymas']);
+            $em->persist($skelbimas);
+            $em->flush();
+            return $this->redirectToRoute("contracts");
+            }
+            }
+        }
+    }
+
+
+
+
+
 
     /**
      * @Route("/userAds/delete", name="delete_skelbimas")

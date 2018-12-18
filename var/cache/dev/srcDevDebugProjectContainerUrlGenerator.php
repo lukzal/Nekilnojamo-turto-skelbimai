@@ -22,7 +22,8 @@ class srcDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
             self::$declaredRoutes = array(
         'add' => array(array('id'), array('_controller' => 'App\\Controller\\AddController::index'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/add')), array(), array()),
         'new_add' => array(array(), array('_controller' => 'App\\Controller\\AddController::new'), array(), array(array('text', '/new_add')), array(), array()),
-        'edit_add' => array(array(), array('_controller' => 'App\\Controller\\AddController::edit'), array(), array(array('text', '/edit_add')), array(), array()),
+        'edit_add' => array(array(), array('_controller' => 'App\\Controller\\AddController::edit'), array(), array(array('text', '/userAds/edit')), array(), array()),
+        'edit_ads_proc' => array(array(), array('_controller' => 'App\\Controller\\AddController::edit_proc'), array(), array(array('text', '/userAds/edit_ads_proc')), array(), array()),
         'delete_skelbimas' => array(array(), array('_controller' => 'App\\Controller\\AddController::delete'), array(), array(array('text', '/userAds/delete')), array(), array()),
         'user_ads' => array(array(), array('_controller' => 'App\\Controller\\AddController::userAdds'), array(), array(array('text', '/user_ads')), array(), array()),
         'admin_panel' => array(array(), array('_controller' => 'App\\Controller\\AdminPanelController::index'), array(), array(array('text', '/admin')), array(), array()),

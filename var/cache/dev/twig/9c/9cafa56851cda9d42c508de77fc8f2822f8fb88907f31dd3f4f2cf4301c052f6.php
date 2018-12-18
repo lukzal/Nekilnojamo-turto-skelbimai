@@ -101,7 +101,7 @@ class __TwigTemplate_86d628499e90671131a6990e4ca41d6d08bce802525dce78cca884f3bd3
             echo "\" method=\"POST\"><input type=\"hidden\" name=\"form[skelbimas_id]\" value=\"";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["skelbimas"], "id", array()), "html", null, true);
             echo "\">
-                        <button class=\"btn btn-primary btn-sm btn-block\" type=\"submit\">Trinti</button></form>
+                        <button class=\"btn btn-primary btn-sm btn-block\" onclick=\"confirm('Patvirtinkite trynimą')\" type=\"submit\">Trinti</button></form>
                         <form action=\"";
             // line 35
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("edit_add");
@@ -182,7 +182,7 @@ class __TwigTemplate_86d628499e90671131a6990e4ca41d6d08bce802525dce78cca884f3bd3
                     <td>{{ skelbimas.Pavadinimas }}</td>
                     <td>{{ skelbimas.SukurimoData|date(\"Y-m-d H:i:s\")}}</td>
                       <td><form action=\"{{ path(\"delete_skelbimas\") }}\" method=\"POST\"><input type=\"hidden\" name=\"form[skelbimas_id]\" value=\"{{ skelbimas.id }}\">
-                        <button class=\"btn btn-primary btn-sm btn-block\" type=\"submit\">Trinti</button></form>
+                        <button class=\"btn btn-primary btn-sm btn-block\" onclick=\"confirm('Patvirtinkite trynimą')\" type=\"submit\">Trinti</button></form>
                         <form action=\"{{ path(\"edit_add\") }}\" method=\"POST\"><input type=\"hidden\" name=\"form[skelbimas_id]\" value=\"{{ skelbimas.id }}\">
                         <button class=\"btn btn-primary btn-sm btn-block\">Redaguoti</button></form>
                     </td></form>
