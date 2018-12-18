@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Administratoriaus Panele{% endblock %}
+{% block title %}Naudotojo skelbimai{% endblock %}
 
 {% block body %}
 <style>
@@ -22,23 +22,21 @@
         <div class="table-responsive col-md-12">
         <table id="sort2" class="grid table table-bordered sortable">
             <thead>
-                <tr><th>Skel. ID</th><th>Pavadinimas</th><th>Data</th><th>Veiksmai</th></tr>
+                <tr><th>Skel. ID</th><th>Pavadinimas</th><th>Sukūrimo data</th><th>Veiksmai</th></tr>
             </thead>
             <tbody>
+                {% for skelbimas in skelbimai %}
                 <tr>
-                    <td>123</td>
-                    <td>pavadinimas</td>
-                    <td>2018-09-22</td>
-                    <td><button onclick="confirm('Patvirtinkite trynimą')" class="btn btn-primary btn-sm btn-block" name="del" type="submit">Šalinti</button>
-                        <a href="{{ path("edit_add") }}" class="btn btn-primary btn-sm btn-block">Redaguoti</a></td>
+                    <td>{{ skelbimas.id }}</td>
+                    <td>{{ skelbimas.Pavadinimas }}</td>
+                    <td>{{ skelbimas.SukurimoData|date("Y-m-d H:i:s")}}</td>
+                      <td><form action="{{ path("delete_skelbimas") }}" method="POST"><input type="hidden" name="form[skelbimas_id]" value="{{ skelbimas.id }}">
+                        <button class="btn btn-primary btn-sm btn-block" type="submit">Trinti</button></form>
+                        <form action="{{ path("edit_add") }}" method="POST"><input type="hidden" name="form[skelbimas_id]" value="{{ skelbimas.id }}">
+                        <button class="btn btn-primary btn-sm btn-block">Redaguoti</button></form>
+                    </td></form>
                 </tr>
-                <tr>
-                        <td>1234</td>
-                        <td>pavadinimas2</td>
-                        <td>2018-11-03</td>
-                        <td><button onclick="confirm('Patvirtinkite trynimą')" class="btn btn-primary btn-sm btn-block" name="del" type="submit">Šalinti</button>
-                            <a href="{{ path("edit_add") }}" class="btn btn-primary btn-sm btn-block">Redaguoti</a></td>
-                    </tr>
+                {% endfor %}
             </tbody>
         </table>
         </div>

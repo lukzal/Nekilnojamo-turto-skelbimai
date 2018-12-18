@@ -66,6 +66,7 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 $routes = array(
                     '/new_add' => array(array('_route' => 'new_add', '_controller' => 'App\\Controller\\AddController::new'), null, null, null, false),
                     '/edit_add' => array(array('_route' => 'edit_add', '_controller' => 'App\\Controller\\AddController::edit'), null, null, null, false),
+                    '/userAds/delete' => array(array('_route' => 'delete_skelbimas', '_controller' => 'App\\Controller\\AddController::delete'), null, null, null, false),
                     '/user_ads' => array(array('_route' => 'user_ads', '_controller' => 'App\\Controller\\AddController::userAdds'), null, null, null, false),
                     '/admin' => array(array('_route' => 'admin_panel', '_controller' => 'App\\Controller\\AdminPanelController::index'), null, null, null, false),
                     '/admin/users' => array(array('_route' => 'admin_panel_users', '_controller' => 'App\\Controller\\AdminPanelController::users'), null, null, null, false),

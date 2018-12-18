@@ -23,6 +23,7 @@ class srcDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
         'add' => array(array('id'), array('_controller' => 'App\\Controller\\AddController::index'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/add')), array(), array()),
         'new_add' => array(array(), array('_controller' => 'App\\Controller\\AddController::new'), array(), array(array('text', '/new_add')), array(), array()),
         'edit_add' => array(array(), array('_controller' => 'App\\Controller\\AddController::edit'), array(), array(array('text', '/edit_add')), array(), array()),
+        'delete_skelbimas' => array(array(), array('_controller' => 'App\\Controller\\AddController::delete'), array(), array(array('text', '/userAds/delete')), array(), array()),
         'user_ads' => array(array(), array('_controller' => 'App\\Controller\\AddController::userAdds'), array(), array(array('text', '/user_ads')), array(), array()),
         'admin_panel' => array(array(), array('_controller' => 'App\\Controller\\AdminPanelController::index'), array(), array(array('text', '/admin')), array(), array()),
         'admin_panel_users' => array(array(), array('_controller' => 'App\\Controller\\AdminPanelController::users'), array(), array(array('text', '/admin/users')), array(), array()),

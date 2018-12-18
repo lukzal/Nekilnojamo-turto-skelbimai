@@ -86,7 +86,7 @@ class __TwigTemplate_ebfe11af3eff8df34cd5cb1c9ed76eb7ef5ee166ac7bf9efc0e63fe267e
                         ";
         // line 24
         $this->displayBlock('images', $context, $blocks);
-        // line 29
+        // line 28
         echo "                    </div>
                     <script>
                         (function() { 
@@ -100,19 +100,19 @@ class __TwigTemplate_ebfe11af3eff8df34cd5cb1c9ed76eb7ef5ee166ac7bf9efc0e63fe267e
                 <div class=\"product-info\">
                     <h3>Skelbimo Pavadinimas</h3>
                     <span><a href=\"";
-        // line 41
+        // line 40
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("profile", array("id" => 14));
         echo "\">Vardas pavarde</a></span>
                     <div class=\"wp-block property list no-border\">
                         <div class=\"wp-block-content clearfix\">
                             <p class=\"description mb-15\">";
-        // line 44
-        echo twig_escape_filter($this->env, (isset($context["description"]) || array_key_exists("description", $context) ? $context["description"] : (function () { throw new Twig_Error_Runtime('Variable "description" does not exist.', 44, $this->source); })()), "html", null, true);
+        // line 43
+        echo twig_escape_filter($this->env, (isset($context["description"]) || array_key_exists("description", $context) ? $context["description"] : (function () { throw new Twig_Error_Runtime('Variable "description" does not exist.', 43, $this->source); })()), "html", null, true);
         echo "</p>
                             <span class=\"pull-left\">
                                 <span class=\"price\">";
-        // line 46
-        echo twig_escape_filter($this->env, (isset($context["kaina"]) || array_key_exists("kaina", $context) ? $context["kaina"] : (function () { throw new Twig_Error_Runtime('Variable "kaina" does not exist.', 46, $this->source); })()), "html", null, true);
+        // line 45
+        echo twig_escape_filter($this->env, (isset($context["kaina"]) || array_key_exists("kaina", $context) ? $context["kaina"] : (function () { throw new Twig_Error_Runtime('Variable "kaina" does not exist.', 45, $this->source); })()), "html", null, true);
         echo " €</span> 
                                 <span class=\"period\">per mėnesį</span>
                             </span>
@@ -148,8 +148,8 @@ class __TwigTemplate_ebfe11af3eff8df34cd5cb1c9ed76eb7ef5ee166ac7bf9efc0e63fe267e
                                 </div>
                                 <p>
                                         ";
-        // line 80
-        echo twig_escape_filter($this->env, (isset($context["description"]) || array_key_exists("description", $context) ? $context["description"] : (function () { throw new Twig_Error_Runtime('Variable "description" does not exist.', 80, $this->source); })()), "html", null, true);
+        // line 79
+        echo twig_escape_filter($this->env, (isset($context["description"]) || array_key_exists("description", $context) ? $context["description"] : (function () { throw new Twig_Error_Runtime('Variable "description" does not exist.', 79, $this->source); })()), "html", null, true);
         echo "
                                 </p>
 
@@ -213,11 +213,11 @@ class __TwigTemplate_ebfe11af3eff8df34cd5cb1c9ed76eb7ef5ee166ac7bf9efc0e63fe267e
                                             </li>
                                             <center>
                                             <a href=\"";
-        // line 142
+        // line 141
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("comment");
         echo "\" class=\"btn btn-primary btn-sm\">Naujas komentaras</a>
                                             <form action=\"";
-        // line 143
+        // line 142
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("sign_contracts");
         echo "\" method=\"POST\"><input type=\"hidden\" name=\"form[nekilnojamas_turtas_id]\">
                                             <button class=\"btn btn-primary btn-sm btn-block\" type=\"submit\">Pasirašyti sutarti</button></form>
@@ -252,7 +252,6 @@ class __TwigTemplate_ebfe11af3eff8df34cd5cb1c9ed76eb7ef5ee166ac7bf9efc0e63fe267e
         // line 25
         echo "                        <img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Hopetoun_falls.jpg/1280px-Hopetoun_falls.jpg\">
                         <img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Bachalpsee_reflection.jpg/1280px-Bachalpsee_reflection.jpg\">
-                        <img src=\"https://upload.wikimedia.org/wikipedia/commons/5/57/Galunggung.jpg\">
                         ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -271,7 +270,7 @@ class __TwigTemplate_ebfe11af3eff8df34cd5cb1c9ed76eb7ef5ee166ac7bf9efc0e63fe267e
 
     public function getDebugInfo()
     {
-        return array (  253 => 25,  247 => 24,  221 => 143,  217 => 142,  152 => 80,  115 => 46,  110 => 44,  104 => 41,  90 => 29,  88 => 24,  71 => 9,  65 => 8,  54 => 5,  41 => 3,  15 => 1,);
+        return array (  253 => 25,  247 => 24,  221 => 142,  217 => 141,  152 => 79,  115 => 45,  110 => 43,  104 => 40,  90 => 28,  88 => 24,  71 => 9,  65 => 8,  54 => 5,  41 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -302,7 +301,6 @@ class __TwigTemplate_ebfe11af3eff8df34cd5cb1c9ed76eb7ef5ee166ac7bf9efc0e63fe267e
                         {% block images %}
                         <img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Hopetoun_falls.jpg/1280px-Hopetoun_falls.jpg\">
                         <img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Bachalpsee_reflection.jpg/1280px-Bachalpsee_reflection.jpg\">
-                        <img src=\"https://upload.wikimedia.org/wikipedia/commons/5/57/Galunggung.jpg\">
                         {% endblock %}
                     </div>
                     <script>

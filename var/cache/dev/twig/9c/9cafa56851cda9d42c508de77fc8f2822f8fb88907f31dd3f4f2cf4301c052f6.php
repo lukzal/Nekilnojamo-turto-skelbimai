@@ -41,7 +41,7 @@ class __TwigTemplate_86d628499e90671131a6990e4ca41d6d08bce802525dce78cca884f3bd3
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Administratoriaus Panele";
+        echo "Naudotojo skelbimai";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -73,30 +73,51 @@ class __TwigTemplate_86d628499e90671131a6990e4ca41d6d08bce802525dce78cca884f3bd3
         <div class=\"table-responsive col-md-12\">
         <table id=\"sort2\" class=\"grid table table-bordered sortable\">
             <thead>
-                <tr><th>Skel. ID</th><th>Pavadinimas</th><th>Data</th><th>Veiksmai</th></tr>
+                <tr><th>Skel. ID</th><th>Pavadinimas</th><th>Sukūrimo data</th><th>Veiksmai</th></tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>123</td>
-                    <td>pavadinimas</td>
-                    <td>2018-09-22</td>
-                    <td><button onclick=\"confirm('Patvirtinkite trynimą')\" class=\"btn btn-primary btn-sm btn-block\" name=\"del\" type=\"submit\">Šalinti</button>
-                        <a href=\"";
-        // line 33
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("edit_add");
-        echo "\" class=\"btn btn-primary btn-sm btn-block\">Redaguoti</a></td>
+                ";
+        // line 28
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["skelbimai"]) || array_key_exists("skelbimai", $context) ? $context["skelbimai"] : (function () { throw new Twig_Error_Runtime('Variable "skelbimai" does not exist.', 28, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["skelbimas"]) {
+            // line 29
+            echo "                <tr>
+                    <td>";
+            // line 30
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["skelbimas"], "id", array()), "html", null, true);
+            echo "</td>
+                    <td>";
+            // line 31
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["skelbimas"], "Pavadinimas", array()), "html", null, true);
+            echo "</td>
+                    <td>";
+            // line 32
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["skelbimas"], "SukurimoData", array()), "Y-m-d H:i:s"), "html", null, true);
+            echo "</td>
+                      <td><form action=\"";
+            // line 33
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("delete_skelbimas");
+            echo "\" method=\"POST\"><input type=\"hidden\" name=\"form[skelbimas_id]\" value=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["skelbimas"], "id", array()), "html", null, true);
+            echo "\">
+                        <button class=\"btn btn-primary btn-sm btn-block\" type=\"submit\">Trinti</button></form>
+                        <form action=\"";
+            // line 35
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("edit_add");
+            echo "\" method=\"POST\"><input type=\"hidden\" name=\"form[skelbimas_id]\" value=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["skelbimas"], "id", array()), "html", null, true);
+            echo "\">
+                        <button class=\"btn btn-primary btn-sm btn-block\">Redaguoti</button></form>
+                    </td></form>
                 </tr>
-                <tr>
-                        <td>1234</td>
-                        <td>pavadinimas2</td>
-                        <td>2018-11-03</td>
-                        <td><button onclick=\"confirm('Patvirtinkite trynimą')\" class=\"btn btn-primary btn-sm btn-block\" name=\"del\" type=\"submit\">Šalinti</button>
-                            <a href=\"";
+                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['skelbimas'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
         // line 40
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("edit_add");
-        echo "\" class=\"btn btn-primary btn-sm btn-block\">Redaguoti</a></td>
-                    </tr>
-            </tbody>
+        echo "            </tbody>
         </table>
         </div>
     </div>
@@ -123,14 +144,14 @@ class __TwigTemplate_86d628499e90671131a6990e4ca41d6d08bce802525dce78cca884f3bd3
 
     public function getDebugInfo()
     {
-        return array (  96 => 40,  86 => 33,  57 => 6,  51 => 5,  39 => 3,  15 => 1,);
+        return array (  120 => 40,  107 => 35,  100 => 33,  96 => 32,  92 => 31,  88 => 30,  85 => 29,  81 => 28,  57 => 6,  51 => 5,  39 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Twig_Source("{% extends 'base.html.twig' %}
 
-{% block title %}Administratoriaus Panele{% endblock %}
+{% block title %}Naudotojo skelbimai{% endblock %}
 
 {% block body %}
 <style>
@@ -152,23 +173,21 @@ class __TwigTemplate_86d628499e90671131a6990e4ca41d6d08bce802525dce78cca884f3bd3
         <div class=\"table-responsive col-md-12\">
         <table id=\"sort2\" class=\"grid table table-bordered sortable\">
             <thead>
-                <tr><th>Skel. ID</th><th>Pavadinimas</th><th>Data</th><th>Veiksmai</th></tr>
+                <tr><th>Skel. ID</th><th>Pavadinimas</th><th>Sukūrimo data</th><th>Veiksmai</th></tr>
             </thead>
             <tbody>
+                {% for skelbimas in skelbimai %}
                 <tr>
-                    <td>123</td>
-                    <td>pavadinimas</td>
-                    <td>2018-09-22</td>
-                    <td><button onclick=\"confirm('Patvirtinkite trynimą')\" class=\"btn btn-primary btn-sm btn-block\" name=\"del\" type=\"submit\">Šalinti</button>
-                        <a href=\"{{ path(\"edit_add\") }}\" class=\"btn btn-primary btn-sm btn-block\">Redaguoti</a></td>
+                    <td>{{ skelbimas.id }}</td>
+                    <td>{{ skelbimas.Pavadinimas }}</td>
+                    <td>{{ skelbimas.SukurimoData|date(\"Y-m-d H:i:s\")}}</td>
+                      <td><form action=\"{{ path(\"delete_skelbimas\") }}\" method=\"POST\"><input type=\"hidden\" name=\"form[skelbimas_id]\" value=\"{{ skelbimas.id }}\">
+                        <button class=\"btn btn-primary btn-sm btn-block\" type=\"submit\">Trinti</button></form>
+                        <form action=\"{{ path(\"edit_add\") }}\" method=\"POST\"><input type=\"hidden\" name=\"form[skelbimas_id]\" value=\"{{ skelbimas.id }}\">
+                        <button class=\"btn btn-primary btn-sm btn-block\">Redaguoti</button></form>
+                    </td></form>
                 </tr>
-                <tr>
-                        <td>1234</td>
-                        <td>pavadinimas2</td>
-                        <td>2018-11-03</td>
-                        <td><button onclick=\"confirm('Patvirtinkite trynimą')\" class=\"btn btn-primary btn-sm btn-block\" name=\"del\" type=\"submit\">Šalinti</button>
-                            <a href=\"{{ path(\"edit_add\") }}\" class=\"btn btn-primary btn-sm btn-block\">Redaguoti</a></td>
-                    </tr>
+                {% endfor %}
             </tbody>
         </table>
         </div>
