@@ -151,7 +151,7 @@ class __TwigTemplate_f447c3fb1aac4e4a38feb96591de1c6b9985dc99686641aac8396f44963
             echo "\">Redaguoti Profilį</a>
                                         <a class=\"dropdown-item\" href=\"";
             // line 41
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_ads");
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("skelbimai");
             echo "\">Mano skelbimai</a>
                                         <a class=\"dropdown-item\" href=\"";
             // line 42
@@ -159,7 +159,7 @@ class __TwigTemplate_f447c3fb1aac4e4a38feb96591de1c6b9985dc99686641aac8396f44963
             echo "\">Mano sutartys</a>
                                         <a class=\"dropdown-item\" href=\"";
             // line 43
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("new_add");
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("newskelbimas");
             echo "\">Naujas skelbimas</a>
                                         ";
             // line 44
@@ -297,9 +297,9 @@ class __TwigTemplate_f447c3fb1aac4e4a38feb96591de1c6b9985dc99686641aac8396f44963
                                     <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Naudotojo Meniu</a>
                                     <div class=\"dropdown-menu\">
                                         <a class=\"dropdown-item\" href=\"{{ path(\"edit_profile\") }}\">Redaguoti Profilį</a>
-                                        <a class=\"dropdown-item\" href=\"{{ path(\"user_ads\") }}\">Mano skelbimai</a>
+                                        <a class=\"dropdown-item\" href=\"{{ path(\"skelbimai\") }}\">Mano skelbimai</a>
                                         <a class=\"dropdown-item\" href=\"{{ path(\"contracts\") }}\">Mano sutartys</a>
-                                        <a class=\"dropdown-item\" href=\"{{ path(\"new_add\") }}\">Naujas skelbimas</a>
+                                        <a class=\"dropdown-item\" href=\"{{ path(\"newskelbimas\") }}\">Naujas skelbimas</a>
                                         {% if app.session.get('userType') == \"3\" %}
                                         <a class=\"dropdown-item\" href=\"{{ path(\"admin_panel\") }}\">Administratoriaus panele</a>
                                         {% endif %}

@@ -121,7 +121,7 @@ class __TwigTemplate_a04ef548cfea26aa77c77fd8fd3cfc53dccf1d49aa53db8ac2ebce5a041
                 <div class=\"title-realestates-columns\">
                     <h4><a href=\"";
         // line 82
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("add", array("id" => 1));
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("skelbimai_home", array("id" => 1));
         echo "\"><strong>Skelbimo Pavadinimas</strong></a></h4>
                     <small class=\"badge badge-success\"><i class=\"fa fa-euro\" data-original-title=\"\" title=\"\"></i> 2,989</small>
                     <small class=\"badge badge-danger\"><i class=\"fa fa-square\" data-original-title=\"\" title=\"\"></i> 100 m<sup>2</sup></small>
@@ -134,7 +134,7 @@ class __TwigTemplate_a04ef548cfea26aa77c77fd8fd3cfc53dccf1d49aa53db8ac2ebce5a041
                         <a href=\"#\" class=\"btn btn-primary btn-block\" data-original-title=\"\" title=\"\">Susisiekti</a>
                         <a href=\"";
         // line 92
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("add", array("id" => 1));
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("skelbimai_home", array("id" => 1));
         echo "\" class=\"btn btn-secondary btn-block\" data-original-title=\"\" title=\"\">Skaityti daugiau</a>
                     </div>
                 </div>
@@ -248,7 +248,7 @@ class __TwigTemplate_a04ef548cfea26aa77c77fd8fd3cfc53dccf1d49aa53db8ac2ebce5a041
             <div class=\"panel-body\">
                 <center><a href=\"#\"><img src=\"https://lorempixel.com/300/300/city/2/\" class=\"img-responsive\"></a></center>
                 <div class=\"title-realestates-columns\">
-                    <h4><a href=\"{{ path(\"add\", {'id': 1} )}}\"><strong>Skelbimo Pavadinimas</strong></a></h4>
+                    <h4><a href=\"{{ path(\"skelbimai_home\", {'id': 1} )}}\"><strong>Skelbimo Pavadinimas</strong></a></h4>
                     <small class=\"badge badge-success\"><i class=\"fa fa-euro\" data-original-title=\"\" title=\"\"></i> 2,989</small>
                     <small class=\"badge badge-danger\"><i class=\"fa fa-square\" data-original-title=\"\" title=\"\"></i> 100 m<sup>2</sup></small>
                     <small class=\"badge badge-warning\"><i class=\"fa fa-home\" data-original-title=\"\" title=\"\"></i> 4 kambariai</small>
@@ -258,7 +258,7 @@ class __TwigTemplate_a04ef548cfea26aa77c77fd8fd3cfc53dccf1d49aa53db8ac2ebce5a041
                 <div class=\"footer-realestates-columns\">
                     <div class=\"row\">
                         <a href=\"#\" class=\"btn btn-primary btn-block\" data-original-title=\"\" title=\"\">Susisiekti</a>
-                        <a href=\"{{ path(\"add\", {'id': 1} )}}\" class=\"btn btn-secondary btn-block\" data-original-title=\"\" title=\"\">Skaityti daugiau</a>
+                        <a href=\"{{ path(\"skelbimai_home\", {'id': 1} )}}\" class=\"btn btn-secondary btn-block\" data-original-title=\"\" title=\"\">Skaityti daugiau</a>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vartotojo skelbimai{% endblock %}
+
+{% block body %}
+<style>
+    .form-control-borderless {
+        border: none;
+    }
+    
+    .form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+        border: none;
+        outline: none;
+        box-shadow: none;
+    }
+
+</style>
+<link href="https://www.jqueryscript.net/demo/jQuery-Plugin-For-Sortable-Bootstrap-Tables-Bootstrap-Sortable/Contents/bootstrap-sortable.css" rel="stylesheet" type="text/css">
+<form>
+<div class="container">
+	<div class="row">
+        <div class="table-responsive col-md-12">
+        <table id="sort2" class="grid table table-bordered sortable">
+            <thead>
+                <tr><th>Skelbimo ID</th><th>Pavadinimas</th><th>Skelbimo data</th><th>Kaina</th><th>Veiksmai</th></tr>
+            </thead>
+            <tbody>
+            {% for skelbimas in skelbimai %}
+                <tr>
+                    <td>{{ skelbimas.id }}</td>
+                    <td>{{ skelbimas.pavadinimas }}</td>
+                    <td>{{ skelbimas.sukurimodata|date("Y-m-d H:i:s")}}</td>
+                    <td>{{ skelbimas.Kaina }}<text> €</text></td>
+                      <td><form action="{{ path("removeskelbimas") }}" method="POST"><input type="hidden" name="form[skelbimas_id]" value="{{ skelbimas.id }}">
+                        <button class="btn btn-primary btn-sm btn-block" onclick="confirm('Patvirtinkite trynimą')" type="submit">Šalinti</button></form>
+                        <form action="{{ path("editskelbimas") }}" method="POST"><input type="hidden" name="form[skelbimas_id]" value="{{ skelbimas.id }}">
+                        <button class="btn btn-primary btn-sm btn-block">Redaguoti</button></form>
+                    </form></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script> 
+<script src="https://www.jqueryscript.net/demo/jQuery-Plugin-For-Sortable-Bootstrap-Tables-Bootstrap-Sortable/Scripts/bootstrap-sortable.js"></script> 
+</form>
+{% endblock %}

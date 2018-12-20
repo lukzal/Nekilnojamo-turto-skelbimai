@@ -253,13 +253,6 @@
   </parameters>
   <services>
     <service id="service_container" class="Symfony\Component\DependencyInjection\ContainerInterface" public="true" synthetic="true"/>
-    <service id="App\Controller\AddController" class="App\Controller\AddController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.ychIlgF.App\Controller\AddController"/>
-      </call>
-    </service>
     <service id="App\Controller\AdminPanelController" class="App\Controller\AdminPanelController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -328,6 +321,20 @@
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.ychIlgF.App\Controller\RememberPassController"/>
+      </call>
+    </service>
+    <service id="App\Controller\SkelbimaiController" class="App\Controller\SkelbimaiController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.ychIlgF.App\Controller\SkelbimaiController"/>
+      </call>
+    </service>
+    <service id="App\Controller\SkelbimaiHomeController" class="App\Controller\SkelbimaiHomeController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.ychIlgF.App\Controller\SkelbimaiHomeController"/>
       </call>
     </service>
     <service id="App\Repository\BlokavimaiRepository" class="App\Repository\BlokavimaiRepository" public="false" autowire="true" autoconfigure="true">
@@ -3481,9 +3488,6 @@
         <argument>security:encode-password</argument>
       </call>
     </service>
-    <service id=".instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\AddController" class="App\Controller\AddController" public="false" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AddController" class="App\Controller\AddController" public="false" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\AddController" class="App\Controller\AddController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\AdminPanelController" class="App\Controller\AdminPanelController" public="false" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AdminPanelController" class="App\Controller\AdminPanelController" public="false" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\AdminPanelController" class="App\Controller\AdminPanelController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
@@ -3514,6 +3518,12 @@
     <service id=".instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\RememberPassController" class="App\Controller\RememberPassController" public="false" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\RememberPassController" class="App\Controller\RememberPassController" public="false" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\RememberPassController" class="App\Controller\RememberPassController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\SkelbimaiController" class="App\Controller\SkelbimaiController" public="false" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SkelbimaiController" class="App\Controller\SkelbimaiController" public="false" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\SkelbimaiController" class="App\Controller\SkelbimaiController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\SkelbimaiHomeController" class="App\Controller\SkelbimaiHomeController" public="false" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SkelbimaiHomeController" class="App\Controller\SkelbimaiHomeController" public="false" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\SkelbimaiHomeController" class="App\Controller\SkelbimaiHomeController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\BlokavimaiRepository" class="App\Repository\BlokavimaiRepository" public="false" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\BlokavimaiRepository" class="App\Repository\BlokavimaiRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ButasRepository" class="App\Repository\ButasRepository" public="false" autowire="true" abstract="true"/>
@@ -3764,11 +3774,6 @@
         <argument key="twig" type="service" id="twig" on-invalid="ignore"/>
       </argument>
     </service>
-    <service id=".service_locator.ychIlgF.App\Controller\AddController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <argument>App\Controller\AddController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.ychIlgF" method="withContext"/>
-    </service>
     <service id=".service_locator.ychIlgF.App\Controller\AdminPanelController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <argument>App\Controller\AdminPanelController</argument>
       <argument type="service" id="service_container"/>
@@ -3816,6 +3821,16 @@
     </service>
     <service id=".service_locator.ychIlgF.App\Controller\RememberPassController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <argument>App\Controller\RememberPassController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.ychIlgF" method="withContext"/>
+    </service>
+    <service id=".service_locator.ychIlgF.App\Controller\SkelbimaiController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <argument>App\Controller\SkelbimaiController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.ychIlgF" method="withContext"/>
+    </service>
+    <service id=".service_locator.ychIlgF.App\Controller\SkelbimaiHomeController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <argument>App\Controller\SkelbimaiHomeController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.ychIlgF" method="withContext"/>
     </service>

@@ -64,10 +64,6 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         switch ($trimmedPathinfo = '/' !== $pathinfo && '/' === $pathinfo[-1] ? substr($pathinfo, 0, -1) : $pathinfo) {
             default:
                 $routes = array(
-                    '/userAds/edit' => array(array('_route' => 'edit_add', '_controller' => 'App\\Controller\\AddController::edit'), null, null, null, false),
-                    '/userAds/edit_ads_proc' => array(array('_route' => 'edit_ads_proc', '_controller' => 'App\\Controller\\AddController::edit_proc'), null, null, null, false),
-                    '/userAds/delete' => array(array('_route' => 'delete_skelbimas', '_controller' => 'App\\Controller\\AddController::delete'), null, null, null, false),
-                    '/user_ads' => array(array('_route' => 'user_ads', '_controller' => 'App\\Controller\\AddController::userAdds'), null, null, null, false),
                     '/admin' => array(array('_route' => 'admin_panel', '_controller' => 'App\\Controller\\AdminPanelController::index'), null, null, null, false),
                     '/admin/users' => array(array('_route' => 'admin_panel_users', '_controller' => 'App\\Controller\\AdminPanelController::users'), null, null, null, false),
                     '/admin/delete_user' => array(array('_route' => 'delete_user', '_controller' => 'App\\Controller\\AdminPanelController::delete'), null, null, null, false),
@@ -97,6 +93,13 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     '/register' => array(array('_route' => 'register', '_controller' => 'App\\Controller\\RegistrationController::register'), null, null, null, false),
                     '/remember_pass' => array(array('_route' => 'remember_pass', '_controller' => 'App\\Controller\\RememberPassController::index'), null, null, null, false),
                     '/remember_pass_proc' => array(array('_route' => 'remember_pass_proc', '_controller' => 'App\\Controller\\RememberPassController::proc'), null, null, null, false),
+                    '/skelbimai' => array(array('_route' => 'skelbimai', '_controller' => 'App\\Controller\\SkelbimaiController::index'), null, null, null, false),
+                    '/newskelbimas' => array(array('_route' => 'newskelbimas', '_controller' => 'App\\Controller\\SkelbimaiController::new'), null, null, null, false),
+                    '/newskelbimasproc' => array(array('_route' => 'newskelbimasproc', '_controller' => 'App\\Controller\\SkelbimaiController::newproc'), null, null, null, false),
+                    '/skelbimai/editskelbimas' => array(array('_route' => 'editskelbimas', '_controller' => 'App\\Controller\\SkelbimaiController::edit'), null, null, null, false),
+                    '/skelbimai/editskelbimasproc' => array(array('_route' => 'editskelbimasproc', '_controller' => 'App\\Controller\\SkelbimaiController::edit_proc'), null, null, null, false),
+                    '/skelbimai/removeskelbimas' => array(array('_route' => 'removeskelbimas', '_controller' => 'App\\Controller\\SkelbimaiController::remove'), null, null, null, false),
+                    '/skelbimai/home' => array(array('_route' => 'skelbimai_home', '_controller' => 'App\\Controller\\SkelbimaiHomeController::index'), null, null, null, false),
                 );
     
                 if (!isset($routes[$trimmedPathinfo])) {
@@ -126,12 +129,8 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         $matchedPathinfo = $pathinfo;
         $regexList = array(
             0 => '{^(?'
-                    .'|/add/(?'
-                        .'|([^/]++)(*:23)'
-                        .'|add(*:33)'
-                    .')'
-                    .'|/profile/([^/]++)(*:58)'
-                    .'|/_error/(\\d+)(?:\\.([^/]++))?(*:93)'
+                    .'|/profile/([^/]++)(*:24)'
+                    .'|/_error/(\\d+)(?:\\.([^/]++))?(*:59)'
                 .')(?:/?)$}sD',
         );
 
@@ -140,10 +139,8 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 switch ($m = (int) $matches['MARK']) {
                     default:
                         $routes = array(
-                            23 => array(array('_route' => 'add', '_controller' => 'App\\Controller\\AddController::index'), array('id'), null, null, false),
-                            33 => array(array('_route' => 'new_add', '_controller' => 'App\\Controller\\AddController::new'), array(), null, null, false),
-                            58 => array(array('_route' => 'profile', '_controller' => 'App\\Controller\\ProfileController::index'), array('id'), null, null, false),
-                            93 => array(array('_route' => '_twig_error_test', '_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'), array('code', '_format'), null, null, false),
+                            24 => array(array('_route' => 'profile', '_controller' => 'App\\Controller\\ProfileController::index'), array('id'), null, null, false),
+                            59 => array(array('_route' => '_twig_error_test', '_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'), array('code', '_format'), null, null, false),
                         );
             
                         list($ret, $vars, $requiredMethods, $requiredSchemes, $hasTrailingSlash) = $routes[$m];
@@ -173,7 +170,7 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                         return $ret;
                 }
 
-                if (93 === $m) {
+                if (59 === $m) {
                     break;
                 }
                 $regex = substr_replace($regex, 'F', $m - $offset, 1 + strlen($m));

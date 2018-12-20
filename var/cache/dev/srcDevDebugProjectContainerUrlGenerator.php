@@ -20,12 +20,6 @@ class srcDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
         $this->defaultLocale = $defaultLocale;
         if (null === self::$declaredRoutes) {
             self::$declaredRoutes = array(
-        'add' => array(array('id'), array('_controller' => 'App\\Controller\\AddController::index'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/add')), array(), array()),
-        'new_add' => array(array(), array('_controller' => 'App\\Controller\\AddController::new'), array(), array(array('text', '/new_add')), array(), array()),
-        'edit_add' => array(array(), array('_controller' => 'App\\Controller\\AddController::edit'), array(), array(array('text', '/userAds/edit')), array(), array()),
-        'edit_ads_proc' => array(array(), array('_controller' => 'App\\Controller\\AddController::edit_proc'), array(), array(array('text', '/userAds/edit_ads_proc')), array(), array()),
-        'delete_skelbimas' => array(array(), array('_controller' => 'App\\Controller\\AddController::delete'), array(), array(array('text', '/userAds/delete')), array(), array()),
-        'user_ads' => array(array(), array('_controller' => 'App\\Controller\\AddController::userAdds'), array(), array(array('text', '/user_ads')), array(), array()),
         'admin_panel' => array(array(), array('_controller' => 'App\\Controller\\AdminPanelController::index'), array(), array(array('text', '/admin')), array(), array()),
         'admin_panel_users' => array(array(), array('_controller' => 'App\\Controller\\AdminPanelController::users'), array(), array(array('text', '/admin/users')), array(), array()),
         'delete_user' => array(array(), array('_controller' => 'App\\Controller\\AdminPanelController::delete'), array(), array(array('text', '/admin/delete_user')), array(), array()),
@@ -56,6 +50,13 @@ class srcDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
         'register' => array(array(), array('_controller' => 'App\\Controller\\RegistrationController::register'), array(), array(array('text', '/register')), array(), array()),
         'remember_pass' => array(array(), array('_controller' => 'App\\Controller\\RememberPassController::index'), array(), array(array('text', '/remember_pass')), array(), array()),
         'remember_pass_proc' => array(array(), array('_controller' => 'App\\Controller\\RememberPassController::proc'), array(), array(array('text', '/remember_pass_proc')), array(), array()),
+        'skelbimai' => array(array(), array('_controller' => 'App\\Controller\\SkelbimaiController::index'), array(), array(array('text', '/skelbimai')), array(), array()),
+        'newskelbimas' => array(array(), array('_controller' => 'App\\Controller\\SkelbimaiController::new'), array(), array(array('text', '/newskelbimas')), array(), array()),
+        'newskelbimasproc' => array(array(), array('_controller' => 'App\\Controller\\SkelbimaiController::newproc'), array(), array(array('text', '/newskelbimasproc')), array(), array()),
+        'editskelbimas' => array(array(), array('_controller' => 'App\\Controller\\SkelbimaiController::edit'), array(), array(array('text', '/skelbimai/editskelbimas')), array(), array()),
+        'editskelbimasproc' => array(array(), array('_controller' => 'App\\Controller\\SkelbimaiController::edit_proc'), array(), array(array('text', '/skelbimai/editskelbimasproc')), array(), array()),
+        'removeskelbimas' => array(array(), array('_controller' => 'App\\Controller\\SkelbimaiController::remove'), array(), array(array('text', '/skelbimai/removeskelbimas')), array(), array()),
+        'skelbimai_home' => array(array(), array('_controller' => 'App\\Controller\\SkelbimaiHomeController::index'), array(), array(array('text', '/skelbimai/home')), array(), array()),
         '_twig_error_test' => array(array('code', '_format'), array('_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'), array('code' => '\\d+'), array(array('variable', '.', '[^/]++', '_format'), array('variable', '/', '\\d+', 'code'), array('text', '/_error')), array(), array()),
     );
         }

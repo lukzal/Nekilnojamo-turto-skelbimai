@@ -64,10 +64,10 @@ class NekilnojamasTurtas extends \App\Entity\NekilnojamasTurtas implements \Doct
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'id', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'namo_numeris', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'naudotojas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'buto_numeris', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'sklypo_plotas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'plotas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'kambariu_skaicius', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'pastato_tipas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'metai', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'sildymas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'apsauga', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'gatves_numeris', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'miestas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'aukstai'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'id', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'namo_numeris', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'naudotojas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'buto_numeris', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'sklypo_plotas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'plotas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'kambariu_skaicius', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'pastato_tipas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'metai', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'sildymas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'apsauga', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'gatves_pavadinimas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'miestas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'aukstai'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'id', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'namo_numeris', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'naudotojas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'buto_numeris', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'sklypo_plotas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'plotas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'kambariu_skaicius', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'pastato_tipas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'metai', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'sildymas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'apsauga', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'gatves_numeris', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'miestas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'aukstai'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'id', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'namo_numeris', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'naudotojas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'buto_numeris', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'sklypo_plotas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'plotas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'kambariu_skaicius', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'pastato_tipas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'metai', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'sildymas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'apsauga', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'gatves_pavadinimas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'miestas', '' . "\0" . 'App\\Entity\\NekilnojamasTurtas' . "\0" . 'aukstai'];
     }
 
     /**
@@ -422,12 +422,12 @@ class NekilnojamasTurtas extends \App\Entity\NekilnojamasTurtas implements \Doct
     /**
      * {@inheritDoc}
      */
-    public function setGatvesNumeris(string $gatves_numeris): \App\Entity\NekilnojamasTurtas
+    public function setGatvesNumeris(string $gatves_pavadinimas): \App\Entity\NekilnojamasTurtas
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setGatvesNumeris', [$gatves_numeris]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setGatvesNumeris', [$gatves_pavadinimas]);
 
-        return parent::setGatvesNumeris($gatves_numeris);
+        return parent::setGatvesNumeris($gatves_pavadinimas);
     }
 
     /**

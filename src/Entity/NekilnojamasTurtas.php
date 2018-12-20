@@ -70,7 +70,7 @@ class NekilnojamasTurtas
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $gatves_numeris;
+    private $gatves_pavadinimas;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -209,12 +209,12 @@ class NekilnojamasTurtas
 
     public function getGatvesNumeris(): ?string
     {
-        return $this->gatves_numeris;
+        return $this->gatves_pavadinimas;
     }
 
-    public function setGatvesNumeris(string $gatves_numeris): self
+    public function setGatvesNumeris(string $gatves_pavadinimas): self
     {
-        $this->gatves_numeris = $gatves_numeris;
+        $this->gatves_pavadinimas = $gatves_pavadinimas;
 
         return $this;
     }
